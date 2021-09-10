@@ -1,0 +1,49 @@
+$btn: #ff6b35;
+$txtColor: #fff;
+$hover: rgba(54, 38, 167, 1);
+$shadow: rgba(54, 38, 167, 0.4);
+
+.navbar {
+  width: 1500px;
+  height: 50px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 600px;
+    li {
+      padding: 10px 2rem;
+      border-radius: 10px 20px 10px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+      &:hover {
+        transform: translate(-2px, -5px);
+        filter: grayscale(10%);
+        box-shadow: 6px 7px 6px $shadow;
+      }
+    }
+    #btn-login {
+      background-color: $btn;
+      a {
+        color: $txtColor;
+      }
+      &:hover {
+        filter: grayscale(0);
+      }
+    }
+  }
+}
