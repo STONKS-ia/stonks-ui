@@ -1,6 +1,8 @@
 import React from "react";
 import "./api.scss";
 
+function populaDiv(params: String) {}
+
 const APIs = () => {
   return (
     <div>
@@ -9,16 +11,24 @@ const APIs = () => {
         <br />
         <ul id="lista">
           <li id="despesas" className="item">
-            DESPESAS
+            <a id="linkDespesas" onClick={() => populaDiv.bind(this, id)}>
+              DESPESAS
+            </a>
           </li>
           <li id="estrutura" className="item">
-            ESTRUTURA
+            <a id="linkEstruturas" onClick={}>
+              ESTRUTURA
+            </a>
           </li>
           <li id="receitas" className="item">
-            RECEITAS
+            <a id="linkReceitas" onClick={}>
+              RECEITAS
+            </a>
           </li>
           <li id="municipios" className="item">
-            MUNICIPIOS
+            <a id="linkMunicipios" onClick={}>
+              MUNICIPIOS
+            </a>
           </li>
         </ul>
       </div>
@@ -26,4 +36,5 @@ const APIs = () => {
     </div>
   );
 };
+
 export default APIs;
