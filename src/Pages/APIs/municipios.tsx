@@ -9,7 +9,7 @@ const APIs = () => {
         <h1>API’S</h1>
         <ul id="lista">
           <li id="despesas" className="item">
-            <Link id="linkDespesas" to="#">
+            <Link id="linkDespesas" to="/apis">
               DESPESAS
             </Link>
           </li>
@@ -26,24 +26,15 @@ const APIs = () => {
         </ul>
       </div>
       <div id="content">
-        <h2>Despesas</h2>
+        <h2>Municípios</h2>
         <p id="description">
-          Exibe informações sobre despesas detalhadas dos Municípios
-          jurisdiconados ao TCESP com as informações descritas abaixo.
+          Exibe a lista de Municípios jurisdicionados ao TCESP
         </p>
         <div id="table">
           <table>
             <tbody>
               <tr>
-                <td>Caminho: </td>
-                <td>
-                  {
-                    "https://transparencia.tce.sp.gov.br/api/{formato}/despesas/{municipio}/{exercício}/{mês}"
-                  }
-                </td>
-              </tr>
-              <tr>
-                <td>Exemplo:</td>
+                <td>Caminho XML: </td>
                 <td>
                   <a
                     id="link-exemplo"
@@ -54,28 +45,23 @@ const APIs = () => {
                 </td>
               </tr>
               <tr>
+                <td>Caminho JSON: </td>
+                <td>
+                  <a
+                    id="link-exemplo"
+                    href="https://transparencia.tce.sp.gov.br/api/json/municipios"
+                  >
+                    https://transparencia.tce.sp.gov.br/api/json/municipios
+                  </a>
+                </td>
+              </tr>
+              <tr>
                 <td>Método:</td>
                 <td>GET</td>
               </tr>
               <tr>
                 <td>Formato:</td>
                 <td>json e xml</td>
-              </tr>
-              <tr>
-                <td>Município:</td>
-                <td>
-                  {
-                    "https://transparencia.tce.sp.gov.br/api/{formato}/municipios"
-                  }
-                </td>
-              </tr>
-              <tr>
-                <td>Exercício:</td>
-                <td>2014-2019</td>
-              </tr>
-              <tr>
-                <td>Mês:</td>
-                <td>1-12</td>
               </tr>
             </tbody>
           </table>

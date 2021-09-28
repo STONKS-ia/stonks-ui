@@ -7,6 +7,8 @@ import About from "./Pages/About";
 import APIs from "./Pages/APIs";
 import DataSet from "./Pages/DataSet";
 import Login from "./Pages/Login";
+import Receitas from "./Pages/APIs/receitas";
+import Municipios from "./Pages/APIs/municipios";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route exact path="/apis" component={APIs} />
         <Route exact path="/about" component={DataSet} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/receitas" component={Receitas} />
+        <Route exact path="/municipios" component={Municipios} />
       </Switch>
     </BrowserRouter>
   );

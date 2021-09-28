@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div id="flex">
       <div id="intro">
-        <h1>STONKS</h1>
+        <h1 id="cabecalho">STONKS</h1>
         <p>
           Sistema Tributário Original de Navegação Keep Simple é um projeto
           criado pelo grupo Elit da{" "}

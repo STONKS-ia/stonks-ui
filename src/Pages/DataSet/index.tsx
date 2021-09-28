@@ -7,7 +7,7 @@ const DataSet = () => {
   return (
     <div id="about">
       <img id="imagem" src={aboutImg} alt="yes" />
-      <div id="description">
+      <div id="information">
         <img id="background-wave" src={waveBG} alt="" />
         <h2>Contato</h2>
         <ul>Telefone</ul>

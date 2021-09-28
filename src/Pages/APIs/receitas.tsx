@@ -9,7 +9,7 @@ const APIs = () => {
         <h1>API’S</h1>
         <ul id="lista">
           <li id="despesas" className="item">
-            <Link id="linkDespesas" to="#">
+            <Link id="linkDespesas" to="/apis">
               DESPESAS
             </Link>
           </li>
@@ -26,10 +26,10 @@ const APIs = () => {
         </ul>
       </div>
       <div id="content">
-        <h2>Despesas</h2>
+        <h2>Receitas</h2>
         <p id="description">
-          Exibe informações sobre despesas detalhadas dos Municípios
-          jurisdiconados ao TCESP com as informações descritas abaixo.
+          Exibe informações sobre as receitas dos Municípios jurisdiconados ao
+          TCESP com as informações descritas abaixo.
         </p>
         <div id="table">
           <table>
@@ -38,7 +38,7 @@ const APIs = () => {
                 <td>Caminho: </td>
                 <td>
                   {
-                    "https://transparencia.tce.sp.gov.br/api/{formato}/despesas/{municipio}/{exercício}/{mês}"
+                    "https://transparencia.tce.sp.gov.br/api/{formato}/receitas/{municipio}/{exercício}/{mês}"
                   }
                 </td>
               </tr>
@@ -47,9 +47,9 @@ const APIs = () => {
                 <td>
                   <a
                     id="link-exemplo"
-                    href="https://transparencia.tce.sp.gov.br/api/json/despesas/balsamo/2015/1"
+                    href="https://transparencia.tce.sp.gov.br/api/xml/receitas/balsamo/2015/1"
                   >
-                    https://transparencia.tce.sp.gov.br/api/json/despesas/balsamo/2015/1
+                    https://transparencia.tce.sp.gov.br/api/xml/receitas/balsamo/2015/1
                   </a>
                 </td>
               </tr>
