@@ -1,25 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Nav from "../../Components/Nav";
 import "./api.scss";
 
 const APIs = () => {
   return (
     <div>
+      <Nav />
       <div id="navbar">
         <h1>API’S</h1>
         <ul id="lista">
           <li id="despesas" className="item">
-            <Link id="linkDespesas" to="/apis">
+            <Link className="ancor" id="linkDespesas" to="/apis/despesas">
               DESPESAS
             </Link>
           </li>
           <li id="receitas" className="item">
-            <Link id="linkReceitas" to="/receitas">
+            <Link className="ancor" id="linkReceitas" to="/apis/receitas">
               RECEITAS
             </Link>
           </li>
           <li id="municipios" className="item">
-            <Link id="linkMunicipios" to="/municipios">
+            <Link className="ancor" id="linkMunicipios" to="/apis/municipios">
               MUNICIPIOS
             </Link>
           </li>

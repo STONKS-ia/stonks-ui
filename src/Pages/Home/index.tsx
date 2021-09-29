@@ -1,10 +1,12 @@
 import React from "react";
 import "./home.scss";
 import homeImg from "../../assets/img/homeImg.svg";
+import Nav from "../../Components/Nav";
 
 const Home = () => {
   return (
-    <div id="flex">
+    <div>
+      <Nav />
       <div id="intro">
         <h1 id="cabecalho">STONKS</h1>
         <p>
@@ -28,9 +30,8 @@ const Home = () => {
         </p>
         <button id="botao">Lista de Municípios</button>
       </div>
-      <div id="home-Img">
-        <img src={homeImg} alt="aloooo" />
-      </div>
+
+      <img id="home-Img" src={homeImg} alt="aloooo" />
     </div>
   );
 };

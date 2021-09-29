@@ -8,7 +8,7 @@
   margin-top: 50px;
   color: #fff;
   background: #3626a7;
-  box-shadow: 6px 7px 0px #ffffff;
+  box-shadow: 5px 6px 8px rgba(54, 38, 167, 0.6);
   border-radius: 10px 40px;
 }
 
@@ -33,18 +33,19 @@ h1 {
 }
 
 .item {
-  font-family: Roboto Slab;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 33px;
-  align-items: center;
-  letter-spacing: 0.025em;
   text-transform: uppercase;
   padding-left: 19px;
 }
 
-a {
+.ancor {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
   text-decoration: none;
   color: #fff;
 }
