@@ -10,18 +10,21 @@ function Nav() {
         <img src={logo} alt="logo" />
       </Link>
       <ul>
-        <li>
-          <Link to="/dataSet">Conjunto de dados</Link>
-        </li>
-        <li>
-          <Link to="/apis">Api</Link>
-        </li>
-        <li>
-          <Link to="/about">Fale Conosco</Link>
-        </li>
-        <li id="btn-login">
-          <Link to="/login">Login</Link>
-        </li>
+        <Link to="/list">
+          <li>Lista de Municípios</li>
+        </Link>
+
+        <Link to="/apis/despesas">
+          <li>Api</li>
+        </Link>
+
+        <Link to="/about">
+          <li>Fale Conosco</li>
+        </Link>
+
+        <Link to="/login">
+          <li id="btn-login">Login</li>
+        </Link>
       </ul>
     </nav>
   );

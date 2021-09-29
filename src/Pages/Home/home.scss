@@ -44,13 +44,11 @@
     filter: grayscale(10%);
     box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
   }
-}
 
-#home-img {
-  width: 64px;
-  height: 10px;
-}
-
-#flex {
-  display: flex;
+  #home-Img {
+    width: 20%;
+    height: 20%;
+    margin-top: 40px;
+    margin-left: 5%;
+  }
 }
