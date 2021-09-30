@@ -1,12 +1,11 @@
 import React from "react";
 import "./home.scss";
 import homeImg from "../../assets/img/homeImg.svg";
-import Nav from "../../Components/Nav";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <div>
-      <Nav />
       <div id="intro">
         <h1 id="cabecalho">STONKS</h1>
         <p>
@@ -28,7 +27,7 @@ const Home = () => {
           criando um portal de melhor acesso e facilidade tanto para quem
           trabalha quanto para quem utiliza.
         </p>
-        <button id="botao">Lista de Municípios</button>
+        <Link to="/list" id="botao">Lista de Municípios</Link>
       </div>
 
       <img id="home-Img" src={homeImg} alt="aloooo" />

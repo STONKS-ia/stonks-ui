@@ -10,12 +10,10 @@
 body {
   background: url("img/Bg.svg"), rgba(116, 159, 170, 0.15);
   width: 100vw;
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  justify-content: center;
   height: 100vh;
 }
 
-#root {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}

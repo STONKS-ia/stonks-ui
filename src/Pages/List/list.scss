@@ -1,0 +1,79 @@
+
+.city-container {
+ max-width: 1325px;
+ margin: 0 auto;
+ display: flex;
+ flex: 0 0 240px;
+ flex-wrap: wrap;
+}
+.city {
+ height: 210px;
+ margin: 10px 20px;
+ padding: 5px 25px;
+ transition: 0.3s;
+
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ flex-direction: column;
+ 
+ text-decoration: none;
+ background: #FFFFFF;
+ box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
+ border-radius: 0px 30px;
+
+ color: #0D0106;
+ font-size: 1rem;
+ font-weight: 800;
+ &:hover{
+  transform: scale(1.2);
+ }
+ img {
+  max-width: 170px;
+  min-width: 170px;
+  max-height: 150px;
+ }
+}
+.searchBar {
+ width: 1325px;
+ height: 60px;
+ margin: 3rem auto 1rem;
+ display: flex;
+ align-items: center;
+ justify-content: flex-end;
+}
+.search{
+ position: relative;
+ width: 300px;
+ height: 50px;
+ background-color: #fff;
+ transition: 0.5s;
+ box-shadow: 3px 1px 10px rgba(54, 38, 167, 0.1);
+ border-radius: 60px;
+ cursor: pointer;
+ .input {
+  height: 50px;
+  width: 300px;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  border-radius: 10px 20px;
+ }
+ .icon{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background:  url("../../assets/img/search.svg") no-repeat;
+  background-position: center center;
+  background-size: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+ }
+}

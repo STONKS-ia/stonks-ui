@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 import "./nav.scss";
 
@@ -10,7 +10,7 @@ function Nav() {
         <img src={logo} alt="logo" />
       </Link>
       <ul>
-        <Link to="/list">
+        <Link to="/city">
           <li>Lista de Municípios</li>
         </Link>
 
