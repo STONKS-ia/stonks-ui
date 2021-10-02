@@ -9,6 +9,7 @@
 .city {
  height: 210px;
  margin: 10px 20px;
+ width: 220px;
  padding: 5px 25px;
  transition: 0.3s;
 
@@ -29,8 +30,8 @@
   transform: scale(1.2);
  }
  img {
-  max-width: 170px;
-  min-width: 170px;
+  max-width: 130px;
+  min-width: 130px;
   max-height: 150px;
  }
 }
@@ -50,8 +51,7 @@
  transition: 0.5s;
  box-shadow: 3px 1px 10px rgba(54, 38, 167, 0.1);
  border-radius: 60px;
- cursor: pointer;
- .input {
+ input {
   height: 50px;
   width: 300px;
   margin: 0;
@@ -61,6 +61,22 @@
   box-sizing: border-box;
   backdrop-filter: blur(10px);
   border-radius: 10px 20px;
+  &:hover~.icon {
+    #pie {
+      animation: 10s ease-in pieAnimation infinite;
+    }
+    #line {
+      animation: 10s ease-in lineUp infinite;
+    }
+  } 
+  &:focus~.icon {
+    #pie {
+    animation: 10s ease-in pieAnimation infinite;
+    }
+    #line {
+      animation: 10s ease-in lineUp infinite;
+    }
+  }
  }
  .icon {
   position: absolute;
@@ -88,7 +104,7 @@
     stroke-dashoffset: -15.7;
     stroke-dasharray: 0,
     158;
-    animation: 10s ease-in pieAnimation infinite;
+    // animation: 10s ease-in pieAnimation infinite;
    }
    #circle {
     stroke: #0D0106;
@@ -104,7 +120,7 @@
     stroke-dashoffset: -40;
     stroke-dasharray: 30, 100;
     transition: all 0.5s;
-    animation: 10s ease-in lineUp infinite;
+    // animation: 10s ease-in lineUp infinite;
     z-index: 10;
    }
    #line2 {

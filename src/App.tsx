@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import APIs from "./Pages/APIs";
 import List from "./Pages/List";
+import Detail from "./Pages/DetailCity";
 import Login from "./Pages/Login";
 import Receitas from "./Pages/APIs/receitas";
 import Nav from "./Components/Nav";
@@ -17,6 +18,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/city" component={List} />
+        <Route exact path="/city/:cityId" component={Detail} />
         <Route exact path="/about" component={About} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/apis/despesas" component={APIs} />

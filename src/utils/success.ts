@@ -1,8 +1,9 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const success = async () => toast.success('Municipios foram carragados', {
- position: "bottom-center",
+const success = async (message: string) => toast.success(message, {
+ theme: "colored",
+ position: "bottom-right",
  autoClose: 5000,
  hideProgressBar: false,
  closeOnClick: true,
@@ -10,5 +11,4 @@ const success = async () => toast.success('Municipios foram carragados', {
  draggable: true,
  progress: undefined,
 });
-
 export default success;
