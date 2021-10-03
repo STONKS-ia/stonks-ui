@@ -1,4 +1,5 @@
 import React from "react";
+import Nav from "./Components/Nav";
 import "./assets/styles.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -12,6 +13,7 @@ import Municipios from "./Pages/APIs/municipios";
 function App() {
   return (
     <BrowserRouter>
+      <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/list" component={List} />

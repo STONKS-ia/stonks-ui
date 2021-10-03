@@ -1,12 +1,10 @@
 import React from "react";
 import "./home.scss";
 import homeImg from "../../assets/img/homeImg.svg";
-import Nav from "../../Components/Nav";
 
 const Home = () => {
   return (
     <div>
-      <Nav />
       <div id="intro">
         <h1 id="cabecalho">STONKS</h1>
         <p>

@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Nav from "../../Components/Nav";
 import "./api.scss";
 
 const APIs = () => {
   return (
     <div>
-      <Nav />
       <div id="navbar">
         <h1>API’S</h1>
         <ul id="lista">

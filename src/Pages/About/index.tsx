@@ -1,12 +1,10 @@
 import React from "react";
 import "./about.scss";
 import aboutImg from "../../assets/img/aboutImg.svg";
-import Nav from "../../Components/Nav";
 
 const About = () => {
   return (
     <div id="about">
-      <Nav />
       <img id="imagem" src={aboutImg} alt="yes" />
       <div id="information">
         <h2>Contato</h2>
