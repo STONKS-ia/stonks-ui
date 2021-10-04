@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "./Components/Nav";
 import "./assets/styles.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -7,19 +6,14 @@ import About from "./Pages/About";
 import APIs from "./Pages/APIs";
 import List from "./Pages/List";
 import Login from "./Pages/Login";
-import Receitas from "./Pages/APIs/receitas";
 import Nav from "./Components/Nav";
+import Receitas from "./Pages/APIs/receitas";
 import Municipios from "./Pages/APIs/municipios";
 
 function App() {
   return (
-<<<<<<< HEAD
     <BrowserRouter>
       <Nav />
-=======
-  <BrowserRouter>
-    <Nav  />
->>>>>>> 6a66b88f7c991c9ef7331284e42bcf271fab2962
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/city" component={List} />
