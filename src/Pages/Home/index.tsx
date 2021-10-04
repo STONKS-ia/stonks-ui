@@ -1,6 +1,10 @@
 import React from "react";
 import "./home.scss";
 import homeImg from "../../assets/img/homeImg.svg";
+<<<<<<< HEAD
+=======
+import { Link } from "react-router-dom";
+>>>>>>> 6a66b88f7c991c9ef7331284e42bcf271fab2962
 
 const Home = () => {
   return (
@@ -26,7 +30,7 @@ const Home = () => {
           criando um portal de melhor acesso e facilidade tanto para quem
           trabalha quanto para quem utiliza.
         </p>
-        <button id="botao">Lista de Municípios</button>
+        <Link to="/list" id="botao">Lista de Municípios</Link>
       </div>
 
       <img id="home-Img" src={homeImg} alt="aloooo" />

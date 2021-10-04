@@ -8,15 +8,21 @@ import APIs from "./Pages/APIs";
 import List from "./Pages/List";
 import Login from "./Pages/Login";
 import Receitas from "./Pages/APIs/receitas";
+import Nav from "./Components/Nav";
 import Municipios from "./Pages/APIs/municipios";
 
 function App() {
   return (
+<<<<<<< HEAD
     <BrowserRouter>
       <Nav />
+=======
+  <BrowserRouter>
+    <Nav  />
+>>>>>>> 6a66b88f7c991c9ef7331284e42bcf271fab2962
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/list" component={List} />
+        <Route exact path="/city" component={List} />
         <Route exact path="/about" component={About} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/apis/despesas" component={APIs} />
