@@ -1,15 +1,22 @@
+#about {
+  width: 1600px;
+  height: 90%;
+  margin-left: 15%;
+}
+
 #imagem {
-  width: 900px;
+  position: absolute;
+  width: 800px;
   height: 640px;
-  margin-top: 5%;
+
+  z-index: -1;
 }
 
 #information {
-  position: absolute;
-  width: 887px;
+  width: 800px;
   height: 460px;
-  left: 1090px;
-  top: 200px;
+  margin-top: 5%;
+  margin-left: 500px;
 
   border: 3.5px solid #3f3d56;
   box-sizing: border-box;

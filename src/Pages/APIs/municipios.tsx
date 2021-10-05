@@ -4,7 +4,7 @@ import "./api.scss";
 
 const APIs = () => {
   return (
-    <div>
+    <div className="container">
       <div id="navbar">
         <h1>API’S</h1>
         <ul id="lista">

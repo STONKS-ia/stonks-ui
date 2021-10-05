@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
+    <div id="home">
       <div id="intro">
         <h1 id="cabecalho">STONKS</h1>
         <p>
@@ -27,12 +27,12 @@ const Home = () => {
           criando um portal de melhor acesso e facilidade tanto para quem
           trabalha quanto para quem utiliza.
         </p>
-        <Link to="/list" id="botao">
-          Lista de Municípios
+        <Link to="/city" className="textBtn">
+          <li>Lista de Municípios</li>
         </Link>
+        <img id="monitorImg" src={homeImg} alt="aloooo" />
       </div>
-
-      <img id="home-Img" src={homeImg} alt="aloooo" />
+      <div className="monitor"></div>
     </div>
   );
 };
