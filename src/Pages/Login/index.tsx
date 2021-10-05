@@ -8,7 +8,7 @@ const Login = () => {
         <h3>LOGIN</h3>
         <input type="text" id="txtUser"></input>
         <input type="password" id="txtPass"></input>
-        <button type="submit" id="btnEntrar">
+        <button type="submit" className="btn btnEntrar">
           Entrar
         </button>
       </div>

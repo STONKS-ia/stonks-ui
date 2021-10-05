@@ -8,11 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import api from '../../services/api';
 
 type CityProps = {
-    cityId: number,
-    name: string,
-    imgUrl: string,
-    originalPortalUrl: string
-}
+  cityId: number;
+  name: string;
+  imgUrl: string;
+  originalPortalUrl: string;
+};
 const List = () => {
   const [cities, setCities] = useState<CityProps[]>([]);
   const [input, setInput] = useState("");
@@ -41,7 +41,7 @@ const List = () => {
   })
   useEffect(() =>{
     getCities();
-  }, [])
+  }, []);
   return (
     <main className="list-container">
     <ToastContainer />

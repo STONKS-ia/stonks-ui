@@ -7,14 +7,14 @@ import APIs from "./Pages/APIs";
 import List from "./Pages/List";
 import Detail from "./Pages/DetailCity";
 import Login from "./Pages/Login";
-import Receitas from "./Pages/APIs/receitas";
 import Nav from "./Components/Nav";
+import Receitas from "./Pages/APIs/receitas";
 import Municipios from "./Pages/APIs/municipios";
 
 function App() {
   return (
-  <BrowserRouter>
-    <Nav  />
+    <BrowserRouter>
+      <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/city" component={List} />
