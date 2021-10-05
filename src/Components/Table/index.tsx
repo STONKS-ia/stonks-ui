@@ -1,10 +1,11 @@
 import React from "react";
-import "./table.scss";
+import styleTable from "./table.module.scss";
 
 function Table(filter: any) {
   const { cityId, name, imgUrl, originalPortalUrl, month, year, type } = filter;
+  console.log(year)
   return (
-    <div className="table">
+    <div className={styleTable.table}>
     </div>
   );
 }
