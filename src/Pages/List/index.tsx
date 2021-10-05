@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
 import { Link } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
-import success from '../../utils/success'
-import error from '../../utils/error'
-import api from '../../services/api';
-
+import success from '../../utils/success';
+import error from '../../utils/error';
 import "./list.scss";
 import 'react-toastify/dist/ReactToastify.css';
+import api from '../../services/api';
 
 type CityProps = {
     cityId: number,
@@ -21,7 +19,7 @@ const List = () => {
 
   async function getCities() {
     try{
-      const res = await axios.get(`${api}/stonks/cities`);
+      const res = await api.get("/stonks/cities");
       const { data:{result}  } = res;
       success("Municipio carregado");
       return setCities(result);
@@ -45,25 +43,23 @@ const List = () => {
     getCities();
   }, [])
   return (
-    <>
+    <main className="list-container">
     <ToastContainer />
-      <div className="searchBar">
         <div className="search">
-          <input type="text" name="search" onChange={e => setInput(e.target.value)} value={input} placeholder="Search city by name"/>
-          <div className="icon">
-            <svg id="icon" viewBox="0 0 100 100">
-              <circle id="pie" cx="45" cy="45" r="20"></circle>
-              <circle id="circle" cx="45" cy="45" r="40"></circle>
-              <path id="line" d="M45,45 L100,100"></path>
-              <path id="line2" d="M45,45 L100,100"></path>
-            </svg>
-          </div>
+        <input type="text" name="search" onChange={e => setInput(e.target.value)} value={input} placeholder="Search city by name"/>
+        <div className="icon">
+          <svg id="icon" viewBox="0 0 100 100">
+            <circle id="pie" cx="45" cy="45" r="20"></circle>
+            <circle id="circle" cx="45" cy="45" r="40"></circle>
+            <path id="line" d="M45,45 L100,100"></path>
+            <path id="line2" d="M45,45 L100,100"></path>
+          </svg>
         </div>
       </div>
-      <div className="city-container">
+      <div className="result">
         { city }
       </div>
-    </>
+    </main>
   );
 };
 export default List;

@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const error = async (message: string) => toast.error(message, {
  theme: "colored",
  position: "bottom-right",
- autoClose: 5000,
+ autoClose: 2000,
  hideProgressBar: false,
  closeOnClick: true,
  pauseOnHover: true,
