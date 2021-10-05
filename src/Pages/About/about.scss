@@ -1,22 +1,23 @@
-#about {
-  width: 1600px;
+#about{
+  position: relative;
+  width: 80%;
   height: 90%;
-  margin-left: 15%;
+  margin: 0 auto;
 }
-
 #imagem {
   position: absolute;
-  width: 800px;
+  width: 1051px;
   height: 640px;
-
+  left: 222px;
+  top: 120px;
   z-index: -1;
 }
-
 #information {
-  width: 800px;
-  height: 460px;
-  margin-top: 5%;
-  margin-left: 500px;
+  position: absolute;
+  width: 887px;
+  height: 544px;
+  left: 866px;
+  top: 150px;
 
   border: 3.5px solid #3f3d56;
   box-sizing: border-box;
@@ -26,18 +27,20 @@
   background-position: 90% 40%;
   background-repeat: no-repeat;
   background-size: 855px 514px;
+
+  a {
+    color: #3626a7;
+  }
+
+  .item-list {
+    font-family: Roboto;
+    font-size: 18px;
+    list-style-type: none;
+    margin-top: 30px;
+    margin-left: 70px;
+    width: 2000px;
+    height: 20px;
+  }
 }
 
-a {
-  color: #3626a7;
-}
 
-.item-list {
-  font-family: Roboto;
-  font-size: 18px;
-  list-style-type: none;
-  margin-top: 30px;
-  margin-left: 70px;
-  width: 2000px;
-  height: 20px;
-}

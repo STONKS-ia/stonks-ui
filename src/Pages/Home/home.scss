@@ -1,72 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
-#home {
-  width: 100%;
+#home-container {
+  width: 70%;
   height: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #intro {
-  width: 400px;
+  width: 30%;
   font-size: 16px;
+  min-width: 300px;
   font-weight: 500;
   letter-spacing: 0.19em;
-  padding-top: 200px;
-  margin-left: 15%;
-  margin-right: 0;
-}
+  #cabecalho {
+    color: black;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 50px;
 
-#cabecalho {
-  color: black;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 50px;
+    padding: 0;
 
-  padding: 0;
+    font-weight: 300;
+    font-size: 50px;
+    letter-spacing: 0.245em;
+    height: 100px;
+  }
 
-  font-weight: 300;
-  font-size: 50px;
-  letter-spacing: 0.245em;
-  height: 100px;
-}
+  .textBtn {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 33px;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
 
-.textBtn {
-  font-family: Roboto Slab;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 33px;
-  align-items: center;
-  text-decoration: none;
-  list-style-type: none;
+    display: flex;
+    padding-left: 15px;
+    color: #fff;
+    margin-top: 32px;
 
-  display: flex;
-  padding-left: 15px;
-  color: #fff;
-  margin-top: 32px;
+    width: 240px;
+    height: 53px;
+    background-color: rgba(54, 38, 167, 1);
+    border-radius: 10px 30px;
+    transition: 0.3s;
+    cursor: pointer;
 
-  width: 240px;
-  height: 53px;
-  background-color: rgba(54, 38, 167, 1);
-  border-radius: 10px 30px;
-  transition: 0.3s;
-  cursor: pointer;
-  &:hover {
-    transform: translate(-2px, -5px);
-    filter: grayscale(10%);
-    box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
+    &:hover {
+      transform: translate(-2px, -5px);
+      filter: grayscale(10%);
+      box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
+    }
   }
 }
-
-#monitorImg {
-  position: absolute;
-  width: 1000px;
-  height: 650px;
-  left: 40%;
-  top: 15%;
-}
-
 .monitor {
-  float: right;
+  width: 60%;
+  height: 100%;
+  position: relative;
+  #monitorImg {
+    position: absolute;
+    top: 50px;
+  }
 }

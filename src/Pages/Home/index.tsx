@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div id="home">
+    <div id="home-container">
       <div id="intro">
         <h1 id="cabecalho">STONKS</h1>
-        <p>
+        <p >
           Sistema Tributário Original de Navegação Keep Simple é um projeto
           criado pelo grupo Elit da{" "}
           <abbr
@@ -30,9 +30,10 @@ const Home = () => {
         <Link to="/city" className="textBtn">
           <li>Lista de Municípios</li>
         </Link>
-        <img id="monitorImg" src={homeImg} alt="aloooo" />
       </div>
-      <div className="monitor"></div>
+      <div className="monitor">
+        <img id="monitorImg" src={homeImg} alt="Home Img" />
+      </div>
     </div>
   );
 };

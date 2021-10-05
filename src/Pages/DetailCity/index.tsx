@@ -28,9 +28,9 @@ const Detail = () => {
   const { id } = useParams<{id?: any}>();
   const [city, setCity] = useState<CityProps[]>([]);
   const [optionYear, setOptionYear] = useState<OptionProps[]>([]);
-  const [valueYear , setValueYear ] = useState<OptionProps[]>([]);
-  const [valueMonth , setValueMonth ] = useState<OptionProps[]>([]);
-  const [valueType , setValueType ] = useState<OptionProps[]>([]);
+  const [valueYear , setValueYear ] = useState();
+  const [valueMonth , setValueMonth ] = useState();
+  const [valueType , setValueType ] = useState();
 
 let optionTypes: OptionProps[] = [
   {value: "receitas", label:"Receitas"},
