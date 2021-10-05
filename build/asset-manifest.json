@@ -1,27 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.242c4922.chunk.css",
-    "main.js": "/static/js/main.1fcfe0f2.chunk.js",
-    "main.js.map": "/static/js/main.1fcfe0f2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.296c573b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.296c573b.js.map",
-    "static/js/2.6acb3587.chunk.js": "/static/js/2.6acb3587.chunk.js",
-    "static/js/2.6acb3587.chunk.js.map": "/static/js/2.6acb3587.chunk.js.map",
+    "main.css": "/static/css/main.7b461e8b.chunk.css",
+    "main.js": "/static/js/main.7d5b976b.chunk.js",
+    "main.js.map": "/static/js/main.7d5b976b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.58284873.js",
+    "runtime-main.js.map": "/static/js/runtime-main.58284873.js.map",
+    "static/css/2.f4c56af9.chunk.css": "/static/css/2.f4c56af9.chunk.css",
+    "static/js/2.fca5dce8.chunk.js": "/static/js/2.fca5dce8.chunk.js",
+    "static/js/2.fca5dce8.chunk.js.map": "/static/js/2.fca5dce8.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.242c4922.chunk.css.map": "/static/css/main.242c4922.chunk.css.map",
-    "static/js/2.6acb3587.chunk.js.LICENSE.txt": "/static/js/2.6acb3587.chunk.js.LICENSE.txt",
+    "static/css/2.f4c56af9.chunk.css.map": "/static/css/2.f4c56af9.chunk.css.map",
+    "static/css/main.7b461e8b.chunk.css.map": "/static/css/main.7b461e8b.chunk.css.map",
+    "static/js/2.fca5dce8.chunk.js.LICENSE.txt": "/static/js/2.fca5dce8.chunk.js.LICENSE.txt",
     "static/media/styles.scss": "/static/media/Bg.c248a42a.svg",
-    "static/media/aboutImg.8e740597.svg": "/static/media/aboutImg.8e740597.svg",
-    "static/media/api.scss": "/static/media/receita.4d1fdbc3.svg",
+    "static/media/aboutImg.e941d689.svg": "/static/media/aboutImg.e941d689.svg",
+    "static/media/api.scss": "/static/media/receita.af33ed4d.svg",
     "static/media/homeImg.0cc894e7.svg": "/static/media/homeImg.0cc894e7.svg",
     "static/media/logo.090f2b5b.svg": "/static/media/logo.090f2b5b.svg",
-    "static/media/login.scss": "/static/media/user.fe703090.svg",
-    "static/media/dataSet.scss": "/static/media/wave.fe36bde8.svg"
+    "static/media/login.scss": "/static/media/user.343f729c.svg",
+    "static/media/about.scss": "/static/media/wave.2f303835.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.296c573b.js",
-    "static/js/2.6acb3587.chunk.js",
-    "static/css/main.242c4922.chunk.css",
-    "static/js/main.1fcfe0f2.chunk.js"
+    "static/js/runtime-main.58284873.js",
+    "static/css/2.f4c56af9.chunk.css",
+    "static/js/2.fca5dce8.chunk.js",
+    "static/css/main.7b461e8b.chunk.css",
+    "static/js/main.7d5b976b.chunk.js"
   ]
 }
