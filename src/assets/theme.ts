@@ -1,4 +1,3 @@
-import Select from 'react-select'
 
 function customTheme(theme: any) {
  return {

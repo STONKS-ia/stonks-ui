@@ -3,17 +3,16 @@
  width: 70vw;
  margin: 0 auto;
  height: 95%;
- padding: 15px;
-
+ padding: 20px 15px;
  display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr;
  grid-template-rows: 60px 100px 1fr 1fr;
- grid-gap: 10px 0;
+ grid-gap: 0 0;
  grid-template-areas: 
  "title title . link"
  "select . . calendar"
- ". . . ."
- ". . . .";
+ "table table table table"
+ "table table table table";
   align-items: center;
 }
 .link {
@@ -132,7 +131,6 @@ p {
     right: -40px;
   }
 }
-
 @keyframes expandBefore {
   to {
     width: 39px;

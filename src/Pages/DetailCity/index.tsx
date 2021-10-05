@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import api from '../../services/api';
 import Select from 'react-select'
+import Table  from '../../Components/Table'
 
 import "./detail.scss";
 import customTheme from "../../assets/theme";
 
 const date = new Date()
-const thisYear = date.getFullYear();
+const thisYear = date.getFullYear() - 1;
 const thisMonth = date.getMonth() ;
+
 type CityProps = {
     cityId: number,
     name: string,
     imgUrl: string,
     originalPortalUrl: string
 }
+
 type OptionProps = {
   value: any,
   label: any
@@ -28,7 +31,8 @@ const Detail = () => {
   const [valueYear , setValueYear ] = useState<OptionProps[]>([]);
   const [valueMonth , setValueMonth ] = useState<OptionProps[]>([]);
   const [valueType , setValueType ] = useState<OptionProps[]>([]);
-  let optionTypes: OptionProps[] = [
+
+let optionTypes: OptionProps[] = [
   {value: "receitas", label:"Receitas"},
   {value: "despesas", label:"Despesas"},
 ]
@@ -84,10 +88,11 @@ let optionMonth: OptionProps[] = [
           Portal de transparência
       </a>
       <div className="calendar"> 
-        <Select theme={customTheme} classNamePrefix="react-select" options={optionMonth} onChange={(e: any) => setValueMonth(e.value)}  defaultValue={optionMonth[thisMonth]}  isSearchable={false} />
-        <Select theme={customTheme} classNamePrefix="react-select" options={optionYear} onChange={(e: any) => setValueYear(e.value)} defaultValue={optionYear[0]}  isSearchable={false} />
+          <Select theme={customTheme} classNamePrefix="react-select"  options={optionMonth}  onChange={(e: any) => setValueMonth(e.value)}  defaultValue={optionMonth[thisMonth]}  isSearchable={false} />
+          <Select theme={customTheme} classNamePrefix="react-select" options={optionYear} onChange={(e: any) => setValueYear(e.value)} defaultValue={optionYear[0]}  isSearchable={false} />
       </div>
       <Select classNamePrefix="react-select" theme={customTheme} options={optionTypes}  onChange={(e: any) => setValueType(e.value)} defaultValue={optionTypes[0]}  className="typeSelect" isSearchable={false} />
+      <Table cityId={cityId} name={name} imgUrl={imgUrl} originalPortalUrl={originalPortalUrl} year={valueYear} month={valueMonth} type={valueType}  />
       </section>
     )
   })
