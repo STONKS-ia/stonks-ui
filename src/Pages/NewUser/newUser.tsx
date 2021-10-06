@@ -1,12 +1,12 @@
 import React from "react";
-import "./login.scss";
+import login from "./newUser.module.scss";
 import user from "../../assets/img/user.svg";
 import pass from "../../assets/img/password.svg";
 
 const newUser = () => {
   return (
     <div>
-      <div id="divNewUser">
+      <div id={login.divNewUser}>
         <h3>Novo Usuário</h3>
         <input type="text" id="txtUser"></input><br />
         <input type="text" id="txtEmail"></input><br />

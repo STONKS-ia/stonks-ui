@@ -1,14 +1,14 @@
 import React from "react";
-import "./login.scss";
+import loginStyle from "./login.module.scss";
 
 const Login = () => {
   return (
     <div>
-      <div id="divLogin">
+      <div id={loginStyle.divLogin}>
         <h3>LOGIN</h3>
-        <input type="text" id="txtUser"></input>
-        <input type="password" id="txtPass"></input>
-        <button type="submit" className="btn btnEntrar">
+        <input type="text" id={loginStyle.txtUser}></input>
+        <input type="password" id={loginStyle.txtPass}></input>
+        <button type="submit" className={loginStyle.btnEntrar}>
           Entrar
         </button>
       </div>

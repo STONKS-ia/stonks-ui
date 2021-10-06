@@ -5,7 +5,7 @@ import api from '../../services/api';
 import Select from 'react-select'
 import Table  from '../../Components/Table'
 
-import "./detail.scss";
+import detailStyle from "./detail.module.scss";
 import customTheme from "../../assets/theme";
 
 const date = new Date()
@@ -80,16 +80,16 @@ const Detail = () => {
   const cityDiv = city.map( (cityDetails, key) =>{
     const {cityId, name, imgUrl, originalPortalUrl } = cityDetails;
     return(
-     <section className="city-container" key={key}>
-      <p className="title">{name}</p>
-      <a href={originalPortalUrl} target="_blank" className="link">
+     <section className={detailStyle.cityContainer} key={key}>
+      <p className={detailStyle.title}>{name}</p>
+      <a href={originalPortalUrl} target="_blank" className={detailStyle.link}>
           Portal de transparência
       </a>
-      <div className="calendar"> 
+      <div className={detailStyle.calendar}> 
           <Select theme={customTheme} classNamePrefix="react-select"  options={optionMonth}  onChange={(e: any) => setValueMonth(e.value)}  defaultValue={optionMonth[thisMonth]}  isSearchable={false} />
           <Select theme={customTheme} classNamePrefix="react-select" options={optionYear} onChange={(e: any) => setValueYear(e.value)} defaultValue={optionYear[0]}  isSearchable={false} />
       </div>
-      <Select classNamePrefix="react-select" theme={customTheme} options={optionTypes}  onChange={(e: any) => setValueType(e.value)} defaultValue={optionTypes[0]}  className="typeSelect" isSearchable={false} />
+      <Select classNamePrefix="react-select" theme={customTheme} options={optionTypes}  onChange={(e: any) => setValueType(e.value)} defaultValue={optionTypes[0]}  className={detailStyle.typeSelect} isSearchable={false} />
       <Table cityId={cityId} name={name} imgUrl={imgUrl} originalPortalUrl={originalPortalUrl} year={valueYear} month={valueMonth} type={valueType}  />
       </section>
     )

@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
-import "./nav.scss";
+import navStyle from "./nav.module.scss";
 
 function Nav() {
   return (
-    <nav className="navbar">
+    <nav className={navStyle.navbar}>
       <Link to="/">
         <img src={logo} alt="logo" />
       </Link>
@@ -14,7 +14,7 @@ function Nav() {
           <li>Lista de Municípios</li>
         </Link>
 
-        <Link to="/apis/despesas">
+        <Link to="/apis">
           <li>Api</li>
         </Link>
 
@@ -23,7 +23,7 @@ function Nav() {
         </Link>
 
         <Link to="/login">
-          <li id="btn-login">Login</li>
+          <li id={navStyle.btnLogin}>Login</li>
         </Link>
       </ul>
     </nav>

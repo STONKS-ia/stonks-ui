@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import success from '../../utils/success';
 import error from '../../utils/error';
-import "./list.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import api from '../../services/api';
+import listStyle from "./list.module.scss";
 
 type CityProps = {
   cityId: number;
@@ -43,20 +43,20 @@ const List = () => {
     getCities();
   }, []);
   return (
-    <main className="list-container">
+    <main className={listStyle.listContainer}>
     <ToastContainer />
-        <div className="search">
+        <div className={listStyle.search}>
         <input type="text" name="search" onChange={e => setInput(e.target.value)} value={input} placeholder="Search city by name"/>
-        <div className="icon">
-          <svg id="icon" viewBox="0 0 100 100">
-            <circle id="pie" cx="45" cy="45" r="20"></circle>
-            <circle id="circle" cx="45" cy="45" r="40"></circle>
-            <path id="line" d="M45,45 L100,100"></path>
-            <path id="line2" d="M45,45 L100,100"></path>
+        <div className={listStyle.icon}>
+          <svg id={listStyle.icon} viewBox="0 0 100 100">
+            <circle id={listStyle.pie} cx="45" cy="45" r="20"></circle>
+            <circle id={listStyle.circle} cx="45" cy="45" r="40"></circle>
+            <path id={listStyle.line} d="M45,45 L100,100"></path>
+            <path id={listStyle.line2} d="M45,45 L100,100"></path>
           </svg>
         </div>
       </div>
-      <div className="result">
+      <div className={listStyle.result}>
         { city }
       </div>
     </main>

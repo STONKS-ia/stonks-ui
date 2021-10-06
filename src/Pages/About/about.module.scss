@@ -1,10 +1,10 @@
-#about{
+.about{
   position: relative;
   width: 80%;
   height: 90%;
   margin: 0 auto;
 }
-#imagem {
+.imagem {
   position: absolute;
   width: 1051px;
   height: 640px;
@@ -12,7 +12,7 @@
   top: 120px;
   z-index: -1;
 }
-#information {
+.information {
   position: absolute;
   width: 887px;
   height: 544px;
@@ -27,12 +27,17 @@
   background-position: 90% 40%;
   background-repeat: no-repeat;
   background-size: 855px 514px;
-
+h2 {
+  padding-top: 50px;
+  padding-left: 50px;
+  font-size: 32px;
+  font-family: Roboto Slab;
+}
   a {
     color: #3626a7;
   }
 
-  .item-list {
+  .itemList {
     font-family: Roboto;
     font-size: 18px;
     list-style-type: none;

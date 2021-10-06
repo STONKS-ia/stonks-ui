@@ -1,0 +1,68 @@
+.navbar {
+ position: absolute;
+ width: 300px;
+ height: 700px;
+ margin-top: 50px;
+ color: #fff;
+ background: #3626a7;
+ box-shadow: 5px 6px 8px rgba(54, 38, 167, 0.6);
+ border-radius: 10px 40px;
+
+ h1 {
+   height: 39px;
+   padding-left: 40px;
+   margin-top: 37px;
+
+   font-family: Roboto Slab;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 30px;
+   letter-spacing: 0.025em;
+   text-transform: uppercase;
+
+   color: #ffffff;
+ }
+
+
+ .lista {
+  margin-top: 100px;
+  margin-left: 99px;
+
+  .item {
+   text-transform: uppercase;
+   padding-left: 19px;
+
+   #despesas {
+    margin-top: 40%;
+    list-style-image: url("../../assets/img/despesa.svg");
+   }
+
+   #receitas {
+    margin-top: 31px;
+    list-style-image: url("../../assets/img/receita.svg");
+   }
+
+   #municipios {
+    margin-top: 31px;
+    list-style-image: url("../../assets/img/municipio.svg");
+   }
+  }
+ }
+}
+.ancor {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 2px;
+  margin-right: 70px;
+  text-decoration: none;
+  color: #fff;
+  &:active {
+    border-radius: 2%;
+    border-bottom: 3px solid white;
+  }
+}

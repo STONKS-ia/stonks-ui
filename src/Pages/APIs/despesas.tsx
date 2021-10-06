@@ -1,12 +1,12 @@
 import apisStyle from "./api.module.scss";
 
-const Receitas = () => {
-  return (
-      <div id={apisStyle.content}>
-        <h2>Receitas</h2>
+const Despesas = () => {
+ return (
+<div id={apisStyle.content}>
+        <h2>Despesas</h2>
         <p id={apisStyle.description}>
-          Exibe informações sobre as receitas dos Municípios jurisdiconados ao
-          TCESP com as informações descritas abaixo.
+          Exibe informações sobre despesas detalhadas dos Municípios
+          jurisdiconados ao TCESP com as informações descritas abaixo.
         </p>
         <div id={apisStyle.table}>
           <table>
@@ -15,7 +15,7 @@ const Receitas = () => {
                 <td>Caminho: </td>
                 <td>
                   {
-                    "https://transparencia.tce.sp.gov.br/api/{formato}/receitas/{municipio}/{exercício}/{mês}"
+                    "https://transparencia.tce.sp.gov.br/api/{formato}/despesas/{municipio}/{exercício}/{mês}"
                   }
                 </td>
               </tr>
@@ -24,9 +24,9 @@ const Receitas = () => {
                 <td>
                   <a
                     id="link-exemplo"
-                    href="https://transparencia.tce.sp.gov.br/api/xml/receitas/balsamo/2015/1"
+                    href="https://transparencia.tce.sp.gov.br/api/json/despesas/balsamo/2015/1"
                   >
-                    https://transparencia.tce.sp.gov.br/api/xml/receitas/balsamo/2015/1
+                    https://transparencia.tce.sp.gov.br/api/json/despesas/balsamo/2015/1
                   </a>
                 </td>
               </tr>
@@ -58,7 +58,7 @@ const Receitas = () => {
           </table>
         </div>
       </div>
-  );
+ )
 };
 
-export default Receitas;
+export default Despesas;
