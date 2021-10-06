@@ -1,7 +1,7 @@
 import React from "react";
 import styleTable from "./table.module.scss";
 
-function Table(props) {
+function Table(props: any) {
   const { cityId, name, imgUrl, originalPortalUrl, month, year, type } = props;
   console.log(year)
   return (
