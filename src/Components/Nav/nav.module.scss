@@ -45,3 +45,18 @@ $shadow: rgba(54, 38, 167, 0.4);
     }
   }
 }
+.active{
+  li {
+    transform: translate(-2px, -5px);
+    filter: grayscale(10%);
+    box-shadow: 6px 7px 6px $shadow;
+  }
+}
+.inactive {
+  li {
+    transform: translate(0, 0);
+    filter: grayscale(0);
+    box-shadow: 0 0 0 $shadow;
+  }
+
+}

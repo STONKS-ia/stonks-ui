@@ -33,9 +33,9 @@ const List = () => {
           const { cityId, name, imgUrl } = city;
           const url = `city/${cityId}`
           return (
-            <Link to={url} className="city" key={key}>
-                <img id="imgUrl" src={imgUrl} alt={name} />
-                <p id="name">{name}</p>
+            <Link to={url} className={listStyle.city} key={key}>
+                <img id={listStyle.imgUrl} src={imgUrl} alt={name} />
+                <p id={listStyle.name}>{name}</p>
             </Link>
           )
   })
