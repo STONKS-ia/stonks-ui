@@ -1,13 +1,13 @@
-.listContainer{
+.listContainer {
   display: grid;
   height: 90%;
   padding: 20px 10px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 60px auto-fill;
   gap: 5px 0px;
-  grid-template-areas: 
-  ". . . . search ."
-  ". result result result result ."
+  grid-template-areas:
+    ". . . . search ."
+    ". result result result result .";
 }
 .result {
   grid-area: result;
@@ -16,7 +16,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  
+
   scrollbar-color: #cfcfcf transparent;
   scrollbar-width: thin;
   flex: 1 1 180px;
@@ -38,144 +38,143 @@
   padding: 5px 25px;
   transition: 0.3s;
 
- display: flex;
- justify-content: space-around;
- align-items: center;
- flex-direction: column;
- text-decoration: none;
- background: #FFFFFF;
- box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
- border-radius: 0px 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  background: #ffffff;
+  box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
+  border-radius: 0px 30px;
 
- &:hover{
-  transform: scale(1.2);
- }
- #imgUrl {
-  max-width: 130px;
-  min-width: 130px;
-  max-height: 120px;
- }
- #name{
-  color: #0D0106;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.9rem;
- }
+  &:hover {
+    transform: scale(1.2);
+  }
+  #imgUrl {
+    max-width: 130px;
+    min-width: 130px;
+    max-height: 120px;
+  }
+  #name {
+    color: #0d0106;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
 }
-.search{
+.search {
   grid-area: search;
- position: relative;
- min-width: 300px;
- height: 50px;
- background-color: #fff;
- transition: 0.5s;
- box-shadow: 3px 1px 10px rgba(54, 38, 167, 0.1);
- border-radius: 10px 20px;
- input {
+  position: relative;
+  min-width: 300px;
   height: 50px;
-  width: 300px;
-  margin: 0;
-  position: absolute;
-  left: 0;
-  padding: 1rem 2rem;
-  box-sizing: border-box;
-  backdrop-filter: blur(10px);
+  background-color: #fff;
+  transition: 0.5s;
+  box-shadow: 3px 1px 10px rgba(54, 38, 167, 0.1);
   border-radius: 10px 20px;
-  &:hover~.icon {
-    #pie {
-      animation: 10s ease-in pieAnimation infinite;
+  input {
+    height: 50px;
+    width: 300px;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    border-radius: 10px 20px;
+    &:hover ~ .icon {
+      #pie {
+        animation: 10s ease-in pieAnimation infinite;
+      }
+      #line {
+        animation: 10s ease-in lineUp infinite;
+      }
     }
-    #line {
-      animation: 10s ease-in lineUp infinite;
-    }
-  } 
-  &:focus~.icon {
-    #pie {
-    animation: 10s ease-in pieAnimation infinite;
-    }
-    #line {
-      animation: 10s ease-in lineUp infinite;
+    &:focus ~ .icon {
+      #pie {
+        animation: 10s ease-in pieAnimation infinite;
+      }
+      #line {
+        animation: 10s ease-in lineUp infinite;
+      }
     }
   }
- }
- .icon {
-  position: absolute;
-   top: 0;
-   right: 0;
-   width: 50px;
-   height: 50px;
-   border-radius: 10px 20px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   z-index: 1000;
-   #icon {
+  .icon {
     position: absolute;
-    width: 17px;
-    height: 17px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-   }
-   #pie {
-    stroke: #0D0106;
-    fill: rgba(153, 153, 153, 0);
-    stroke-width: 40;
-    stroke-dashoffset: -15.7;
-    stroke-dasharray: 0,
-    158;
-    // animation: 10s ease-in pieAnimation infinite;
-   }
-   #circle {
-    stroke: #0D0106;
-    fill: rgba(153, 153, 153, 0);
-    stroke-width: 10;
-    stroke-linecap: round;
-   }
-   #line {
-    stroke: #0D0106;
-    fill: rgba(153, 153, 153, 0);
-    stroke-width: 10;
-    stroke-linecap: round;
-    stroke-dashoffset: -40;
-    stroke-dasharray: 30, 100;
-    transition: all 0.5s;
-    // animation: 10s ease-in lineUp infinite;
-    z-index: 10;
-   }
-   #line2 {
-    stroke: rgba(153, 153, 153, 0.7);
-    fill: rgba(153, 153, 153, 0);
-    stroke-width: 10;
-    stroke-linecap: round;
-    stroke-dashoffset: -40;
-    stroke-dasharray: 30, 100;
-    transition: all 0.5s;
-    z-index: 2;
-   }
- }
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    #icon {
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #pie {
+      stroke: #0d0106;
+      fill: rgba(153, 153, 153, 0);
+      stroke-width: 40;
+      stroke-dashoffset: -15.7;
+      stroke-dasharray: 0, 158;
+      // animation: 10s ease-in pieAnimation infinite;
+    }
+    #circle {
+      stroke: #0d0106;
+      fill: rgba(153, 153, 153, 0);
+      stroke-width: 10;
+      stroke-linecap: round;
+    }
+    #line {
+      stroke: #0d0106;
+      fill: rgba(153, 153, 153, 0);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dashoffset: -40;
+      stroke-dasharray: 30, 100;
+      transition: all 0.5s;
+      // animation: 10s ease-in lineUp infinite;
+      z-index: 10;
+    }
+    #line2 {
+      stroke: rgba(153, 153, 153, 0.7);
+      fill: rgba(153, 153, 153, 0);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dashoffset: -40;
+      stroke-dasharray: 30, 100;
+      transition: all 0.5s;
+      z-index: 2;
+    }
+  }
 }
 @keyframes lineUp {
- 50% {
-  stroke-dashoffset: 0;
-  stroke-dasharray: 40, 100;
- }
- 100%{
-  transition-delay: 2s;
-  transition: all 0.5s;
-  stroke-dashoffset: -40;
-  stroke-dasharray: 0.01,100;
- }
+  50% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 40, 100;
+  }
+  100% {
+    transition-delay: 2s;
+    transition: all 0.5s;
+    stroke-dashoffset: -40;
+    stroke-dasharray: 0.01, 100;
+  }
 }
 @keyframes pieAnimation {
- 50% {
-  transition: stroke-dasharray 1.5s linear 0.2s;
-  stroke-dasharray: 126, 0;
- }
+  50% {
+    transition: stroke-dasharray 1.5s linear 0.2s;
+    stroke-dasharray: 126, 0;
+  }
 
- 100% {
-  stroke-dasharray: 126, 0;
-  transition: stroke 0.5s linear 0.5s;
-  stroke: rgba(153, 153, 153, 0);
- }
+  100% {
+    stroke-dasharray: 126, 0;
+    transition: stroke 0.5s linear 0.5s;
+    stroke: rgba(153, 153, 153, 0);
+  }
 }
