@@ -2,12 +2,12 @@
   display: grid;
   height: 90%;
   padding: 20px 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr) ;
   grid-template-rows: 60px auto-fill;
   gap: 5px 0px;
-  grid-template-areas:
-    ". . . . search ."
-    ". result result result result .";
+  grid-template-areas: 
+  ". . search search . ."
+  ". result result result result ."
 }
 .result {
   grid-area: result;
@@ -64,8 +64,16 @@
 }
 .search {
   grid-area: search;
-  position: relative;
-  min-width: 300px;
+ position: relative;
+ min-width: 300px;
+  width: 600px;
+ margin: 0 auto;
+ height: 50px;
+ background-color: #fff;
+ transition: 0.5s;
+ box-shadow: 3px 1px 10px rgba(54, 38, 167, 0.1);
+ border-radius: 10px 20px;
+ input {
   height: 50px;
   background-color: #fff;
   transition: 0.5s;
@@ -153,6 +161,62 @@
       z-index: 2;
     }
   }
+ }
+ .icon {
+  position: absolute;
+   top: 0;
+   right: 0;
+   width: 50px;
+   height: 50px;
+   border-radius: 10px 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   #icon {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   }
+   #pie {
+    stroke: #0D0106;
+    fill: rgba(153, 153, 153, 0);
+    stroke-width: 40;
+    stroke-dashoffset: -15.7;
+    stroke-dasharray: 0,
+    158;
+    // animation: 10s ease-in pieAnimation infinite;
+   }
+   #circle {
+    stroke: #0D0106;
+    fill: rgba(153, 153, 153, 0);
+    stroke-width: 10;
+    stroke-linecap: round;
+   }
+   #line {
+    stroke: #0D0106;
+    fill: rgba(153, 153, 153, 0);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dashoffset: -40;
+    stroke-dasharray: 30, 100;
+    transition: all 0.5s;
+    // animation: 10s ease-in lineUp infinite;
+    z-index: 10;
+   }
+   #line2 {
+    stroke: rgba(153, 153, 153, 0.7);
+    fill: rgba(153, 153, 153, 0);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dashoffset: -40;
+    stroke-dasharray: 30, 100;
+    transition: all 0.5s;
+    z-index: 2;
+   }
+ }
 }
 @keyframes lineUp {
   50% {

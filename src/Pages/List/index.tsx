@@ -31,19 +31,17 @@ const List = () => {
       return [null, err];
     }
   }
-  const city = cities
-    .filter((city) => city.name.toLowerCase().includes(input.toLowerCase()))
-    .map((city, key) => {
-      const { cityId, name, imgUrl } = city;
-      const url = `city/${cityId}`;
-      return (
-        <Link to={url} className={listStyle.city} key={key}>
-          <img id={listStyle.imgUrl} src={imgUrl} alt={name} />
-          <p id={listStyle.name}>{name}</p>
-        </Link>
-      );
-    });
-  useEffect(() => {
+  const city = cities.filter(city => city.name.toLowerCase().includes(input.toLowerCase())).map((city, key) => {
+          const { cityId, name, imgUrl } = city;
+          const url = `city/${cityId}`
+          return (
+            <Link to={url} className={listStyle.city} key={key}>
+                <img id={listStyle.imgUrl} src={imgUrl} alt={name} />
+                <p id={listStyle.name}>{name}</p>
+            </Link>
+          )
+  })
+  useEffect(() =>{
     getCities();
   }, []);
   return (

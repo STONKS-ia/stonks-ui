@@ -1,25 +1,26 @@
 import React from "react";
 import "./assets/styles.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import List from "./Pages/List";
-import Detail from "./Pages/DetailCity";
-import Login from "./Pages/Login";
-import Nav from "./Components/Nav";
-import APIs from "./Pages/APIs";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import List from "./pages/List";
+import Detail from "./pages/DetailCity";
+import Login from "./pages/Login";
+import Nav from "./components/Nav";
+import APIs from "./pages/APIs";
 
 function App() {
   return (
     <BrowserRouter>
       <Nav />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/city" component={List} />
-        <Route exact path="/city/:id" component={Detail} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/apis" component={APIs} />
+        <Route exact  path="/" component={Home} />
+        <Route path="/cities" component={List} />
+        <Route path="/city/:id" component={Detail} />
+        <Route path="/about" component={About} />
+        <Route path="/login" component={Login} />
+        <Route path="/apis" component={APIs} />
+
       </Switch>
     </BrowserRouter>
   );

@@ -27,7 +27,7 @@ const Home = () => {
           criando um portal de melhor acesso e facilidade tanto para quem
           trabalha quanto para quem utiliza.
         </p>
-        <Link to="/city" className={homeStyle.textBtn}>
+        <Link to="/cities" className={homeStyle.textBtn}>
           <li>Lista de Municípios</li>
         </Link>
       </div>

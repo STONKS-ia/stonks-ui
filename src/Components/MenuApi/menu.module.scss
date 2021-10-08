@@ -26,43 +26,67 @@
 
  .lista {
   margin-top: 100px;
-  margin-left: 99px;
-
-  .item {
-   text-transform: uppercase;
-   padding-left: 19px;
-
-   #despesas {
-    margin-top: 40%;
-    list-style-image: url("../../assets/img/despesa.svg");
-   }
-
-   #receitas {
-    margin-top: 31px;
-    list-style-image: url("../../assets/img/receita.svg");
-   }
-
-   #municipios {
-    margin-top: 31px;
-    list-style-image: url("../../assets/img/municipio.svg");
-   }
-  }
- }
-}
-.ancor {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 33px;
+  margin-left: 90px;
+  list-style: none;
   display: flex;
-  align-items: center;
-  padding-bottom: 2px;
-  margin-right: 70px;
-  text-decoration: none;
-  color: #fff;
-  &:active {
-    border-radius: 2%;
-    border-bottom: 3px solid white;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 30%;
+
+  .ancor {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    position: relative;
+    font-size: 20px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2px;
+    margin-right: 70px;
+    text-decoration: none;
+    color: #fff;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      width: 40px;
+      height: 100%;
+      border-radius: 50%;
+      z-index: 200;
+      top: 0;
+      left: -40px;
+    }
   }
+  #linkDespesas {
+    &::before {
+      background: url("../../assets/img/despesa.svg") no-repeat center;
+      }
+  }
+
+  #linkReceitas {
+    &::before {
+      background: url("../../assets/img/receita.svg") no-repeat center;
+    }
+  }
+
+  #linkMunicipios {
+    &::before {
+      background: url("../../assets/img/municipio.svg") no-repeat center;
+    }
+  }
+  }
+}
+.active {
+  margin-left: 10px;
+  width: 100%;
+  transition: 1s;
+  padding: 2px 50px 0;
+  background: rgba(250, 100, 50, 0.98);
+  box-shadow: 5px 6px 8px rgba(54, 38, 167, 0.6);
+  border-radius: 50px;
+}
+.inactive {
+  margin-left: 0;
 }

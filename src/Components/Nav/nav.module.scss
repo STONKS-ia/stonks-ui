@@ -11,25 +11,24 @@ $shadow: rgba(54, 38, 167, 0.4);
   align-items: center;
   justify-content: space-between;
 
-  ul {
+  .navbarList {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 600px;
-    a {
-      display: block;
-      text-decoration: none;
-      color: #000;
-    }
-    li {
+    width: 800px;
+    .item{
       padding: 10px 2rem;
       border-radius: 10px 20px 10px 20px;
       cursor: pointer;
+      position: relative;
       font-weight: 600;
       transition: 0.3s;
+      i{
+        margin: 0 0 0 10px;
+      }
       &:hover {
         transform: translate(-2px, -5px);
         filter: grayscale(10%);
@@ -44,4 +43,20 @@ $shadow: rgba(54, 38, 167, 0.4);
       }
     }
   }
+}
+.active {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  li {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translate(-2px, -5px);
+    filter: grayscale(10%);
+    box-shadow: 6px 7px 6px $shadow;
+  }
+}
+a{
+  display: block;
+  text-decoration: none;
+  color: #000;
 }
