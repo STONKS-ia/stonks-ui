@@ -1,4 +1,3 @@
-import React from "react";
 import styleTable from "./table.module.scss";
 
 function Table(props: any) {
@@ -6,6 +5,7 @@ function Table(props: any) {
   console.log(year)
   return (
     <div className={styleTable.table}>
+      <p>OI CHAVAO</p>
     </div>
   );
 }

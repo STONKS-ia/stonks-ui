@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import MenuApi from "../../Components/MenuApi";
+import MenuApi from "../../components/MenuApi";
 import Despesas from "./despesas";
-import Municipios from "./municipios";
 import Receitas from "./receitas";
+import Municipios from "./municipios";
 
 import apisStyle from "./api.module.scss";
 

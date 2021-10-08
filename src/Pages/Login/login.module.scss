@@ -37,11 +37,13 @@
 }
 
 #txtUser {
-  background: url(../../assets/img/user.svg) no-repeat scroll 7px 7px;
+  padding-left: 40px;
+  background: url(../../assets/img/user.svg) no-repeat scroll 0px 5px;
 }
 
 #txtPass {
-  background: url(../../assets/img/password.svg) no-repeat scroll 7px 7px;
+  padding-left: 40px;
+  background: url(../../assets/img/password.svg) no-repeat scroll 0px 5px;
 }
 
 .btnEntrar {
