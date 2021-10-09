@@ -6,7 +6,7 @@
   grid-template-rows: 60px auto-fill;
   gap: 5px 0px;
   grid-template-areas: 
-  ". . search search . ."
+  ". . search search button ."
   ". result result result result ."
 }
 .result {
@@ -100,6 +100,7 @@
       }
     }
   }
+
   .icon {
     position: absolute;
     top: 0;
@@ -234,4 +235,19 @@
     transition: stroke 0.5s linear 0.5s;
     stroke: rgba(153, 153, 153, 0);
   }
+}
+
+.addMunicipio{
+  grid-area: button;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-end;
+  margin-right: 20%;
+  float: right;
+  display: flex;
+  width: 200px;
+  height: 50px;
+  color: white;
+  background-color:var(--blue);
+  border-radius: 10px 20px;
 }
