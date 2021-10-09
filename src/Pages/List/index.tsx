@@ -33,7 +33,7 @@ const List = () => {
   }
   const city = cities.filter(city => city.name.toLowerCase().includes(input.toLowerCase())).map((city, key) => {
           const { cityId, name, imgUrl } = city;
-          const url = `city/${cityId}`
+          const url = `/cities/${cityId}`
           return (
             <Link to={url} className={listStyle.city} key={key}>
                 <img id={listStyle.imgUrl} src={imgUrl} alt={name} />

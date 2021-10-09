@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import api from '../../services/api';
@@ -79,7 +79,7 @@ const Detail = () => {
     getCityById();
   })
   const cityDiv = city.map( (cityDetails, key) =>{
-    const {cityId, name, imgUrl, originalPortalUrl } = cityDetails;
+    const {name, originalPortalUrl } = cityDetails;
     return(
      <section className={detailStyle.cityContainer} key={key}>
       <p className={detailStyle.title}>{name}</p>

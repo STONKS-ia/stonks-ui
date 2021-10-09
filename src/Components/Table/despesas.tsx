@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import React, { useState, useEffect, useCallback } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -12,7 +11,6 @@ import styleTable from "./table.module.scss";
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.css';
-
 
 function Despesas(props: any) {
   const {name, month, year } = props;

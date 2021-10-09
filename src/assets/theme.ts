@@ -4,7 +4,7 @@ function customTheme(theme: any) {
   ...theme,
   colors: {
    ...theme.colors,
-   primary25: '#fc956f',
+   primary25: 'rgba(255,255,255,0)',
    primary: '#00bb76'
   }
  }

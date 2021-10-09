@@ -1,8 +1,8 @@
-import React, {  useCallback, useRef } from "react";
+import React, {  useRef } from "react";
 import {FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import getValidationErrors from "../../utils/getValidationErrors";
 
@@ -19,6 +19,7 @@ interface SignInFormData {
 const Login = () => {
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
+  console.log(history)
   const handleFormSubmit  = async (data: SignInFormData, ) => {
      try {
       console.log(data)

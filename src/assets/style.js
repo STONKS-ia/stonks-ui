@@ -4,7 +4,7 @@ const customStyles = {
     color: state.isSelected ? 'white' : 'black',
     padding: 20,
     zIndex: 9999,
-
+    cursor: 'pointer',
   }),
   control: (styles) => ({
     ...styles,
