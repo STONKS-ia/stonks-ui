@@ -9,6 +9,7 @@ import DataSet from "./Pages/DataSet";
 import Login from "./Pages/Login";
 import Receitas from "./Pages/APIs/receitas";
 import Municipios from "./Pages/APIs/municipios";
+import NewCity from "./Pages/NewCity";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/receitas" component={Receitas} />
         <Route exact path="/municipios" component={Municipios} />
+        <Route exact path="/newCity" component={NewCity} />
       </Switch>
     </BrowserRouter>
   );

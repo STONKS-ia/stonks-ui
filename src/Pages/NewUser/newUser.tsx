@@ -1,7 +1,10 @@
 import React from "react";
-import "./login.scss";
+import "./newUser.scss";
 import user from "../../assets/img/user.svg";
+import email from "../../assets/img/email.svg";
 import pass from "../../assets/img/password.svg";
+import phone from "../../assets/img/phone.svg";
+import location from "../../img/map.svg";
 
 const newUser = () => {
   return (

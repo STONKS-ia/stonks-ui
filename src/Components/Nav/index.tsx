@@ -11,6 +11,9 @@ function Nav() {
       </Link>
       <ul>
         <li>
+          <Link to="/newCity">Cadastrar Município</Link>
+        </li>
+        <li>
           <Link to="/dataSet">Conjunto de dados</Link>
         </li>
         <li>
