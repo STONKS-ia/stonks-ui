@@ -6,8 +6,8 @@ import About from "./pages/About";
 import List from "./pages/List";
 import Detail from "./pages/DetailCity";
 import Login from "./pages/Login";
-import Nav from "./components/Nav";
 import APIs from "./pages/APIs";
+import Nav from "./components/Nav";
 
 function App() {
   return (
