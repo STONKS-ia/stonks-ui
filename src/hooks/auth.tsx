@@ -1,14 +1,10 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import api from '../services/api';
 
-interface User {
-  name: string;
-  roles: string[];
-}
 
 interface AuthState {
   token: string;
-  user: User;
+  name: string;
 }
 
 interface SigInCredentials {
@@ -17,23 +13,22 @@ interface SigInCredentials {
 }
 
 interface AuthContextData {
-  user: User;
   singIn(credentials: SigInCredentials): Promise<void>;
   signOut(): void;
-  updateUser(user: User): void;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
-  const [data, setData] = useState<AuthState>(() => {
+    const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@Elit:token');
-    const user = localStorage.getItem('@Elit:user');
+    const name = localStorage.getItem('@Elit:name');
+    const roles = localStorage.getItem('@Elit:roles');
 
-    if (token && user) {
+    if (token && name && roles) {
       api.defaults.headers.authorization = `Bearer ${token}`;
 
-      return { token, user: JSON.parse(user) };
+      return { token, name , roles};
     }
 
     return {} as AuthState;
@@ -44,39 +39,26 @@ const AuthProvider: React.FC = ({ children }) => {
       login,
       password,
     });
-    const { token, user } = response.data;
-
+    const { token, name, roles } = response.data;
     localStorage.setItem('@Elit:token', token);
-    localStorage.setItem('@Elit:user', JSON.stringify(user));
+    localStorage.setItem('@Elit:name', name);
+    localStorage.setItem('@Elit:roles', roles);
 
     api.defaults.headers.authorization = `Bearer ${token}`;
 
-    setData({ token, user });
+    setData({ token, name });
   }, []);
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@Elit:token');
     localStorage.removeItem('@Elit:user');
+    localStorage.removeItem('@Elit:roles');
 
     setData({} as AuthState);
   }, []);
 
-  const updateUser = useCallback(
-    (user: User) => {
-      localStorage.setItem('@Elit:user', JSON.stringify(user));
-
-      setData({
-        token: data.token,
-        user,
-      });
-    },
-    [data.token],
-  );
-
   return (
-    <AuthContext.Provider
-      value={{ user: data.user, singIn, signOut, updateUser }}
-    >
+    <AuthContext.Provider value={{ singIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

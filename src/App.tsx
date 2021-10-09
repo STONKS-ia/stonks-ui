@@ -10,23 +10,26 @@ import APIs from "./pages/APIs";
 import AddUser from "./pages/AddUser";
 import AddCity from "./pages/AddCity";
 import Nav from "./components/Nav";
+import AppProvider from "./hooks";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav />
-      <Switch>
-        <Route exact  path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/login" component={Login} />
-        <Route path="/apis" component={APIs} />
-        <Route path="/cities/list" component={List} />
-        <Route path="/cities/:id" component={Detail} />
+    <AppProvider>
+      <BrowserRouter>
+        <Nav />
+        <Switch>
+          <Route exact  path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/login" component={Login} />
+          <Route path="/apis" component={APIs} />
+          <Route path="/cities/list" component={List} />
+          <Route path="/cities/:id" component={Detail} />
 
-        <Route path="/addUser" component={AddUser} />
-        <Route path="/addCity" component={AddCity} />
-      </Switch>
-    </BrowserRouter>
+          <Route path="/addUser" component={AddUser} />
+          <Route path="/addCity" component={AddCity} />
+        </Switch>
+      </BrowserRouter>
+    </AppProvider>
   );
 }
 
