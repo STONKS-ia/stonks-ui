@@ -64,6 +64,9 @@ const List = () => {
           </svg>
         </div>
       </div>
+      <Link to={"/addCity"} className={listStyle.addMunicipio}>
+                Adicionar Município
+        </Link>
       <div className={listStyle.result}>{city}</div>
     </main>
   );
