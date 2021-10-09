@@ -1,90 +1,15 @@
 #divLogin {
-  border: 1px solid white;
+  border: 1px solid var(--white);
   border-radius: 0px 25px;
   width: 30rem;
   height: 25rem;
-  margin: 0 auto;
-  display: flex;
-
-  padding: 40px 0;
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  background-color: white;
-  // box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
-  box-shadow: 6px 7px 6px rgba(0, 0, 0, 0.4);
-
-  h3 {
-    font-size: 40px;
-    font-family: "Roboto Slab", serif;
-  }
-}
-
-#txtUser,
-#txtPass {
-  border-bottom: 1px solid;
-  width: 20rem;
-  height: 40px;
-  font-size: 20px;
 }
 
 #txtUser {
-  padding-left: 40px;
-  background: url(../../assets/img/user.svg) no-repeat scroll 0px 5px;
+  background: url(../../assets/img/user.svg) no-repeat scroll ;
 }
 
 #txtPass {
-  padding-left: 40px;
-  background: url(../../assets/img/password.svg) no-repeat scroll 0px 5px;
+  background: url(../../assets/img/password.svg) no-repeat scroll ;
 }
 
-.btnEntrar {
-  color: white;
-  background-color: black;
-  width: 10rem;
-  height: 45px;
-  border-radius: 25px;
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.btnEntrar::after,
-.btnEntrar::before {
-  visibility: hidden;
-  content: "";
-  position: absolute;
-  opacity: 0.3;
-  width: 10rem;
-  height: 45px;
-  background: #000;
-  border-radius: inherit;
-  align-items: center;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  transition: transform 0.3s ease;
-}
-
-.btnEntrar:hover {
-  transform: translate(12px, -12px);
-}
-
-.btnEntrar:hover::after {
-  transform: translate(-6px, 6px);
-  visibility: visible;
-}
-
-.btnEntrar:hover::before {
-  transform: translate(-12px, 12px);
-  visibility: visible;
-}

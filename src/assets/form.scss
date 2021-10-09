@@ -1,0 +1,78 @@
+.form {
+ border: 1px solid var(--white);
+ border-radius: 0px 25px;
+ width: 30rem;
+ margin: 0 auto;
+ display: flex;
+
+ padding: 40px 0;
+
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ -webkit-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+
+ text-align: center;
+ align-items: center;
+ justify-content: space-around;
+ flex-direction: column;
+ background-color: var(--white);
+ box-shadow: 6px 7px 6px rgba(var(--blueRgb), 0.4);
+
+ h3 {
+  font-size: 40px;
+  font-family: var(--slab);
+ }
+  .inputField{
+    border-bottom: 1px solid;
+    background-position: 0px 5px;
+    padding: 0 40px 5px;
+    width: 20rem;
+    height: 40px;
+    font-size: 20px;
+  }
+ .btnEntrar {
+  color: var(--white);
+  background-color: rgba(var(--blueRgb), 1);
+  width: 10rem;
+  height: 45px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-family: var(--roboto);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+ }
+
+ .btnEntrar::after,
+ .btnEntrar::before {
+  visibility: hidden;
+  content: "";
+  position: absolute;
+  opacity: 0.3;
+  width: 10rem;
+  height: 45px;
+  background: rgba(var(--blueRgb), 0.8);
+  border-radius: inherit;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
+ }
+
+ .btnEntrar:hover {
+  transform: translate(12px, -12px);
+ }
+
+ .btnEntrar:hover::after {
+  transform: translate(-6px, 6px);
+  visibility: visible;
+ }
+
+ .btnEntrar:hover::before {
+  transform: translate(-12px, 12px);
+  visibility: visible;
+ }
+
+}

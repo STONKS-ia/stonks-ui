@@ -43,8 +43,8 @@
  align-items: center;
  flex-direction: column;
  text-decoration: none;
- background: #FFFFFF;
- box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
+ background: var(--white);
+ box-shadow: 6px 7px 6px rgba(var(--blueRgb), 0.4);
  border-radius: 0px 30px;
 
  &:hover{
@@ -56,7 +56,7 @@
   max-height: 120px;
  }
  #name{
-  color: #0D0106;
+  color: var(--black);
   text-align: center;
   font-weight: 600;
   font-size: 0.9rem;
@@ -69,9 +69,9 @@
   width: 600px;
  margin: 0 auto;
  height: 50px;
- background-color: #fff;
+ background-color: var(--white);
  transition: 0.5s;
- box-shadow: 3px 1px 10px rgba(54, 38, 167, 0.1);
+ box-shadow: 3px 1px 10px rgba(var(--blueRgb), 0.1);
  border-radius: 10px 20px;
  input {
   height: 50px;
@@ -128,13 +128,13 @@
     // animation: 10s ease-in pieAnimation infinite;
    }
    #circle {
-    stroke: #0D0106;
+    stroke: var(--black);
     fill: rgba(153, 153, 153, 0);
     stroke-width: 10;
     stroke-linecap: round;
    }
    #line {
-    stroke: #0D0106;
+    stroke: var(--black);
     fill: rgba(153, 153, 153, 0);
     stroke-width: 10;
     stroke-linecap: round;

@@ -1,0 +1,70 @@
+#divNewCity{
+    height: 500px;
+    display: grid;
+    padding: 20px 30px;
+    width: 800px;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-template-areas: "title title"
+    "name inputImage"
+    "urlPortal inputImage"
+    "submitBtn submitBtn";
+
+    h3 {
+        grid-area: title;
+    }
+    button {
+        grid-area: submitBtn;
+        margin: 0 auto;
+        justify-self: center;
+        align-self: center;
+    }
+
+    #txtCity {
+        background: url(../../assets/img/city.svg) no-repeat scroll;
+        grid-area: name;
+    }
+
+    #imageArea {
+        border: 1px dotted var(--black);
+        border-radius: 20px;
+        grid-area: inputImage;
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+        padding: 10px 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        img{
+            min-width: 180px;
+            max-width: 90%;
+            height: 180px;
+            border-radius: 50%;
+        }
+        label{
+            padding: 10px 20px;
+            border: 1px solid var(--black);
+            border-radius: 3px 8px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.4s;
+            &:hover{
+                color: #fff;
+                background-color: var(--black);
+            }
+        }
+        input{
+            display: none;
+        }
+    }
+    #txtURL {
+        background: url(../../assets/img/url.svg) no-repeat scroll;
+        grid-area: urlPortal;
+    }
+}

@@ -70,7 +70,7 @@
 .title {
  grid-area: title;
  font-size: 28px;
- font-family: Roboto slab;
+ font-family: var(--slab);
  color: rgba(13, 1, 6, 0.8);
  text-transform: uppercase;
  line-height: 29px;

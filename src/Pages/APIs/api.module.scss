@@ -16,15 +16,15 @@
   margin-top: 80px;
   padding-left: 50px;
 
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 9px 12px 18px rgba(54, 38, 167, 0.6);
+  background: var(--white);
+  box-shadow: 9px 12px 18px rgba(var(--bluerRgb), 0.6);
   border-radius: 10px 40px;
 
   h2 {
     padding-top: 50px;
     padding-left: 50px;
     font-size: 32px;
-    font-family: Roboto Slab;
+    font-family: var(--slab);
   }
 
   #description {
@@ -37,7 +37,7 @@
   }
 
   .linkExemplo {
-    color: rgba(54, 38, 167, 1);
+    color: var(--blue);
   }
   #table {
     margin-top: 40px;
@@ -48,7 +48,7 @@
     padding: 10px 10px 10px 0px;
     line-height: 1.42857143;
     vertical-align: top;
-    font-family: Roboto;
+    font-family: var(--roboto);
     font-size: 18px;
   }
 

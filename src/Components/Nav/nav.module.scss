@@ -1,8 +1,3 @@
-$btn: #ff6b35;
-$txtColor: #fff;
-$hover: rgba(54, 38, 167, 1);
-$shadow: rgba(54, 38, 167, 0.4);
-
 .navbar {
   width: 85vw;
   height: 10%;
@@ -32,12 +27,12 @@ $shadow: rgba(54, 38, 167, 0.4);
       &:hover {
         transform: translate(-2px, -5px);
         filter: grayscale(10%);
-        box-shadow: 6px 7px 6px $shadow;
+        box-shadow: 6px 7px 6px rgba(var(--blueRgb), 0.4);
       }
     }
     #btnLogin {
-      background-color: $btn;
-      color: $txtColor;
+      background-color: var(--orange);
+      color: var(--white);
       &:hover {
         filter: grayscale(0);
       }
@@ -49,14 +44,14 @@ $shadow: rgba(54, 38, 167, 0.4);
   text-decoration: none;
   color: #000;
   li {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: var(--white);
     transform: translate(-2px, -5px);
     filter: grayscale(10%);
-    box-shadow: 6px 7px 6px $shadow;
+    box-shadow: 6px 7px 6px rgba(var(--blueRgb), 0.4);
   }
 }
 a{
   display: block;
   text-decoration: none;
-  color: #000;
+  color: var(--black);
 }

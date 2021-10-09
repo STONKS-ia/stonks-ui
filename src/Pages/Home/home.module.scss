@@ -19,7 +19,7 @@
 
     .cabecalho {
       color: black;
-      font-family: Roboto;
+      font-family: var(--roboto);
       font-style: normal;
       font-weight: 300;
       font-size: 50px;
@@ -33,7 +33,7 @@
     }
 
     .textBtn {
-      font-family: Roboto Slab;
+      font-family: var(--slab);
       font-style: normal;
       font-weight: normal;
       font-size: 18px;
@@ -44,12 +44,12 @@
 
       display: flex;
       padding-left: 15px;
-      color: #fff;
+      color: var(--white);
       margin-top: 32px;
 
       width: 240px;
       height: 53px;
-      background-color: rgba(54, 38, 167, 1);
+      background-color: rgba(var(--blueRgb), 1);
       border-radius: 10px 30px;
       transition: 0.3s;
       cursor: pointer;
@@ -57,7 +57,7 @@
       &:hover {
         transform: translate(-2px, -5px);
         filter: grayscale(10%);
-        box-shadow: 6px 7px 6px rgba(54, 38, 167, 0.4);
+        box-shadow: 6px 7px 6px rgba(var(--blueRgb), 0.4);
       }
     }
   }

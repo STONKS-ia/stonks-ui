@@ -9,25 +9,6 @@ function Nav() {
 
       <NavLink to="/" >
         <img src={logo} alt="logo" />
-<<<<<<< HEAD
-      </Link>
-      <ul>
-        <li>
-          <Link to="/newCity">Cadastrar Município</Link>
-        </li>
-        <li>
-          <Link to="/dataSet">Conjunto de dados</Link>
-        </li>
-        <li>
-          <Link to="/apis">Api</Link>
-        </li>
-        <li>
-          <Link to="/about">Fale Conosco</Link>
-        </li>
-        <li id="btn-login">
-          <Link to="/login">Login</Link>
-        </li>
-=======
       </NavLink>
 
     <ul className={navStyle.navbarList}>
@@ -35,7 +16,7 @@ function Nav() {
           <li className={navStyle.item}>Api</li>
         </NavLink>
 
-        <NavLink to="/cities" activeClassName={navStyle.active} >
+        <NavLink to="/cities/list" activeClassName={navStyle.active} >
           <li className={navStyle.item}>Municipios</li>
         </NavLink>
 
@@ -50,7 +31,6 @@ function Nav() {
         <NavLink to="/login" activeClassName={navStyle.active} >
           <li className={navStyle.item} id={navStyle.btnLogin}>Login</li>
         </NavLink>
->>>>>>> master
       </ul>
     </nav>
   );

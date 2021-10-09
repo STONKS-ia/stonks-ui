@@ -3,7 +3,7 @@
  width: 300px;
  height: 700px;
  margin-top: 50px;
- color: #fff;
+ color: var(--white);
  background: #3626a7;
  box-shadow: 5px 6px 8px rgba(54, 38, 167, 0.6);
  border-radius: 10px 40px;
@@ -13,14 +13,14 @@
    padding-left: 40px;
    margin-top: 37px;
 
-   font-family: Roboto Slab;
+   font-family: var(--slab);
    font-style: normal;
    font-weight: normal;
    font-size: 30px;
    letter-spacing: 0.025em;
    text-transform: uppercase;
 
-   color: #ffffff;
+   color: var(--white);
  }
 
 
@@ -35,7 +35,7 @@
   height: 30%;
 
   .ancor {
-    font-family: Roboto;
+    font-family: var(--roboto);
     font-style: normal;
     font-weight: normal;
     position: relative;
@@ -46,7 +46,7 @@
     padding-bottom: 2px;
     margin-right: 70px;
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
 
     &::before {
       content: " ";
@@ -83,8 +83,8 @@
   width: 100%;
   transition: 1s;
   padding: 2px 50px 0;
-  background: rgba(250, 100, 50, 0.98);
-  box-shadow: 5px 6px 8px rgba(54, 38, 167, 0.6);
+  background: var(--orange);
+  box-shadow: 5px 6px 8px rgba(var(--blue) , 0.6);
   border-radius: 50px;
 }
 .inactive {
