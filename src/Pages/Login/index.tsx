@@ -10,6 +10,7 @@ import '../../assets/form.scss'
 import Input  from "../../components/Input"
 import loginStyle from "./login.module.scss";
 import api from "../../services/api";
+import { useAuth } from "../../hooks/auth";
 
 interface SignInFormData {
   login: string;
@@ -19,10 +20,10 @@ interface SignInFormData {
 const Login = () => {
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
-  console.log(history)
+  const { singIn } = useAuth();
+
   const handleFormSubmit  = async (data: SignInFormData, ) => {
      try {
-      console.log(data)
        formRef.current?.setErrors({});
       //  const yup = require("yup")
       //  const schema = yup.object().shape({
@@ -34,11 +35,13 @@ const Login = () => {
       //   await schema.validate(data, {
       //     abortEarly: false,
       //   });
-        const response = await api.post("/stonks/login", {
-            login: data.login,
-            password: data.password,});
-        console.log(response)
+      debugger;
+        await singIn({
+          login: data.login,
+          password: data.password,
+        });
      } catch (err) {
+       console.log(err)
        if (err instanceof Yup.ValidationError) {
          const errors = getValidationErrors(err);
          formRef.current?.setErrors(errors);
