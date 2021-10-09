@@ -6,10 +6,10 @@ import About from "./pages/About";
 import List from "./pages/List";
 import Detail from "./pages/DetailCity";
 import Login from "./pages/Login";
-import Nav from "./components/Nav";
 import APIs from "./pages/APIs";
 import AddUser from "./pages/AddUser";
 import AddCity from "./pages/AddCity";
+import Nav from "./components/Nav";
 
 function App() {
   return (

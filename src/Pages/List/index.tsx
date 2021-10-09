@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
-import success from '../../utils/success';
-import error from '../../utils/error';
-import 'react-toastify/dist/ReactToastify.css';
-import api from '../../services/api';
+import { ToastContainer } from "react-toastify";
+import success from "../../utils/success";
+import error from "../../utils/error";
+import "react-toastify/dist/ReactToastify.css";
+import api from "../../services/api";
 import listStyle from "./list.module.scss";
 
 type CityProps = {
@@ -18,12 +18,14 @@ const List = () => {
   const [input, setInput] = useState("");
 
   async function getCities() {
-    try{
+    try {
       const res = await api.get("/stonks/cities");
-      const { data:{result}  } = res;
+      const {
+        data: { result },
+      } = res;
       success("Municipio carregado");
       return setCities(result);
-    }catch(err){
+    } catch (err) {
       console.error(err);
       error("Municipio nao carregado");
       return [null, err];
@@ -44,9 +46,15 @@ const List = () => {
   }, []);
   return (
     <main className={listStyle.listContainer}>
-    <ToastContainer />
-        <div className={listStyle.search}>
-        <input type="text" name="search" onChange={e => setInput(e.target.value)} value={input} placeholder="Search city by name"/>
+      <ToastContainer />
+      <div className={listStyle.search}>
+        <input
+          type="text"
+          name="search"
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+          placeholder="Search city by name"
+        />
         <div className={listStyle.icon}>
           <svg id={listStyle.icon} viewBox="0 0 100 100">
             <circle id={listStyle.pie} cx="45" cy="45" r="20"></circle>
@@ -56,9 +64,7 @@ const List = () => {
           </svg>
         </div>
       </div>
-      <div className={listStyle.result}>
-        { city }
-      </div>
+      <div className={listStyle.result}>{city}</div>
     </main>
   );
 };

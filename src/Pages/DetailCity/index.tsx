@@ -2,8 +2,9 @@ import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import api from '../../services/api';
-import Select from 'react-select'
-import Table  from '../../components/Table'
+import Select from 'react-select';
+import Despesas  from '../../components/Table/despesas';
+import Receitas  from '../../components/Table/receitas';
 
 import detailStyle from "./detail.module.scss";
 import customTheme from "../../assets/theme";
@@ -60,6 +61,7 @@ const Detail = () => {
       createYearOption();
       console.log()
     }, [])
+
   const [valueYear , setValueYear ] = useState(thisYear);
   const [valueMonth , setValueMonth ] = useState(thisMonth);
   const [valueType , setValueType ] = useState("receitas");
@@ -67,11 +69,9 @@ const Detail = () => {
     try{
       const res = await api.get(`/stonks/cities/${id}`);
       const {  data:{result} } = res;
-      // success("Municipio carregado");
       return setCity(result);
     }catch(err){
       console.error(err);
-      // error("Municipio nao carregado");
       return [null, err];
     }
   }
@@ -91,7 +91,7 @@ const Detail = () => {
           <Select theme={customTheme} styles={customStyles}  options={optionYear} onChange={(e: any) => setValueYear(e.value)} defaultValue={optionYear[0]}  isSearchable={false} />
       </div>
       <Select styles={customStyles} theme={customTheme} options={optionTypes}  onChange={(e: any) => setValueType(e.value)} defaultValue={optionTypes[0]}  className={detailStyle.typeSelect} isSearchable={false} />
-      <Table cityId={cityId} name={name} imgUrl={imgUrl} originalPortalUrl={originalPortalUrl} year={valueYear} month={valueMonth} type={valueType}  />
+      {valueType === "receitas" ? <Receitas year={valueYear} month={valueMonth} name={name}/> : <Despesas year={valueYear} month={valueMonth} name={name}/>}
       </section>
     )
   })

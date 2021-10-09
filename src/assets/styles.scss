@@ -19,7 +19,9 @@
   border: 0;
   outline: none;
 }
-
+th{
+  text-align: center !important;
+}
 body {
   background: url("img/Bg.svg"), rgba(116, 159, 170, 0.15);
   width: 100vw;
