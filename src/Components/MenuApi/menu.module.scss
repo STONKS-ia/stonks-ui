@@ -1,0 +1,92 @@
+.navbar {
+ position: absolute;
+ width: 300px;
+ height: 700px;
+ margin-top: 50px;
+ color: #fff;
+ background: #3626a7;
+ box-shadow: 5px 6px 8px rgba(54, 38, 167, 0.6);
+ border-radius: 10px 40px;
+
+ h1 {
+   height: 39px;
+   padding-left: 40px;
+   margin-top: 37px;
+
+   font-family: Roboto Slab;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 30px;
+   letter-spacing: 0.025em;
+   text-transform: uppercase;
+
+   color: #ffffff;
+ }
+
+
+ .lista {
+  margin-top: 100px;
+  margin-left: 90px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 30%;
+
+  .ancor {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    position: relative;
+    font-size: 20px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2px;
+    margin-right: 70px;
+    text-decoration: none;
+    color: #fff;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      width: 40px;
+      height: 100%;
+      border-radius: 50%;
+      z-index: 200;
+      top: 0;
+      left: -40px;
+    }
+  }
+  #linkDespesas {
+    &::before {
+      background: url("../../assets/img/despesa.svg") no-repeat center;
+      }
+  }
+
+  #linkReceitas {
+    &::before {
+      background: url("../../assets/img/receita.svg") no-repeat center;
+    }
+  }
+
+  #linkMunicipios {
+    &::before {
+      background: url("../../assets/img/municipio.svg") no-repeat center;
+    }
+  }
+  }
+}
+.active {
+  margin-left: 10px;
+  width: 100%;
+  transition: 1s;
+  padding: 2px 50px 0;
+  background: rgba(250, 100, 50, 0.98);
+  box-shadow: 5px 6px 8px rgba(54, 38, 167, 0.6);
+  border-radius: 50px;
+}
+.inactive {
+  margin-left: 0;
+}

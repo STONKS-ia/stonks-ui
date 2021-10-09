@@ -1,13 +1,14 @@
 import React from "react";
-import "./home.scss";
 import homeImg from "../../assets/img/homeImg.svg";
+import { Link } from "react-router-dom";
+import homeStyle from "./home.module.scss";
 
 const Home = () => {
   return (
-    <div id="flex">
-      <div id="intro">
-        <h1 id="cabecalho">STONKS</h1>
-        <p>
+    <div className={homeStyle.homeContainer}>
+      <div className={homeStyle.intro}>
+        <h1 className={homeStyle.cabecalho}>STONKS</h1>
+        <p >
           Sistema Tributário Original de Navegação Keep Simple é um projeto
           criado pelo grupo Elit da{" "}
           <abbr
@@ -26,10 +27,12 @@ const Home = () => {
           criando um portal de melhor acesso e facilidade tanto para quem
           trabalha quanto para quem utiliza.
         </p>
-        <button id="botao">Lista de Municípios</button>
+        <Link to="/cities" className={homeStyle.textBtn}>
+          <li>Lista de Municípios</li>
+        </Link>
       </div>
-      <div id="home-Img">
-        <img src={homeImg} alt="aloooo" />
+      <div className={homeStyle.monitor}>
+        <img id={homeStyle.monitorImg} src={homeImg} alt="Home Img" />
       </div>
     </div>
   );

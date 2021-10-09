@@ -1,87 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./api.scss";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import MenuApi from "../../components/MenuApi";
+import Despesas from "./despesas";
+import Receitas from "./receitas";
+import Municipios from "./municipios";
+
+import apisStyle from "./api.module.scss";
 
 const APIs = () => {
   return (
-    <div>
-      <div id="navbar">
-        <h1>API’S</h1>
-        <ul id="lista">
-          <li id="despesas" className="item">
-            <Link id="linkDespesas" to="#">
-              DESPESAS
-            </Link>
-          </li>
-          <li id="receitas" className="item">
-            <Link id="linkReceitas" to="/receitas">
-              RECEITAS
-            </Link>
-          </li>
-          <li id="municipios" className="item">
-            <Link id="linkMunicipios" to="/municipios">
-              MUNICIPIOS
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div id="content">
-        <h2>Despesas</h2>
-        <p id="description">
-          Exibe informações sobre despesas detalhadas dos Municípios
-          jurisdiconados ao TCESP com as informações descritas abaixo.
-        </p>
-        <div id="table">
-          <table>
-            <tbody>
-              <tr>
-                <td>Caminho: </td>
-                <td>
-                  {
-                    "https://transparencia.tce.sp.gov.br/api/{formato}/despesas/{municipio}/{exercício}/{mês}"
-                  }
-                </td>
-              </tr>
-              <tr>
-                <td>Exemplo:</td>
-                <td>
-                  <a
-                    id="link-exemplo"
-                    href="https://transparencia.tce.sp.gov.br/api/json/despesas/balsamo/2015/1"
-                  >
-                    https://transparencia.tce.sp.gov.br/api/json/despesas/balsamo/2015/1
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Método:</td>
-                <td>GET</td>
-              </tr>
-              <tr>
-                <td>Formato:</td>
-                <td>json e xml</td>
-              </tr>
-              <tr>
-                <td>Município:</td>
-                <td>
-                  {
-                    "https://transparencia.tce.sp.gov.br/api/{formato}/municipios"
-                  }
-                </td>
-              </tr>
-              <tr>
-                <td>Exercício:</td>
-                <td>2014-2019</td>
-              </tr>
-              <tr>
-                <td>Mês:</td>
-                <td>1-12</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <BrowserRouter>
+    <div className={apisStyle.container}>
+      <MenuApi />
+      <Switch>
+        <Route exact path="/apis" component={Despesas} />
+        <Route exact path="/apis/receitas" component={Receitas} />
+        <Route exact path="/apis/municipios" component={Municipios} />
+      </Switch>
     </div>
+    </BrowserRouter>
   );
 };
 

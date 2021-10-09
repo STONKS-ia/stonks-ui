@@ -1,0 +1,126 @@
+.cityContainer{
+ // border: 3px solid black;
+ width: 70vw;
+ margin: 0 auto;
+ height: 95%;
+ padding: 20px 15px;
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ grid-template-rows: 60px 100px 1fr 1fr;
+ grid-gap: 0 0;
+ grid-template-areas: 
+ "title title . link"
+ "select . . calendar"
+ "table table table table"
+ "table table table table";
+  align-items: center;
+}
+.link {
+  grid-area: link;
+  text-decoration: none;
+  position: relative;
+  width: 260px;
+  display: flex;
+  justify-content: center;
+  padding: 7px 2px;
+  border-radius: 3px 8px;
+  justify-self: flex-end;
+  color: rgba(0, 68, 204, 1);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-align: left;
+  border:1px dashed rgba(0, 68, 204, 1);
+  transition: 0.5s;
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    right: 8px;
+    background-color: rgba(0, 68, 204, 1);
+  }
+  &::after {
+    top: 12px;
+    transform: rotate(45deg);
+  }
+  &::before {
+    top: 18px;
+    box-shadow: 0 3px 5px rgba(34, 0, 204, 0.2);
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    color: rgba(34, 0, 204, 0.9);
+    border: 1px solid rgba(34, 0, 204, 1);
+    transform: scale(1.05);
+    box-shadow: 6px 7px 6px rgba(34, 0, 204, 0.4);
+
+    &:after {
+      background-color: rgba(34, 0, 204, 0.9);
+      animation: expandAfter 0.5s linear forwards;
+    }
+
+    &:before {
+      background-color: rgba(34, 0, 204, 0.9);
+      animation: expandBefore 0.5s linear forwards;
+    }
+  }
+}
+.title {
+ grid-area: title;
+ font-size: 28px;
+ font-family: Roboto slab;
+ color: rgba(13, 1, 6, 0.8);
+ text-transform: uppercase;
+ line-height: 29px;
+ letter-spacing: 0.145em;
+}
+.calendar{
+ grid-area: calendar;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex: 0 0 200px;
+ width: fit-content;
+ padding: 1px 15px;
+ border: 1px dashed rgba(13, 1, 6, 0.2);
+ border-radius: 3px 8px;
+ justify-self: flex-end;
+*{
+  scrollbar-color: #868686 transparent;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(194, 194, 194, 0.5);
+    border-radius: 10px;
+  }
+}
+}
+.typeSelect{
+ font-size: 20px;
+ grid-area: select;
+  width: 60%;
+  border: 1px dashed rgba(13, 1, 6, 0.2);
+  border-radius: 3px 8px;
+  justify-self: flex-start;
+ text-align: center;
+ color: #0D0106;
+}
+@keyframes expandAfter{
+  to{
+    width: 39px;
+    top: 2px;
+    right: -40px;
+  }
+}
+@keyframes expandBefore {
+  to {
+    width: 39px;
+    top: 28px;
+    right: -40px;
+    box-shadow: 6px 7px 6px rgba(34, 0, 204, 0.4);
+  }
+}

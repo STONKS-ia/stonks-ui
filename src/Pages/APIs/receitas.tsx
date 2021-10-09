@@ -1,37 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./api.scss";
+import apisStyle from "./api.module.scss";
 
-const APIs = () => {
+const Receitas = () => {
   return (
-    <div>
-      <div id="navbar">
-        <h1>API’S</h1>
-        <ul id="lista">
-          <li id="despesas" className="item">
-            <Link id="linkDespesas" to="/apis">
-              DESPESAS
-            </Link>
-          </li>
-          <li id="receitas" className="item">
-            <Link id="linkReceitas" to="/receitas">
-              RECEITAS
-            </Link>
-          </li>
-          <li id="municipios" className="item">
-            <Link id="linkMunicipios" to="/municipios">
-              MUNICIPIOS
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div id="content">
+      <div id={apisStyle.content}>
         <h2>Receitas</h2>
-        <p id="description">
+        <p id={apisStyle.description}>
           Exibe informações sobre as receitas dos Municípios jurisdiconados ao
           TCESP com as informações descritas abaixo.
         </p>
-        <div id="table">
+        <div id={apisStyle.table}>
           <table>
             <tbody>
               <tr>
@@ -81,8 +58,7 @@ const APIs = () => {
           </table>
         </div>
       </div>
-    </div>
   );
 };
 
-export default APIs;
+export default Receitas;

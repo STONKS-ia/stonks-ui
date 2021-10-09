@@ -4,32 +4,30 @@ $hover: rgba(54, 38, 167, 1);
 $shadow: rgba(54, 38, 167, 0.4);
 
 .navbar {
-  width: 1500px;
-  height: 50px;
-  margin-top: 40px;
+  width: 85vw;
+  height: 10%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 2rem;
 
-  ul {
+  .navbarList {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 600px;
-    li {
+    width: 800px;
+    .item{
       padding: 10px 2rem;
       border-radius: 10px 20px 10px 20px;
       cursor: pointer;
+      position: relative;
       font-weight: 600;
       transition: 0.3s;
-      a {
-        display: block;
-        text-decoration: none;
-        color: #000;
+      i{
+        margin: 0 0 0 10px;
       }
       &:hover {
         transform: translate(-2px, -5px);
@@ -37,14 +35,28 @@ $shadow: rgba(54, 38, 167, 0.4);
         box-shadow: 6px 7px 6px $shadow;
       }
     }
-    #btn-login {
+    #btnLogin {
       background-color: $btn;
-      a {
-        color: $txtColor;
-      }
+      color: $txtColor;
       &:hover {
         filter: grayscale(0);
       }
     }
   }
+}
+.active {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  li {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translate(-2px, -5px);
+    filter: grayscale(10%);
+    box-shadow: 6px 7px 6px $shadow;
+  }
+}
+a{
+  display: block;
+  text-decoration: none;
+  color: #000;
 }
