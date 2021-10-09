@@ -40,11 +40,10 @@ const AuthProvider: React.FC = ({ children }) => {
   });
 
   const singIn = useCallback(async ({ login, password }) => {
-    const response = await api.post('sessions', {
+    const response = await api.post('/stonks/login', {
       login,
       password,
     });
-
     const { token, user } = response.data;
 
     localStorage.setItem('@Elit:token', token);
