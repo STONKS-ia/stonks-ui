@@ -11,6 +11,7 @@ import styleTable from "./table.module.scss";
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.css';
+import replaceSpecialChars from '../../utils/replace';
 
 function Despesas(props: any) {
   const {name, month, year } = props;
@@ -18,9 +19,10 @@ function Despesas(props: any) {
   const [result, setResult] = useState();
   
   const getTable = useCallback( async ()=>{
+    const nameExtenso = replaceSpecialChars(name);
     setLoading(true);
     try {
-      const res = await tribunal.get(`/despesas/${name}/${year}/${month+1}`)
+      const res = await tribunal.get(`/despesas/${nameExtenso}/${year}/${month+1}`)
       const { data } = res;
       setLoading(false);
       success("Tabela carregada");
