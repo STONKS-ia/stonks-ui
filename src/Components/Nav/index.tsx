@@ -2,26 +2,14 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 import { useAuth } from "../../hooks/auth";
+import LoginButton from "./loginButton";
+import LogoutButton from "./logoutButton";
 import navStyle from "./nav.module.scss";
 
 function Nav() {
   const { name, signOut } = useAuth();
   // const [ logged , setLogged ] = useState<boolean>(false)
 
-  const btnLogin = () =>{
-    return (
-        <NavLink to="/login" activeClassName={navStyle.active} >
-          <li className={navStyle.item} id={navStyle.btnLogin}>Login</li>
-        </NavLink>
-    )
-  }
-  const btnLogout = () => {
-      return (
-         <NavLink to="/login" activeClassName={navStyle.active} >
-          <li className={navStyle.item} id={navStyle.btnLogin}>Logout</li>
-        </NavLink> 
-    )
-  }
   return (
     <nav className={navStyle.navbar}>
 
@@ -46,8 +34,9 @@ function Nav() {
           <li className={navStyle.item}>Fale Conosco</li>
         </NavLink>
         
-        {name && btnLogout}
         
+        {name ? ( <LoginButton/> ) : ( <LogoutButton/>)}
+
       </ul>
     </nav>
   );

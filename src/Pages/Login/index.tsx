@@ -33,7 +33,7 @@ const Login = () => {
           password: data.password,
         });
         success('Logado com sucesso')
-        history.push('/');
+        history.push('/cities');
      } catch (err: any) {
         console.log(err)
         error(`Erro ao logar`);
