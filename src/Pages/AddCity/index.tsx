@@ -26,18 +26,20 @@ const NewCity = () => {
   }, [])
   const handleUpload = async () => {
     if(image){
-        // const uploadTask = storage.ref(`images/${image.name}`).put(image);
-        // uploadTask.on("state_changed", () => { storage
-        //     .ref("images")
-        //     .child(image.name)
-        //     .getDownloadURL()
-        //     .then(url => {
-        //       return url
-        //     });
-        // }
+      //   const metadata = {
+      //     contentType: image.type,
+      //   };
+      //   const storageRef = storage.ref();
+      //   const uploadTask = storageRef.child(`images/${image.name}`).put(image, metadata);
+      //   const url = await uploadTask.on("state_changed", () => { storage
+      //       .ref("images")
+      //       .child(image.name)
+      //       .getDownloadURL()
+      //   }
       // );
     } 
   };
+  console.log(url)
   const handleFormSubmit = async () =>{ 
     await handleUpload();
   }

@@ -12,11 +12,9 @@ const APIs = () => {
     <BrowserRouter>
       <div className={apisStyle.container}>
         <MenuApi />
-        <Switch>
-          <Route path="/" component={Despesas} />
-          <Route path="/receitas" component={Receitas} />
-          <Route path="/municipios" component={Municipios} />
-        </Switch>
+          <Route path="/apis" component={Despesas} />
+          <Route path="/apis/receitas" component={Receitas} />
+          <Route path="/apis/municipios" component={Municipios} />
       </div>
     </BrowserRouter>
   );

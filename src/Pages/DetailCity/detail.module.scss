@@ -110,6 +110,11 @@
  text-align: center;
  color: #0D0106;
 }
+@media (max-width: 2000px) {
+  .cityContainer{
+    width: 90vw;
+  }
+}
 @keyframes expandAfter{
   to{
     width: 39px;

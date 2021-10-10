@@ -10,7 +10,7 @@ function MenuApi() {
         <h1>API’S</h1>
         <ul className={menuStyle.lista}>
           <li  className={menuOption === 1 ? menuStyle.active : menuStyle.inactive}>
-            <Link onClick={()=> { setMenuOption(1)}} className={menuStyle.ancor} id={menuStyle.linkDespesas} to="/apis">DESPESAS</Link>
+            <Link onClick={()=> { setMenuOption(1)}} className={menuStyle.ancor} id={menuStyle.linkDespesas} to="/apis/">DESPESAS</Link>
           </li>
           <li className={menuOption === 2 ? menuStyle.active : menuStyle.inactive}>
             <Link onClick={()=> { setMenuOption(2)}} className={menuStyle.ancor} id={menuStyle.linkReceitas} to="/apis/receitas">RECEITAS</Link>

@@ -5,6 +5,7 @@ import api from '../services/api';
 interface AuthState {
   token: string;
   name: string;
+  roles: string;
 }
 
 interface SigInCredentials {
@@ -13,6 +14,8 @@ interface SigInCredentials {
 }
 
 interface AuthContextData {
+  name: string;
+  roles: string;
   singIn(credentials: SigInCredentials): Promise<void>;
   signOut(): void;
 }
@@ -28,7 +31,7 @@ const AuthProvider: React.FC = ({ children }) => {
     if (token && name && roles) {
       api.defaults.headers.authorization = `Bearer ${token}`;
 
-      return { token, name , roles};
+      return { token, name , roles };
     }
 
     return {} as AuthState;
@@ -46,19 +49,19 @@ const AuthProvider: React.FC = ({ children }) => {
 
     api.defaults.headers.authorization = `Bearer ${token}`;
 
-    setData({ token, name });
+    setData({ token, name, roles });
   }, []);
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@Elit:token');
-    localStorage.removeItem('@Elit:user');
+    localStorage.removeItem('@Elit:name');
     localStorage.removeItem('@Elit:roles');
 
     setData({} as AuthState);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ singIn, signOut }}>
+    <AuthContext.Provider value={{ name: data.name, roles: data.roles, singIn , signOut }}>
       {children}
     </AuthContext.Provider>
   );
