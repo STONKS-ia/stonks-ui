@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@progress/kendo-file-saver": "^1.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.1",
     "@testing-library/user-event": "^13.2.1",
@@ -63,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.3",
     "@types/react-router-dom": "^5.1.8"
   }
 }

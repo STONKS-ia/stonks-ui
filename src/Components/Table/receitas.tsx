@@ -14,12 +14,11 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.css';
 import replaceSpecialChars from '../../utils/replace';
 
-
 function Receitas(props: any) {
   const {name, month, year } = props;
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
-  const dt = useRef(null);
+  const dt = useRef();  
   
   const getTable = useCallback( async ()=>{
     const nameExtenso = replaceSpecialChars(name);
@@ -37,6 +36,10 @@ function Receitas(props: any) {
       return [null, err];
     }
   }, [name, year, month])
+
+  useEffect(() => {
+   getTable()
+  }, [month, year]);
 
 //   const exportCSV = (selectionOnly: any) => {
 //     dt.current.exportCSV({ selectionOnly });
@@ -80,10 +83,6 @@ function Receitas(props: any) {
 //         <Button type="button" icon="pi pi-filter" onClick={() => exportCSV(true)} className="p-button-info p-ml-auto" data-pr-tooltip="Selection Only" />
 //     </div>
 // );
-
-  useEffect(() => {
-   getTable()
-  }, [month, year]);
   return (
       <ScrollPanel  className={styleTable.custom}>
             <DataTable value={result}  paginator paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
