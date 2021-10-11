@@ -4,8 +4,6 @@ import { Form } from '@unform/web'
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
 
-import getValidationErrors from "../../utils/getValidationErrors";
-
 import '../../assets/form.scss'
 import Input  from "../../components/Input"
 import loginStyle from "./login.module.scss";
@@ -13,7 +11,6 @@ import api from "../../services/api";
 import { useAuth } from "../../hooks/auth";
 import error from "../../utils/error";
 import success from "../../utils/success";
-import { ToastContainer } from "react-toastify";
 
 interface SignInFormData {
   login: string;
