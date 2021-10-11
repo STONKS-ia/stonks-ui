@@ -1,9 +1,10 @@
 #divNewUser{
-    height: 500px;
+    height: 600px;
 }
 
 
 #txtUser{
+    margin-top:20px;
     background: url(../../assets/img/user.svg) no-repeat scroll;
 }
 
@@ -21,4 +22,10 @@
 
 #txtLocation{
     background: url(../../assets/img/map.svg) no-repeat scroll;
+}
+
+#select{
+    border: 1px solid black !important;
+    border-radius: 5px;
+    width: 50%;
 }
