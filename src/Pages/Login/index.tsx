@@ -41,8 +41,8 @@ const Login = () => {
     <>  
       <Form ref={formRef} className="form" onSubmit={handleFormSubmit } id={loginStyle.divLogin}>
         <h3>LOGIN</h3>
-        <Input name="login" type="text" className="inputField" id={loginStyle.txtUser} />
-        <Input name="password" type="password"className="inputField" id={loginStyle.txtPass} />
+        <Input name="login" type="text" className="inputField" id={loginStyle.txtUser} placeholder="Usuário"/>
+        <Input name="password" type="password"className="inputField" id={loginStyle.txtPass} placeholder="Senha"/>
         <button type="submit"  className="btnEntrar"> Entrar </button>
       </Form>
     </>

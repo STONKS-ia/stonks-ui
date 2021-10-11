@@ -29,11 +29,11 @@ const AddUser = () => {
     <>
       <Form ref={formRef} onSubmit={handleFormSubmit} className="form" id={newUserStyle.divNewUser}>
         <h3>Novo Usuário</h3>
-        <Input name="username" type="text" className="inputField" id={newUserStyle.txtUser} />
-        <Input name="email" type="text" className="inputField" id={newUserStyle.txtEmail} />
-        <Input name="password" type="password" className="inputField" id={newUserStyle.txtPass} />
-        <Input name="phone" type="text" className="inputField" id={newUserStyle.txtPhone} />
-        <Input name="cityUser" type="text" className="inputField" id={newUserStyle.txtLocation} />
+        <Input name="username" type="text" className="inputField" id={newUserStyle.txtUser} placeholder="Usuário"/>
+        <Input name="email" type="text" className="inputField" id={newUserStyle.txtEmail} placeholder="Email"/>
+        <Input name="password" type="password" className="inputField" id={newUserStyle.txtPass} placeholder="Senha"/>
+        <Input name="phone" type="text" className="inputField" id={newUserStyle.txtPhone} placeholder="Telefone"/>
+        <Input name="cityUser" type="text" className="inputField" id={newUserStyle.txtLocation} placeholder="Endereço"/>
         <Select name="roleUser" id={newUserStyle.select} theme={customTheme} styles={customStyles} options={optionUsers} onChange={(e: any) => setUserType(e.value)} defaultValue={optionUsers[0]}  isSearchable={false}/>
         <button type="submit" className="btnEntrar" id="btnCadastrar">Cadastrar</button>
       </Form>
