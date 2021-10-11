@@ -41,7 +41,7 @@ function Despesas(props: any) {
 
   useEffect(() => {
    getTable()
-  }, [month, year, getTable]);
+  }, [month, year]);
   
   const cols = [
         { field: 'orgao', header: 'Órgao' },

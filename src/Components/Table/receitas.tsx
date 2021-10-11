@@ -53,7 +53,7 @@ function Receitas(props: any) {
 
   useEffect(() => {
    getTable()
-  }, [month, year, getTable]);
+  }, [month, year]);
 
 const exportPdf = () => {
     import('jspdf').then(jsPDF => {

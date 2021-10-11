@@ -15,6 +15,7 @@ type CityProps = {
   imgUrl: string;
   originalPortalUrl: string;
 };
+
 const List = () => {
   const [ cities, setCities ] = useState<CityProps[]>([]);
   const [ input, setInput ] = useState("");
@@ -34,6 +35,7 @@ const List = () => {
       return [null, err];
     }
   }
+
   const city = cities.filter(city => city.name.toLowerCase().includes(input.toLowerCase())).map((city, key) => {
           const { cityId, name, imgUrl } = city;
           const url = `/cities/${cityId}`
@@ -47,6 +49,7 @@ const List = () => {
   useEffect(() =>{
     getCities();
   }, []);
+  
   return (
     <main className={listStyle.listContainer}>
       <ToastContainer />

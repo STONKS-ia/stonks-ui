@@ -78,6 +78,7 @@ const Detail = () => {
   useEffect(() =>{
     getCityById();
   })
+  
   const cityDiv = city.map( (cityDetails, key) =>{
     const {name, originalPortalUrl } = cityDetails;
     return(
