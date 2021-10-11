@@ -11,6 +11,7 @@ import Home from '../pages/Home';
 import List from '../pages/List';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
+import Denied from '../pages/Denied';
 import PrivateRoute from '../routes/privateRoute';
 const AppRoutes = () => (
  <BrowserRouter>
@@ -26,6 +27,7 @@ const AppRoutes = () => (
       <PrivateRoute path="/users" component={AddUser} exact />
        <PrivateRoute path="/addCity" component={AddCity} exact/>
        
+       <Route path="/denied" component={Denied} exact/>
        <Route path="*" component={NotFound} />
     </Switch>
  </BrowserRouter>
