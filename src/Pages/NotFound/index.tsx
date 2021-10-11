@@ -6,7 +6,7 @@ import notFoundStyle from './notFound.module.scss';
 const NotFound  = () =>{
         return (
           <div className={notFoundStyle.notFound}>
-            <img src={PageNotFound}  />
+            <img src={PageNotFound}  alt="Not Found" />
              <h1> Não achei essa pagina </h1>
              <Link to="/"> Quer voltar ?</Link>
           </div>

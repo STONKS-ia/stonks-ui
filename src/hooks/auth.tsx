@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
-import api from '../services/api';
+import apiUrl from '../services/api';
 
 
 interface AuthState {
@@ -16,6 +16,7 @@ interface SigInCredentials {
 interface AuthContextData {
   name: string;
   roles: string;
+  token: string;
   singIn(credentials: SigInCredentials): Promise<void>;
   signOut(): void;
 }
@@ -29,8 +30,6 @@ const AuthProvider: React.FC = ({ children }) => {
     const roles = localStorage.getItem('@Elit:roles');
 
     if (token && name && roles) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
-
       return { token, name , roles };
     }
 
@@ -38,7 +37,7 @@ const AuthProvider: React.FC = ({ children }) => {
   });
 
   const singIn = useCallback(async ({ login, password }) => {
-    const response = await api.post('/stonks/login', {
+    const response = await apiUrl.post('/stonks/login', {
       login,
       password,
     });
@@ -47,8 +46,6 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('@Elit:token', token);
     localStorage.setItem('@Elit:name', name);
     localStorage.setItem('@Elit:roles', roles);
-
-    api.defaults.headers.authorization = `Bearer ${token}`;
 
     setData({ token, name, roles });
   }, []);
@@ -62,7 +59,7 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ name: data.name, roles: data.roles, singIn , signOut }}>
+    <AuthContext.Provider value={{ name: data.name, roles: data.roles, token: data.token, singIn , signOut }}>
       {children}
     </AuthContext.Provider>
   );
