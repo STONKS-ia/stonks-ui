@@ -4,18 +4,17 @@
  margin: 0 auto;
  height: 90%;
  z-index: 0;
+  button{
+    margin-right: 10px !important;
+  }
+}
 .btn{
  width: 200px;
  height: 200px;
  cursor: pointer;
 }
-
-table {
-  border-radius: 100px !important;
-}
-}
-td{
-  font-size: 0.95rem !important;
+.p-button-success{
+  margin-right: 10px !important;
 }
 .back{
   background-color: var(--blue-500);
