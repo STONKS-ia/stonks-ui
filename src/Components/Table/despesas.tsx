@@ -1,7 +1,10 @@
+// @ts-nocheck
 import React, { useState, useEffect, useCallback } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Tooltip } from 'primereact/tooltip';
 import { ScrollPanel } from 'primereact/scrollpanel';
+import { Button } from 'primereact/button';
 
 import success from "../../utils/success";
 import error from "../../utils/error";
@@ -9,8 +12,9 @@ import tribunal from '../../services/tribunal';
 
 import styleTable from "./table.module.scss";
 import 'primeicons/primeicons.css';
-import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/themes/fluent-light/theme.css';
 import 'primereact/resources/primereact.css';
+import 'primeflex/primeflex.css';
 import replaceSpecialChars from '../../utils/replace';
 
 function Despesas(props: any) {
@@ -19,10 +23,9 @@ function Despesas(props: any) {
   const [result, setResult] = useState();
   
   const getTable = useCallback( async ()=>{
-    const nameExtenso = replaceSpecialChars(name);
     setLoading(true);
     try {
-      const res = await tribunal.get(`/despesas/${nameExtenso}/${year}/${month+1}`)
+      const res = await tribunal.get(`/despesas/${name}/${year}/${month+1}`)
       const { data } = res;
       setLoading(false);
       success("Tabela carregada");
@@ -38,18 +41,63 @@ function Despesas(props: any) {
   useEffect(() => {
    getTable()
   }, [month, year]);
+  
+  const cols = [
+        { field: 'orgao', header: 'Órgao' },
+        { field: 'mes', header: 'Mês' },
+        { field: 'evento', header: 'Evento' },
+        { field: 'nr_empenho', header: 'Número do Empenho' },
+        { field: 'id_fornecedor', header: 'CPF / CNPJ' },
+        { field: 'nm_fornecedor', header: 'Nome do Fornecedor' },
+        { field: 'dt_emissao_despesa', header: 'Data do evento' },
+        { field: 'vl_despesa', header: 'Valor' },
+  ];
+
+  const exportColumns = cols.map(col => ({ title: col.header, dataKey: col.field }));
+
+const exportPdf = () => {
+    import('jspdf').then(jsPDF => {
+        import('jspdf-autotable').then(() => {
+            const doc = new jsPDF.default(0, 0);
+            doc.autoTable(exportColumns, result);
+            doc.save(`receitas_${name}_${month}/${year}.pdf`);
+        })
+    })
+}
+
+const exportExcel = () => {
+    import('xlsx').then(xlsx => {
+        const worksheet = xlsx.utils.json_to_sheet(result);
+        const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+        const excelBuffer = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+        saveAsExcelFile(excelBuffer, `receitas_${name}_${month}/${year}`);
+    });
+}
+
+const saveAsExcelFile = (buffer: any, fileName: any) => {
+    import('file-saver').then(FileSaver => {
+        let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+        let EXCEL_EXTENSION = '.xlsx';
+        const data = new Blob([buffer], {
+            type: EXCEL_TYPE
+        });
+        FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+    });
+}
+
+const header = (
+    <div className="p-d-flex  export-buttons">
+        <Button type="button" icon="pi pi-file-excel" onClick={exportExcel} className="p-button-success " data-pr-tooltip="XLS" />
+        <Button type="button" icon="pi pi-file-pdf" onClick={exportPdf} className="p-button-warning " data-pr-tooltip="PDF" />
+    </div>
+);
+
   return (
       <ScrollPanel  className={styleTable.custom}>
-            <DataTable value={result} paginator paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+            <Tooltip target=".export-buttons>button" position="bottom" />
+            <DataTable value={result} header={header}  paginator paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" rows={5} loading={loading} className={styleTable.table}>
-                <Column field="orgao" header="Órgao"></Column>
-                <Column style={{textAlign: 'center'}} field="mes" header="Mês"></Column>
-                <Column style={{textAlign: 'center'}} field="evento" header="Evento"></Column>
-                <Column style={{textAlign: 'center'}} field="nr_empenho" header="Número do Empenho"></Column>
-                <Column field="id_fornecedor" header="CPF / CNPJ / Ident.Esp."></Column>
-                <Column field="nm_fornecedor" header="Nome do Fornecedor"></Column>
-                <Column style={{textAlign: 'center'}} field="dt_emissao_despesa" header="Data do evento"></Column>
-                <Column style={{textAlign: 'center'}} field="vl_despesa" header="Valor"></Column>
+                {cols.map((col, index) => <Column key={index} field={col.field} header={col.header} />) }
             </DataTable>
         </ScrollPanel>
   );
