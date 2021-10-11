@@ -19,6 +19,15 @@ const List = () => {
   const [ cities, setCities ] = useState<CityProps[]>([]);
   const [ input, setInput ] = useState("");
   const { roles } = useAuth();
+  const [ isLoggedIn , setIsLoggedIn ] = useState<boolean>(false);
+  
+  useEffect(() => {
+    if(roles == "ROLE_ADMIN"){
+        setIsLoggedIn(true);
+    }else{
+        setIsLoggedIn(false);
+    }
+  }, [roles])
 
   async function getCities() {
     try {
@@ -67,9 +76,10 @@ const List = () => {
           </svg>
         </div>
       </div>
+      {isLoggedIn &&
         <Link to={"/addCity"} className={listStyle.addMunicipio}>
                 Adicionar Município
-        </Link>
+        </Link>}
       <div className={listStyle.result}>{city}</div>
     </main>
   );
