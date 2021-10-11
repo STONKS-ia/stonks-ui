@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Tooltip } from 'primereact/tooltip';
@@ -53,7 +53,7 @@ function Receitas(props: any) {
 
   useEffect(() => {
    getTable()
-  }, [month, year]);
+  }, [month, year, getTable]);
 
 const exportPdf = () => {
     import('jspdf').then(jsPDF => {

@@ -1,13 +1,11 @@
 import React, {  useRef } from "react";
 import {FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
-import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
 
 import '../../assets/form.scss'
 import Input  from "../../components/Input"
 import loginStyle from "./login.module.scss";
-import api from "../../services/api";
 import { useAuth } from "../../hooks/auth";
 import error from "../../utils/error";
 import success from "../../utils/success";
@@ -22,7 +20,7 @@ const Login = () => {
   const history: any = useHistory();
   const { singIn } = useAuth();
 
-  const handleFormSubmit  = async (data: SignInFormData, ) => {
+  const handleFormSubmit  = async (data: SignInFormData) => {
      try {
        formRef.current?.setErrors({});
         await singIn({

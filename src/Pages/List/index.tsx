@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+
 import success from "../../utils/success";
 import error from "../../utils/error";
+import apiUrl from "../../services/api";
+import { useAuth } from "../../hooks/auth";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import api from "../../services/api";
 import listStyle from "./list.module.scss";
 
 type CityProps = {
@@ -14,12 +16,13 @@ type CityProps = {
   originalPortalUrl: string;
 };
 const List = () => {
-  const [cities, setCities] = useState<CityProps[]>([]);
-  const [input, setInput] = useState("");
+  const [ cities, setCities ] = useState<CityProps[]>([]);
+  const [ input, setInput ] = useState("");
+  const { roles } = useAuth();
 
   async function getCities() {
     try {
-      const res = await api.get("/stonks/cities");
+      const res = await apiUrl.get("/stonks/cities");
       const {
         data: { result },
       } = res;
@@ -64,7 +67,7 @@ const List = () => {
           </svg>
         </div>
       </div>
-      <Link to={"/addCity"} className={listStyle.addMunicipio}>
+        <Link to={"/addCity"} className={listStyle.addMunicipio}>
                 Adicionar Município
         </Link>
       <div className={listStyle.result}>{city}</div>

@@ -21,7 +21,7 @@ function Despesas(props: any) {
   const {name, month, year } = props;
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
-  
+
   const getTable = useCallback( async ()=>{
     setLoading(true);
     const muicipioExtenso = replaceSpecialChars(name);
@@ -41,7 +41,7 @@ function Despesas(props: any) {
 
   useEffect(() => {
    getTable()
-  }, [month, year]);
+  }, [month, year, getTable]);
   
   const cols = [
         { field: 'orgao', header: 'Órgao' },
@@ -61,7 +61,7 @@ const exportPdf = () => {
         import('jspdf-autotable').then(() => {
             const doc = new jsPDF.default(0, 0);
             doc.autoTable(exportColumns, result);
-            doc.save(`receitas_${name}_${month}/${year}.pdf`);
+            doc.save(`despesas_${name}_${month}/${year}.pdf`);
         })
     })
 }
@@ -71,7 +71,7 @@ const exportExcel = () => {
         const worksheet = xlsx.utils.json_to_sheet(result);
         const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
         const excelBuffer = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-        saveAsExcelFile(excelBuffer, `receitas_${name}_${month}/${year}`);
+        saveAsExcelFile(excelBuffer, `despesas_${name}_${month}/${year}`);
     });
 }
 

@@ -1,21 +1,28 @@
+// @ts-nocheck
 import React, {   ChangeEvent,
   useRef,
   useCallback,
   useState
 } from "react";
 import {FormHandles } from '@unform/core'
+import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web'
 
 import Input  from "../../components/Input"
+import success from "../../utils/success";
+import error from "../../utils/error";
+import { useAuth } from "../../hooks/auth";
+import { storage , ref , uploadBytesResumable, getDownloadURL } from "../../Firebase";
+import apiUrl from '../../services/api'
 import '../../assets/form.scss'
 import newCityStyle from "./newCity.module.scss";
-import { storage } from "../../Firebase";
 
 const NewCity = () => {
   const [image, setImage] = useState<File>()
   const [preview, setPreview] = useState<string>();
   const [url, setUrl] = useState("");
-
+  const history: any = useHistory();
+  const { token , signOut, roles } = useAuth();
   const formRef = useRef<FormHandles>(null);
 
   const handleImageChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,24 +31,64 @@ const NewCity = () => {
       setPreview(URL.createObjectURL(e.target.files[0]))
     }
   }, [])
+
   const handleUpload = async () => {
     if(image){
-      //   const metadata = {
-      //     contentType: image.type,
-      //   };
-      //   const storageRef = storage.ref();
-      //   const uploadTask = storageRef.child(`images/${image.name}`).put(image, metadata);
-      //   const url = await uploadTask.on("state_changed", () => { storage
-      //       .ref("images")
-      //       .child(image.name)
-      //       .getDownloadURL()
-      //   }
-      // );
+      const metadata = {
+        contentType: image.type,
+      };
+      const storageRef = ref(storage, `images/${image.name}`);
+    
+      const uploadTask = uploadBytesResumable(storageRef, image, metadata);
+      
+      uploadTask.on('state_changed', (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+        switch (snapshot.state) {
+          case 'paused':
+            console.log('Upload is paused');
+            break;
+          case 'running':
+            console.log('Upload is running');
+            break;
+      }}, (error) => { console.log(error)}, () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setUrl(downloadURL);
+          });
+        });
     } 
-  };
-  console.log(url)
-  const handleFormSubmit = async () =>{ 
+  }
+
+  const handleFormSubmit = async (data: SignInFormData) =>{ 
     await handleUpload();
+      debugger;
+      if(url){
+      try {
+        const options = { headers: {'Authorization': `Bearer ${token}`} }
+        await apiUrl.post('/stonks/cities', {
+            name: data.cityName,
+            originalPortalUrl: data.cityUrlPortal,
+            imgUrl: url
+          }, options)
+
+        success('Cidade cadastrada com sucesso')
+        history.push('/cities');
+
+      } catch (err: any) {
+        console.log(err)
+          if (error.response.status === 403) {
+            await signOut;
+            error('Token has expired, please logon again');
+            history.push('/login');
+          } else if (error.request) {
+            console.log(error.request);
+            error(`Error ${error.request}`);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            error(`Error ${error.message}`);
+          }
+      }
+    }
   }
 
 

@@ -8,6 +8,7 @@ function Nav() {
   const { name, signOut } = useAuth(); 
   const [ isLoggedIn , setIsLoggedIn ] = useState<boolean>(false)
   const [ open, setOpen ] = useState<boolean>(false);
+  
   useEffect(() => {
     if(name){
       setIsLoggedIn(true);

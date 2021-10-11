@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import MenuApi from "../../components/MenuApi";
 import Despesas from "./despesas";
 import Receitas from "./receitas";
