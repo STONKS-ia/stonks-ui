@@ -19,10 +19,26 @@
       border-radius: 10px 20px 10px 20px;
       cursor: pointer;
       position: relative;
-      font-weight: 600;
-      transition: 0.3s;
+      transition: 0.5s;
+      text-transform: capitalize;
+      font-weight: bold;
       i{
-        margin: 0 0 0 10px;
+        margin: 0 10px;
+      }
+      button{
+        position: absolute;
+        right: -22px;
+        bottom: -40px;
+        padding: 11px 35px;
+        border-radius: 10px 20px 10px 20px;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 1s;
+        color: var(--white);
+        cursor: pointer;
+        background-color: rgba(var(--blueRgb), 0.7);
+        box-shadow: 6px 7px 6px rgba(var(--blueRgb), 0.4);
       }
       &:hover {
         transform: translate(-2px, -5px);

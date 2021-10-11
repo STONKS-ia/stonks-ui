@@ -6,6 +6,16 @@ import navStyle from "./nav.module.scss";
 
 function Nav() {
   const { name, signOut } = useAuth(); 
+  const [ isLoggedIn , setIsLoggedIn ] = useState<boolean>(false)
+  const [ open, setOpen ] = useState<boolean>(false);
+  useEffect(() => {
+    if(name){
+      setIsLoggedIn(true);
+    }else{
+      setIsLoggedIn(false);
+    }
+  }, [name])
+
   return (
     <nav className={navStyle.navbar}>
 
@@ -30,28 +40,22 @@ function Nav() {
           <li className={navStyle.item}>Fale Conosco</li>
         </NavLink>
 
+        {/* If is not Logged In */}
+        {!isLoggedIn && 
+          <NavLink to="/login" activeClassName={navStyle.active} >
+            <li className={navStyle.item} id={navStyle.btnLogin}>Login</li>
+          </NavLink>}
+        {/* If is Logged in */}
+        {isLoggedIn &&
+          <li className={navStyle.item} onClick={() => setOpen(!open)}>
+            <i className="far  fa-user-circle fa-lg" />
+            {name}
+            <i className={!open ? "fas fa-chevron-down fa-xs" : "fas fa-chevron-up fa-xs"} />
+            {open && <button onClick={signOut} >Logout</button>}
+          </li>}
+       
       </ul>
     </nav>
   );
 }
 export default Nav;
-
-export const goToLogin = () =>{
-  return (
-      <NavLink to="/login" activeClassName={navStyle.active} >
-        <li className={navStyle.item} id={navStyle.btnLogin}>Login</li>
-      </NavLink>  
-  )
-}
-export const  isLogged = (username: string)  => {
-    return (
-        <li className={navStyle.item} id={navStyle.btnLogin}>{username}</li>
-    )
-}
-
-export const BtnLogout = () =>{
-    const { signOut } = useAuth();
-    return (
-        <button onClick={async () => {await signOut}}>Logout</button>
-    )
-}
