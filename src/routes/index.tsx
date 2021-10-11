@@ -11,7 +11,7 @@ import Home from '../pages/Home';
 import List from '../pages/List';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
-
+import PrivateRoute from '../routes/privateRoute';
 const AppRoutes = () => (
  <BrowserRouter>
      <Nav />
@@ -19,13 +19,12 @@ const AppRoutes = () => (
        <Route exact  path="/" component={Home} />
        <Route exact path="/about" component={About} />
        <Route exact path="/login" component={Login} />
-
        <Route exact path="/apis" component={APIs} />
        <Route exact path="/cities" component={List} />
        <Route exact path="/cities/:id" component={Detail} />
 
-       <Route exact path="/users" component={AddUser} />
-       <Route exact path="/addCity" component={AddCity} />
+      <PrivateRoute path="/users" component={AddUser} exact />
+       <PrivateRoute path="/addCity" component={AddCity} exact/>
        
        <Route path="*" component={NotFound} />
     </Switch>
