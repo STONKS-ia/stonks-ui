@@ -18,7 +18,6 @@ function Despesas(props: any) {
   const [result, setResult] = useState();
   
   const getTable = useCallback( async ()=>{
-
     setLoading(true);
     try {
       const res = await tribunal.get(`/despesas/${name}/${year}/${month+1}`)
