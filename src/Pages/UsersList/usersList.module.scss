@@ -1,0 +1,67 @@
+.userContainer {
+    // border: 3px solid black;
+    width: 70vw;
+    margin: 0 auto;
+    height: 95%;
+    padding: 20px 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 60px 60px 1fr 1fr;
+    grid-gap: 0 0;
+    grid-template-areas:
+        "title title . ."
+        ". . . button"
+        "table table table table"
+        "table table table table";
+    align-items: center;
+}
+
+.title {
+    grid-area: title;
+    font-size: 28px;
+    font-family: var(--slab);
+    color: rgba(13, 1, 6, 0.8);
+    text-transform: uppercase;
+    line-height: 29px;
+    letter-spacing: 0.145em;
+}
+
+.custom {
+    grid-area: table;
+    width: 100%;
+    margin: 0 auto;
+    height: 90%;
+    z-index: 0;
+    button {
+        margin-right: 10px !important;
+    }
+}
+#btn {
+    width: 160px;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 20px;
+    border-radius: 10px 20px;
+    grid-area: button;
+}
+.p-button-success {
+    margin-right: 10px !important;
+}
+.back {
+    background-color: var(--blue-500);
+}
+
+.addUsuario{
+    grid-area: button;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-end;
+    margin-left: 30px;
+    display: flex;
+    width: 200px;
+    min-width: 100px;
+    height: 50px;
+    color: white;
+    background-color:var(--blue);
+    border-radius: 10px 20px;
+}

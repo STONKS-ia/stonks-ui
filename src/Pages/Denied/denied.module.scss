@@ -1,0 +1,49 @@
+.notFound{
+  width: 60%;
+  margin: 0 auto;
+  height: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "title img"
+  "link img";
+  h1{
+   grid-area: title;
+   align-self: center;
+   justify-self: flex-end;
+   font-size: 4rem;
+   text-align: center;
+   font-weight: 700;
+   font-family: var(--slab);
+  }
+  img{
+   grid-area: img;
+   align-self: center;
+   justify-self: flex-end;
+  }
+  a{
+   grid-area: link;
+   align-self: flex-start;
+   justify-self: center;
+   text-decoration: none;
+
+   padding: 20px 40px;
+   border: 1px solid var(--black);
+   color: var(--black);
+   background: rgba(255, 255, 255, 0.3);
+   border-radius: 3px 8px;
+   font-size: 1.5rem;
+   word-break: keep-all;
+   font-weight: 600;
+   position: relative;
+   transition: 0.4s;
+   overflow: none;
+
+   &:hover {
+    border: 2px solid var(--black);
+    color: var(--white);
+    background: var(--black);
+   }
+  }
+}

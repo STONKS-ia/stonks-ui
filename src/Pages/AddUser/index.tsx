@@ -29,32 +29,11 @@ const AddUser = () => {
   const [ input, setInput ] = useState("");
   const formRef = useRef<FormHandles>(null);
   let optionUsers: OptionProps[] = [
-    {value: "user", label:"Usuário comum"},
-    {value: "admin", label:"Administrador"},
+    {value: "ROLE_USER", label:"Usuário comum"},
+    {value: "ROLE_ADMIN", label:"Administrador"},
   ]
 
-  async function getCities() {
-    try {
-      const res = await apiUrl.get("/stonks/cities");
-      const {
-        data: { result },
-      } = res;
-      return setCities(result);
-    } catch (err) {
-      return [null, err];
-    }
-  }
-
-  const optionCities: CityProps[] = cities.map((field) => field.name)
-
-  const handleFormSubmit = () =>{
-
-  }
-
-  useEffect(() =>{
-    getCities();
-  }, []);
-  
+  const handleFormSubmit = () =>{}
   return (
     <>
       <Form ref={formRef} onSubmit={handleFormSubmit} className="form" id={newUserStyle.divNewUser}>
@@ -64,7 +43,7 @@ const AddUser = () => {
         <Input name="password" type="password" className="inputField" id={newUserStyle.txtPass} placeholder="Senha"/>
         <Input name="phone" type="text" className="inputField" id={newUserStyle.txtPhone} placeholder="Telefone"/>
         <Input name="cityUser" type="text" className="inputField" id={newUserStyle.txtLocation} placeholder="Endereço"/>
-        <Select name="roleUser" id={newUserStyle.select} theme={customTheme} styles={customStyles} options={optionCities} onChange={(e: any) => setUserType(e.value)} defaultValue={optionUsers[0]}  isSearchable={false}/>
+        <Select name="roleUser" id={newUserStyle.select} theme={customTheme} styles={customStyles} onChange={(e: any) => setUserType(e.value)} defaultValue={optionUsers[0]}  isSearchable={false}/>
         <Select name="roleUser" id={newUserStyle.select} theme={customTheme} styles={customStyles} options={optionUsers} onChange={(e: any) => setUserType(e.value)} defaultValue={optionUsers[0]}  isSearchable={false}/>
         <button type="submit" className="btnEntrar" id="btnCadastrar">Cadastrar</button>
       </Form>
