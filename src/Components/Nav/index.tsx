@@ -5,17 +5,25 @@ import { useAuth } from "../../hooks/auth";
 import navStyle from "./nav.module.scss";
 
 function Nav() {
-  const { name, signOut } = useAuth(); 
+  const { name, roles, signOut } = useAuth(); 
   const [ isLoggedIn , setIsLoggedIn ] = useState<boolean>(false)
+  const [ isAdmin , setIsAdmin ] = useState<boolean>(false)
   const [ open, setOpen ] = useState<boolean>(false);
-  
+
   useEffect(() => {
     if(name){
       setIsLoggedIn(true);
     }else{
       setIsLoggedIn(false);
     }
-  }, [name])
+    console.log(roles)
+    if(roles == "ROLE_ADMIN"){
+      setIsAdmin(true);
+    }else{
+      setIsAdmin(false);
+    }
+
+  }, [name, roles])
 
   return (
     <nav className={navStyle.navbar}>
@@ -33,9 +41,11 @@ function Nav() {
           <li className={navStyle.item}>Municipios</li>
         </NavLink>
 
-        <NavLink to="/users" activeClassName={navStyle.active}  >
-          <li className={navStyle.item}>Usuários</li>
-        </NavLink>
+        {isAdmin && 
+          <NavLink to="/users" activeClassName={navStyle.active}  >
+            <li className={navStyle.item}>Usuários</li>
+          </NavLink>}
+        
 
         <NavLink to="/about" activeClassName={navStyle.active} >
           <li className={navStyle.item}>Fale Conosco</li>
