@@ -9,8 +9,8 @@
     grid-template-rows: 60px 60px 1fr 1fr;
     grid-gap: 0 0;
     grid-template-areas:
-        "title title . link"
-        "select . . calendar"
+        "title title . ."
+        ". . . button"
         "table table table table"
         "table table table table";
     align-items: center;
@@ -36,10 +36,13 @@
         margin-right: 10px !important;
     }
 }
-.btn {
-    width: 200px;
-    height: 200px;
-    cursor: pointer;
+#btn {
+    width: 160px;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-right: 20px;
+    border-radius: 10px 20px;
+    grid-area: button;
 }
 .p-button-success {
     margin-right: 10px !important;

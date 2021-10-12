@@ -18,13 +18,11 @@ const AddUser = () => {
   const [valueUser , setUserType ] = useState("receitas");
   const formRef = useRef<FormHandles>(null);
   let optionUsers: OptionProps[] = [
-    {value: "user", label:"Usuário comum"},
-    {value: "admin", label:"Administrador"},
+    {value: "ROLE_USER", label:"Usuário comum"},
+    {value: "ROLE_ADMIN", label:"Administrador"},
   ]
 
-  const handleFormSubmit = () =>{
-
-  }
+  const handleFormSubmit = () =>{}
   return (
     <>
       <Form ref={formRef} onSubmit={handleFormSubmit} className="form" id={newUserStyle.divNewUser}>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { Button } from 'primereact/button';
 
 import success from "../../utils/success";
 import error from "../../utils/error";
@@ -20,6 +21,7 @@ const List = () => {
   const [ cities, setCities ] = useState<CityProps[]>([]);
   const [ input, setInput ] = useState("");
   const { roles } = useAuth();
+  const history = useHistory();
   const [ isLoggedIn , setIsLoggedIn ] = useState<boolean>(false);
   
   useEffect(() => {
@@ -44,7 +46,9 @@ const List = () => {
       return [null, err];
     }
   }
-
+  const addMunicipio = () =>{
+    history.push('/addCity')
+  }
   const city = cities.filter(city => city.name.toLowerCase().includes(input.toLowerCase())).map((city, key) => {
           const { cityId, name, imgUrl } = city;
           const url = `/cities/${cityId}`
@@ -80,9 +84,7 @@ const List = () => {
         </div>
       </div>
       {isLoggedIn &&
-        <Link to={"/addCity"} className={listStyle.addMunicipio}>
-                Adicionar Município
-        </Link>}
+          <Button label="Adicionar Municípioo" icon="pi pi-plus" id={listStyle.addMunicipio} className="p-button p-mr-2"  onClick={() => addMunicipio()} />}
       <div className={listStyle.result}>{city}</div>
     </main>
   );

@@ -25,12 +25,12 @@ const AppRoutes = () => (
        <Route exact path="/cities" component={List} />
        <Route exact path="/cities/:id" component={Detail} />
 
-       <Route exact path="/users" component={UsersList} />
-      <PrivateRoute path="/users/save/?:id" component={AddUser} exact />
-       <PrivateRoute path="/addCity" component={AddCity} exact/>
+       <PrivateRoute exact path="/addCity" component={AddCity} />
+       <PrivateRoute exact path="/users" component={UsersList} />
+       <PrivateRoute exact path="/users/save/:id?" component={AddUser}  />
        
-       <Route path="/denied" component={Denied} exact/>
        <Route path="*" component={NotFound} />
+       <Route path="/denied" component={Denied} exact/>
     </Switch>
  </BrowserRouter>
 );

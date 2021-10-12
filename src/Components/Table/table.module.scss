@@ -16,6 +16,13 @@
 .p-button-success{
   margin-right: 10px !important;
 }
+
+.table-header {
+  width: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
 .back{
   background-color: var(--blue-500);
 }

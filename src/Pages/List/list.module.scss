@@ -237,17 +237,12 @@
   }
 }
 
-.addMunicipio{
+#addMunicipio{
   grid-area: button;
-  align-items: center;
-  justify-content: center;
+  width: 260px;
   justify-self: flex-end;
-  margin-left: 30px;
-  display: flex;
-  width: 200px;
-  min-width: 100px;
-  height: 50px;
-  color: white;
-  background-color:var(--blue);
+  align-self: flex-end;
+  margin-right: 10px;
+  background: var(--blue);
   border-radius: 10px 20px;
 }

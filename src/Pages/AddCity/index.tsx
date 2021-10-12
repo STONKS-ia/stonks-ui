@@ -7,6 +7,7 @@ import React, {   ChangeEvent,
 import {FormHandles } from '@unform/core'
 import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web'
+import { ToastContainer } from "react-toastify";
 
 import Input  from "../../components/Input"
 import success from "../../utils/success";
@@ -61,39 +62,39 @@ const NewCity = () => {
 
   const handleFormSubmit = async (data: SignInFormData) =>{ 
     await handleUpload();
-      debugger;
       if(url){
-      try {
-        const options = { headers: {'Authorization': `Bearer ${token}`} }
-        await apiUrl.post('/stonks/cities', {
-            name: data.cityName,
-            originalPortalUrl: data.cityUrlPortal,
-            imgUrl: url
-          }, options)
+        try {
+          const options = { headers: {'Authorization': `Bearer ${token}`} }
+          await apiUrl.post('/stonks/cities', {
+              name: data.cityName,
+              originalPortalUrl: data.cityUrlPortal,
+              imgUrl: url
+            }, options)
 
-        success('Cidade cadastrada com sucesso')
-        history.push('/cities');
+          success('Cidade cadastrada com sucesso')
+          history.push('/cities');
 
-      } catch (err: any) {
-        console.log(err)
-          if (error.response.status === 403) {
-            await signOut;
-            error('Token has expired, please logon again');
-            history.push('/login');
-          } else if (error.request) {
-            console.log(error.request);
-            error(`Error ${error.request}`);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            error(`Error ${error.message}`);
+      } catch (err: Error | AxiosError | any) {
+          if(err.response){
+              if (err.response.status === 403) {
+                  await signOut;
+                  error('Token has expired, please logon again');
+                  history.push('/login');
+              } else if (err.request) {
+                  console.log(err.request);
+                  error(`Error ${err.request}`);
+              } else {
+                  // Something happened in setting up the request that triggered an Error
+                  error(`Error ${err.message}`);
+              };
           }
-      }
+        };
     }
   }
 
-
   return (
     <>
+      <ToastContainer />
       <Form ref={formRef} onSubmit={handleFormSubmit } className="form" id={newCityStyle.divNewCity}>
 
         <h3>Novo Município</h3>

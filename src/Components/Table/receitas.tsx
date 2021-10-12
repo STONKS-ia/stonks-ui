@@ -86,9 +86,9 @@ const saveAsExcelFile = (buffer: any, fileName: any) => {
 }
 
 const header = (
-    <div className="p-d-flex export-buttons" >
-        <Button type="button" icon="pi pi-file-excel" onClick={exportExcel} className="p-button-success" data-pr-tooltip="XLS" />
-        <Button type="button" icon="pi pi-file-pdf" onClick={exportPdf} className="p-button-warning" data-pr-tooltip="PDF" />
+    <div className="p-d-flex  export-buttons" style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
+        <Button type="button" icon="pi pi-file-excel" onClick={exportExcel} className="p-button-success" data-pr-tooltip="Export to XLS" />
+        <Button type="button" icon="pi pi-file-pdf" onClick={exportPdf} className="p-button-warning" data-pr-tooltip="Export to PDF" />
     </div>
 );
 
@@ -98,7 +98,7 @@ const header = (
             <DataTable value={result} header={header} paginator paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" rows={5} loading={loading} className={styleTable.table} >
 
-                    {cols.map((col, index) => <Column key={index} field={col.field} header={col.header} />) }
+                    {cols.map((col, index) => <Column style={{textAlign: 'center'}} key={index} field={col.field} header={col.header} sortable />) }
             </DataTable>
         </ScrollPanel>
   );
