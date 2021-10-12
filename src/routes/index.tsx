@@ -25,7 +25,8 @@ const AppRoutes = () => (
        <Route exact path="/cities" component={List} />
        <Route exact path="/cities/:id" component={Detail} />
 
-      <PrivateRoute path="/users" component={AddUser} exact />
+       <Route exact path="/users" component={UsersList} />
+      <PrivateRoute path="/users/save/?:id" component={AddUser} exact />
        <PrivateRoute path="/addCity" component={AddCity} exact/>
        
        <Route path="/denied" component={Denied} exact/>
