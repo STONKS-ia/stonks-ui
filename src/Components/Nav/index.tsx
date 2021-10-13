@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import logo from "../../assets/img/logo.svg";
 import { useAuth } from "../../hooks/auth";
 import navStyle from "./nav.module.scss";
@@ -9,6 +9,7 @@ function Nav() {
   const [ isLoggedIn , setIsLoggedIn ] = useState<boolean>(false)
   const [ isAdmin , setIsAdmin ] = useState<boolean>(false)
   const [ open, setOpen ] = useState<boolean>(false);
+  const history = useHistory();
 
   useEffect(() => {
     if(name){
@@ -62,7 +63,7 @@ function Nav() {
             <i className="far  fa-user-circle fa-lg" />
             {name}
             <i className={!open ? "fas fa-chevron-down fa-xs" : "fas fa-chevron-up fa-xs"} />
-            {open && <button onClick={signOut} >Logout</button>}
+            {open && <button onClick={async() => {await signOut(); history.push('/')} } >Logout</button>}
           </li>}
        
       </ul>

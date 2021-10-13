@@ -3,9 +3,9 @@ const customStyles = {
     ...provided,
     color: state.isSelected ? 'white' : 'black',
     padding: 20,
-    zIndex: 9999,
     cursor: 'pointer',
   }),
+  menu: provided => ({ ...provided, zIndex: 9999 }),
   control: (styles) => ({
     ...styles,
     backgroundColor: 'transparent',

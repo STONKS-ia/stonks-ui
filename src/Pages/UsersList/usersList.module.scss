@@ -18,7 +18,7 @@
 
 .title {
     grid-area: title;
-    font-size: 28px;
+    font-size: 1.5rem;
     font-family: var(--slab);
     color: rgba(13, 1, 6, 0.8);
     text-transform: uppercase;
@@ -69,3 +69,17 @@
     background-color:var(--blue);
     border-radius: 10px 20px;
 }
+@media (max-width: 1920px){
+    .userContainer{
+        width: 80vw;
+    }
+}
+
+@media (max-width: 1360px) {
+    .userContainer {
+        width: 90vw;
+        padding: 15px 15px;
+        grid-template-rows: 30px 30px 1fr 1fr;
+    }
+}
+

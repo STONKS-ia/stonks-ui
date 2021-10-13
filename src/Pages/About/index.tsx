@@ -13,10 +13,7 @@ const About = () => {
             <b>Endereço:</b> Prédio Sede 7º andar
           </li>
           <li className={aboutStyle.itemList}>
-            <b>Ouvidoria: </b>
-            <a href="http://www4.tce.sp.gov.br/ouvidoria">
-              www4.tce.sp.gov.br/ouvidoria
-            </a>
+            <b>Ouvidoria: </b><a href="http://www4.tce.sp.gov.br/ouvidoria"> www4.tce.sp.gov.br/ouvidoria </a>
           </li>
           <li className={aboutStyle.itemList}>
             <b>Central de Atendimento:</b> 0800 8007575

@@ -28,7 +28,7 @@ const AuthProvider: React.FC = ({ children }) => {
     const token = localStorage.getItem('@Elit:token');
     const name = localStorage.getItem('@Elit:name');
     const roles = localStorage.getItem('@Elit:roles');
-
+    
     if (token && name && roles) {
       return { token, name , roles };
     }
@@ -53,7 +53,6 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.removeItem('@Elit:token');
     localStorage.removeItem('@Elit:name');
     localStorage.removeItem('@Elit:roles');
-
     setData({} as AuthState);
   }, []);
 

@@ -13,7 +13,6 @@ import success from "../../utils/success";
 import UsersListStyle from "./usersList.module.scss";
 import { useAuth } from "../../hooks/auth";
 import { useHistory } from 'react-router-dom'
-import AddUser from '../AddUser'
 
 import "react-toastify/dist/ReactToastify.css";
 import 'primeicons/primeicons.css';
@@ -34,10 +33,9 @@ const UserList = () => {
     const [users, setUsers] = useState<User[]>([]);
     const [user, setUser] = useState<User>();
     const [deleteUserDialog, setDeleteUserDialog] = useState(false);
-    const [addUserDialog, setAddUserDialog] = useState(false);
     const { token, signOut } = useAuth();
     const history = useHistory();
-    const header = { headers: {'Content-Type': 'application/json',  'Authorization': `Bearer ${token}` } }
+    const header = { headers: {  'Authorization': `Bearer ${token}` } }
 
     const getUsers = async () => {
         try {
@@ -65,11 +63,7 @@ const UserList = () => {
     }, []);
 
     const addUser = () => {
-        setAddUserDialog(true);
-        // history.push('/users/save');
-    }
-    const hideAddUserDialog = () => {
-        setAddUserDialog(false);
+        history.push('/users/save');
     }
     const editUser = (user: User) => {
         console.log(user)
@@ -112,11 +106,11 @@ const UserList = () => {
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-warning" onClick={() => deleteUser(rowData)} />
             </React.Fragment>
         );
-    } 
-    const deleteUserDialogFooter = (
+    }
+  const deleteProductDialogFooter = (
         <React.Fragment>
             <Button label="No" icon="pi pi-times" className="p-button-text" onClick={hideDeleteUserDialog} />
-            <Button label="Yes" type="submit" icon="pi pi-check" className="p-button-text" />
+            <Button label="Yes" icon="pi pi-check" className="p-button-text" onClick={confirmDeleteUser} />
         </React.Fragment>
     );
     return (
@@ -140,12 +134,7 @@ const UserList = () => {
                 </DataTable>
             </ScrollPanel>
 
-            
-            <Dialog visible={addUserDialog} style={{ heigh: '500px' }} modal onHide={hideAddUserDialog}>
-                <Button icon="pi pi-times" className={UsersListStyle.closeBtn} onClick={hideAddUserDialog} />
-                <AddUser />
-            </Dialog>
-            <Dialog visible={deleteUserDialog} style={{ width: '450px' }} header="Delete confirmation" modal footer={deleteUserDialogFooter} onHide={hideDeleteUserDialog}>
+            <Dialog visible={deleteUserDialog} style={{ width: '450px' }} header="Delete confirmation" modal footer={deleteProductDialogFooter} onHide={hideDeleteUserDialog}>
                 <div className="confirmation-content" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
                     <i className="pi pi-exclamation-triangle p-mr-3" style={{ fontSize: '2rem'}} />
                     {user && <span >Are you sure you want to delete <b>{user.fullName}</b>?</span>}
