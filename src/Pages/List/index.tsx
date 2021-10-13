@@ -84,7 +84,7 @@ const List = () => {
         </div>
       </div>
       {isLoggedIn &&
-          <Button label="Adicionar Municípioo" icon="pi pi-plus" id={listStyle.addMunicipio} className="p-button p-mr-2"  onClick={() => addMunicipio()} />}
+          <Button label="Novo Município" icon="pi pi-plus" id={listStyle.addMunicipio} className="p-button p-mr-2"  onClick={() => addMunicipio()} />}
       <div className={listStyle.result}>{city}</div>
     </main>
   );

@@ -13,6 +13,7 @@
   grid-area: result;
   margin: 0 auto;
   padding: 10px 5px;
+  height: 800px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -239,10 +240,58 @@
 
 #addMunicipio{
   grid-area: button;
-  width: 260px;
+  position: relative;
+  width: 230px;
   justify-self: flex-end;
-  align-self: flex-end;
+  align-self: center;
   margin-right: 10px;
+  font-size: 0.9rem;
   background: var(--blue);
   border-radius: 10px 20px;
+}
+@media(max-width: 1920px){
+  .listContainer {
+    padding: 20px 0 !important;
+  }
+  .result {
+    padding: 10px 0 !important;
+  }
+  .search{
+    width: 500px !important;
+  }
+  #addMunicipio {
+    width: 200px !important;
+  }
+}
+
+@media(max-width: 1600px) {
+  .listContainer {
+    grid-template-areas:
+      ". . search search button ."
+      "result result result result result result"
+  }
+
+  .result {
+    padding: 10px 50px !important;
+  }
+
+  .search {
+    width: 400px !important;
+  }
+
+  #addMunicipio {
+    width: 160px !important;
+  }
+}
+@media(max-width: 1380px) {
+  .result{
+    height: 99% !important;
+    padding: 10px 0px !important;
+  }
+  .search {
+    width: 400px !important;
+  }
+ #addMunicipio {
+    width: 160px !important;
+  }
 }

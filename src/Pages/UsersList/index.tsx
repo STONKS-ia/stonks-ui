@@ -13,6 +13,7 @@ import success from "../../utils/success";
 import UsersListStyle from "./usersList.module.scss";
 import { useAuth } from "../../hooks/auth";
 import { useHistory } from 'react-router-dom'
+import AddUser from '../AddUser'
 
 import "react-toastify/dist/ReactToastify.css";
 import 'primeicons/primeicons.css';
@@ -33,32 +34,29 @@ const UserList = () => {
     const [users, setUsers] = useState<User[]>([]);
     const [user, setUser] = useState<User>();
     const [deleteUserDialog, setDeleteUserDialog] = useState(false);
+    const [addUserDialog, setAddUserDialog] = useState(false);
     const { token, signOut } = useAuth();
     const history = useHistory();
-    const options = { headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}` } }
+    const header = { headers: {'Content-Type': 'application/json',  'Authorization': `Bearer ${token}` } }
 
     const getUsers = async () => {
         try {
-            const res = await apiUrl.get("/stonks/users", options);
+            const res = await apiUrl.get("/stonks/users", header);
             success("Usuários carregado");
             const { data: { result } } = res;
             return setUsers(result);
         }  catch (err: Error | AxiosError | any) {
-            if(err.response){
-                if (err.response.status === 403) {
-                    await signOut;
-                    error('Token has expired, please logon again');
-                    history.push('/login');
-                } else if (err.request) {
-                    console.log(err.request);
-                    error(`Error ${err.request}`);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    error(`Error ${err.message}`);
-                };
-            }
+            if (err.response.status == 403) {
+                await signOut();
+                error('Token has expired, please logon again');
+                history.push('/login');
+            } else if (err.request) {
+                console.log(err.request);
+                error(`Error ${err.request}`);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                error(`Error ${err.message}`);
+            };
         };
     };
 
@@ -67,7 +65,11 @@ const UserList = () => {
     }, []);
 
     const addUser = () => {
-        history.push('/users/save');
+        setAddUserDialog(true);
+        // history.push('/users/save');
+    }
+    const hideAddUserDialog = () => {
+        setAddUserDialog(false);
     }
     const editUser = (user: User) => {
         console.log(user)
@@ -83,13 +85,13 @@ const UserList = () => {
     const confirmDeleteUser = async () => {
         if(user){
             try{
-                await apiUrl.delete(`stonks/users/${user.userId}`,options)
+                await apiUrl.delete(`stonks/users/${user.userId}`,header)
                 setDeleteUserDialog(false); 
                 success(`Usuario ${user.fullName} deletado com sucesso`)
             } catch (err: Error | AxiosError | any) {
                 if(err.response){
                     if (err.response.status === 403) {
-                        await signOut;
+                        await signOut();
                         error('Token has expired, please logon again');
                         history.push('/login');
                     } else if (err.request) {
@@ -110,11 +112,11 @@ const UserList = () => {
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-warning" onClick={() => deleteUser(rowData)} />
             </React.Fragment>
         );
-    }
-  const deleteProductDialogFooter = (
+    } 
+    const deleteUserDialogFooter = (
         <React.Fragment>
             <Button label="No" icon="pi pi-times" className="p-button-text" onClick={hideDeleteUserDialog} />
-            <Button label="Yes" icon="pi pi-check" className="p-button-text" onClick={confirmDeleteUser} />
+            <Button label="Yes" type="submit" icon="pi pi-check" className="p-button-text" />
         </React.Fragment>
     );
     return (
@@ -138,7 +140,12 @@ const UserList = () => {
                 </DataTable>
             </ScrollPanel>
 
-            <Dialog visible={deleteUserDialog} style={{ width: '450px' }} header="Delete confirmation" modal footer={deleteProductDialogFooter} onHide={hideDeleteUserDialog}>
+            
+            <Dialog visible={addUserDialog} style={{ heigh: '500px' }} modal onHide={hideAddUserDialog}>
+                <Button icon="pi pi-times" className={UsersListStyle.closeBtn} onClick={hideAddUserDialog} />
+                <AddUser />
+            </Dialog>
+            <Dialog visible={deleteUserDialog} style={{ width: '450px' }} header="Delete confirmation" modal footer={deleteUserDialogFooter} onHide={hideDeleteUserDialog}>
                 <div className="confirmation-content" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
                     <i className="pi pi-exclamation-triangle p-mr-3" style={{ fontSize: '2rem'}} />
                     {user && <span >Are you sure you want to delete <b>{user.fullName}</b>?</span>}

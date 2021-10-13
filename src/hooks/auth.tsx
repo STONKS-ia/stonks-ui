@@ -46,7 +46,6 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('@Elit:token', token);
     localStorage.setItem('@Elit:name', name);
     localStorage.setItem('@Elit:roles', roles);
-
     setData({ token, name, roles });
   }, []);
 

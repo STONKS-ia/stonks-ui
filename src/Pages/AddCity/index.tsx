@@ -60,7 +60,7 @@ const NewCity = () => {
     } 
   }
 
-  const handleFormSubmit = async (data: SignInFormData) =>{ 
+  const handleFormSubmit = async (data) =>{ 
     await handleUpload();
       if(url){
         try {

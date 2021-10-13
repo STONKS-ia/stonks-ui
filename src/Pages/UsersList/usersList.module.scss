@@ -50,7 +50,11 @@
 .back {
     background-color: var(--blue-500);
 }
-
+.closeBtn{
+    z-index: 99;
+    position: absolute;
+    top: -200px;
+}
 .addUsuario{
     grid-area: button;
     align-items: center;

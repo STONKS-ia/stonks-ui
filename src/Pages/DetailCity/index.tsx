@@ -59,7 +59,6 @@ const Detail = () => {
     }
     useEffect(() =>{
       createYearOption();
-      console.log()
     }, [])
 
   const [valueYear , setValueYear ] = useState(thisYear);

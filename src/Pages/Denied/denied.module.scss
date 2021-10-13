@@ -1,5 +1,5 @@
 .notFound{
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   height: 90%;
   display: grid;
@@ -45,5 +45,31 @@
     color: var(--white);
     background: var(--black);
    }
+  }
+}
+@media (max-width: 1920px) {
+  .notFound {
+    width: 85%;
+
+    h1 {
+      justify-self: center;
+      font-size: 3rem !important;
+    }
+
+    img {
+      width: 850px !important;
+    }
+  }
+}
+@media (max-width: 1600px) {
+  .notFound {
+
+    h1 {
+      font-size: 2rem !important;
+    }
+
+    img {
+      width: 650px !important;
+    }
   }
 }

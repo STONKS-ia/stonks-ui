@@ -1,6 +1,7 @@
 import React, {  useRef } from "react";
 import {FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
+import { ToastContainer } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 
 import '../../assets/form.scss'
@@ -37,6 +38,7 @@ const Login = () => {
 
   return (
     <>  
+      <ToastContainer />
       <Form ref={formRef} className="form" onSubmit={handleFormSubmit } id={loginStyle.divLogin}>
         <h3>LOGIN</h3>
         <Input name="login" type="text" className="inputField" id={loginStyle.txtUser} placeholder="Usuário"/>

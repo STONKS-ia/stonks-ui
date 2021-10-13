@@ -6,6 +6,7 @@ import About from '../pages/About';
 import AddCity from '../pages/AddCity';
 import UsersList from '../pages/UsersList';
 import AddUser from '../pages/AddUser';
+import EditUser from '../pages/AddUser/edit';
 import APIs from '../pages/APIs';
 import Detail from '../pages/DetailCity';
 import Home from '../pages/Home';
@@ -14,6 +15,7 @@ import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Denied from '../pages/Denied';
 import PrivateRoute from '../routes/privateRoute';
+
 const AppRoutes = () => (
  <BrowserRouter>
      <Nav />
@@ -27,10 +29,11 @@ const AppRoutes = () => (
 
        <PrivateRoute exact path="/addCity" component={AddCity} />
        <PrivateRoute exact path="/users" component={UsersList} />
-       <PrivateRoute exact path="/users/save/:id?" component={AddUser}  />
+       <PrivateRoute exact path="/users/save" component={AddUser}  />
+       <PrivateRoute exact path="/users/save/:id?" component={EditUser}  />
        
+       <Route exact path="/denied" component={Denied}/>
        <Route path="*" component={NotFound} />
-       <Route path="/denied" component={Denied} exact/>
     </Switch>
  </BrowserRouter>
 );
