@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Tooltip } from 'primereact/tooltip';
@@ -34,24 +34,23 @@ function Receitas(props: any) {
 
   const exportColumns = cols.map(col => ({ title: col.header, dataKey: col.field }));
 
-  const getTable = useCallback( async ()=>{
-    setLoading(true);
-    const muicipioExtenso = replaceSpecialChars(name);
-    try {
-      const res = await tribunal.get(`/receitas/${muicipioExtenso}/${year}/${month+1}`)
-      const { data } = res;
-      setLoading(false);
-      success("Tabela carregada");
-      setResult(data);
-    } catch (err) {
-      setLoading(false);
-      console.error(err);
-      error("Erro ao carregar tabela");
-      return [null, err];
-    }
-  }, [name, year, month])
-
   useEffect(() => {
+    async function getTable(){
+        setLoading(true);
+        const muicipioExtenso = replaceSpecialChars(name);
+        try {
+            const res = await tribunal.get(`/receitas/${muicipioExtenso}/${year}/${month+1}`)
+            const { data } = res;
+            setLoading(false);
+            success("Tabela carregada");
+            setResult(data);
+        } catch (err) {
+            setLoading(false);
+            console.error(err);
+            error("Erro ao carregar tabela");
+        return [null, err];
+        }
+    }
    getTable()
   }, [month, year]);
 

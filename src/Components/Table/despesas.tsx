@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Tooltip } from 'primereact/tooltip';
@@ -18,29 +18,28 @@ import 'primeflex/primeflex.css';
 import replaceSpecialChars from '../../utils/replace';
 
 function Despesas(props: any) {
-  const {name, month, year } = props;
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState();
-
-  const getTable = useCallback( async ()=>{
-    setLoading(true);
-    const muicipioExtenso = replaceSpecialChars(name);
-    try {
-      const res = await tribunal.get(`/despesas/${muicipioExtenso}/${year}/${month+1}`)
-      const { data } = res;
-      setLoading(false);
-      success("Tabela carregada");
-      setResult(data);
-    } catch (err) {
-        setLoading(false);
-      console.error(err);
-      error("Erro ao carregar tabela");
-      return [null, err];
-    }
-  }, [name, year, month])
-
+    const {name, month, year } = props;
+    const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState();
+    
   useEffect(() => {
-   getTable()
+    async function getTable() {
+        setLoading(true);
+        const muicipioExtenso = replaceSpecialChars(name);
+        try {
+            const res = await tribunal.get(`/despesas/${muicipioExtenso}/${year}/${month+1}`)
+            const { data } = res;
+            setLoading(false);
+            success("Tabela carregada");
+            setResult(data);
+        } catch (err) {
+            setLoading(false);
+            console.error(err);
+            error("Erro ao carregar tabela");
+            return [null, err];
+        }
+    }
+    getTable();
   }, [month, year]);
   
   const cols = [

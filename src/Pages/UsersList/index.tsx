@@ -26,39 +26,37 @@ interface User {
     email: string;
     login: string;
     phone: string;
-    roles: string; //@ts-nocheck
+    roles: string; 
     city?: string | 'Não possui';
 };
 const UserList = () => {
-    const [users, setUsers] = useState<User[]>([]);
-    const [user, setUser] = useState<User>();
-    const [deleteUserDialog, setDeleteUserDialog] = useState(false);
+    const [ users, setUsers ] = useState<User[]>([]);
+    const [ user, setUser ] = useState<User>();
+    const [ deleteUserDialog, setDeleteUserDialog ] = useState(false);
     const { token, signOut } = useAuth();
     const history = useHistory();
     const header = { headers: {  'Authorization': `Bearer ${token}` } }
-
-    const getUsers = async () => {
-        try {
-            const res = await apiUrl.get("/stonks/users", header);
-            success("Usuários carregado");
-            const { data: { result } } = res;
-            return setUsers(result);
-        }  catch (err: Error | AxiosError | any) {
-            if (err.response.status == 403) {
-                await signOut();
-                error('Token has expired, please logon again');
-                history.push('/login');
-            } else if (err.request) {
-                console.log(err.request);
-                error(`Error ${err.request}`);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                error(`Error ${err.message}`);
+    
+    useEffect(() => {
+        async function getUsers() {
+            try {
+                const res = await apiUrl.get("/stonks/users", header);
+                success("Usuários carregado");
+                const { data: { result } } = res;
+                return setUsers(result);
+            }  catch (err: Error | AxiosError | any) {
+                if (err.response.status === 403) {
+                    await signOut();
+                    error('Token has expired, please logon again');
+                    history.push('/login');
+                } else if (err.request) {
+                    console.log(err.request);
+                    error(`Error ${err.request}`);
+                } else {
+                    error(`Error ${err.message}`);
+                };
             };
         };
-    };
-
-    useEffect(() => {
         getUsers()
     }, []);
 
@@ -130,7 +128,7 @@ const UserList = () => {
                     <Column style={{textAlign: 'center'}} field="phone" header="Telefone" sortable />
                     <Column style={{textAlign: 'center'}} field="city" header="Município relacionado"  sortable />
                     <Column style={{textAlign: 'center'}} field="roles" header="Tipo de usuário" sortable />
-                    <Column style={{textAlign: 'right'}} header="Action" body={actionBodyTemplate} />
+                    <Column  style={{textAlign: 'right'}} header="Action" body={actionBodyTemplate} />
                 </DataTable>
             </ScrollPanel>
 

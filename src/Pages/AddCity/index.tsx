@@ -23,7 +23,7 @@ const NewCity = () => {
   const [preview, setPreview] = useState<string>();
   const [url, setUrl] = useState("");
   const history: any = useHistory();
-  const { token , signOut, roles } = useAuth();
+  const { token , signOut } = useAuth();
   const formRef = useRef<FormHandles>(null);
 
   const handleImageChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
