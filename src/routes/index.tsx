@@ -6,15 +6,15 @@ import About from '../pages/About';
 import AddCity from '../pages/AddCity';
 import UsersList from '../pages/UsersList';
 import AddUser from '../pages/AddUser';
-import EditUser from '../pages/AddUser/edit';
 import APIs from '../pages/APIs';
 import Detail from '../pages/DetailCity';
 import Home from '../pages/Home';
-import List from '../pages/List';
+import CitiesList from '../pages/CitiesList';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Denied from '../pages/Denied';
 import PrivateRoute from '../routes/privateRoute';
+import SpecificRoute from './specificRoute';
 
 const AppRoutes = () => (
  <BrowserRouter>
@@ -24,13 +24,13 @@ const AppRoutes = () => (
        <Route exact path="/about" component={About} />
        <Route exact path="/login" component={Login} />
        <Route exact path="/apis" component={APIs} />
-       <Route exact path="/cities" component={List} />
+       <Route exact path="/cities" component={CitiesList} />
        <Route exact path="/cities/:id" component={Detail} />
 
-       <PrivateRoute exact path="/addCity" component={AddCity} />
+       <SpecificRoute exact path="/save/city/:id?" component={AddCity} />
+       
        <PrivateRoute exact path="/users" component={UsersList} />
-       <PrivateRoute exact path="/users/save" component={AddUser}  />
-       <PrivateRoute exact path="/users/save/:id?" component={EditUser}  />
+       <PrivateRoute exact path="/save/users/:id?" component={AddUser}  />
        
        <Route exact path="/denied" component={Denied}/>
        <Route path="*" component={NotFound} />

@@ -2,10 +2,11 @@
 import React, {   ChangeEvent,
   useRef,
   useCallback,
-  useState
+  useState, 
+  useEffect
 } from "react";
 import {FormHandles } from '@unform/core'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Form } from '@unform/web'
 import { ToastContainer } from "react-toastify";
 
@@ -25,7 +26,40 @@ const NewCity = () => {
   const history: any = useHistory();
   const { token , signOut } = useAuth();
   const formRef = useRef<FormHandles>(null);
+  const { id } = useParams<{id?: any}>();
 
+  useEffect(() => {
+    async function getCityById(){
+      try{
+        await apiUrl.get(`/stonks/cities/${id}`).then(response => {
+          const { name, originalPortalUrl, imgUrl } =  response.data.result[0]
+          formRef.current?.setData({ 
+            cityName: name,
+            cityUrlPortal: originalPortalUrl,
+           })
+           setPreview(imgUrl);
+           setUrl(imgUrl);
+        });
+      } catch (err: Error | AxiosError | any) {
+          if(err.response){
+            if (err.response.status === 403) {
+              await signOut();
+              error('Token has expired, please logon again');
+              history.push('/login');
+            } else if (err.request) {
+              console.log(err.request);
+              error(`Error ${err.request}`);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              error(`Error ${err.message}`);
+            };
+          }
+      };
+    };
+    if(id){
+      getCityById()
+    }
+  }, [id])
   const handleImageChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
     if(e.target.files){
       setImage(e.target.files[0])
@@ -61,18 +95,27 @@ const NewCity = () => {
   }
 
   const handleFormSubmit = async (data) =>{ 
+    if(!url){
     await handleUpload();
-      if(url){
-        try {
-          const options = { headers: {'Authorization': `Bearer ${token}`} }
-          await apiUrl.post('/stonks/cities', {
+    }
+    if(url){
+      try {
+        const options = { headers: {'Authorization': `Bearer ${token}`} }
+        if(id){
+          await apiUrl.put(`/stonks/cities/${id}`, {
               name: data.cityName,
               originalPortalUrl: data.cityUrlPortal,
               imgUrl: url
             }, options)
-
-          success('Cidade cadastrada com sucesso')
-          history.push('/cities');
+        }else{
+            await apiUrl.post('/stonks/cities', {
+              name: data.cityName,
+              originalPortalUrl: data.cityUrlPortal,
+              imgUrl: url
+            }, options)
+        }
+        success('Cidade cadastrada com sucesso')
+        history.push('/cities');
 
       } catch (err: Error | AxiosError | any) {
           if(err.response){
@@ -97,7 +140,7 @@ const NewCity = () => {
       <ToastContainer />
       <Form ref={formRef} onSubmit={handleFormSubmit } className="form" id={newCityStyle.divNewCity}>
 
-        <h3>Novo Município</h3>
+        <h3>{id ? `Editar` : `Novo`} Município</h3>
 
         <Input name="cityName" placeholder="Nome municipio" type="text" className="inputField" id={newCityStyle.txtCity} />
         <Input name="cityUrlPortal" placeholder="Link do portal de transparência" type="text" className="inputField" id={newCityStyle.txtURL} />
@@ -108,7 +151,7 @@ const NewCity = () => {
               <input type="file" id="imgInput" accept="image/png, image/jpeg, image/jpg" onChange={handleImageChange}/>
         </section>
 
-        <button type="submit" className="btnEntrar">Cadastrar</button>
+        <button type="submit" className="btnEntrar">{id ? `Salvar` : `Cadastrar`}</button>
 
       </Form>
     </>

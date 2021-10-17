@@ -2,12 +2,12 @@ import firebase from "firebase/compat/app";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL  } from 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBckIXnUMMZJBxukiIOI6bEPuIWVOqQnM8",
-    authDomain: "teste-c2c7c.firebaseapp.com",
-    projectId: "teste-c2c7c",
-    storageBucket: "teste-c2c7c.appspot.com",
-    messagingSenderId: "982686707777",
-    appId: "1:982686707777:web:e17065ca7732aa2da9d6c0"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID
   };
   
 firebase.initializeApp(firebaseConfig);

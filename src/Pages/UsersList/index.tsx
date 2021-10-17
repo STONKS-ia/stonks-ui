@@ -61,11 +61,11 @@ const UserList = () => {
     }, []);
 
     const addUser = () => {
-        history.push('/users/save');
+        history.push('/save/users');
     }
     const editUser = (user: User) => {
         console.log(user)
-        history.push(`/users/save/${user.userId}`);
+        history.push(`/save/users/${user.userId}`);
     }
     const deleteUser = (user: User) => {
         setUser(user)
@@ -94,7 +94,7 @@ const UserList = () => {
                         error(`Error ${err.message}`);
                     };
                 }
-        };
+            };
         }
     }
     const actionBodyTemplate = (rowData: any) => {

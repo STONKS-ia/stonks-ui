@@ -17,7 +17,6 @@ function Nav() {
     }else{
       setIsLoggedIn(false);
     }
-    console.log(roles)
     if(roles === "ROLE_ADMIN"){
       setIsAdmin(true);
     }else{

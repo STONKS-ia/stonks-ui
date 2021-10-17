@@ -19,7 +19,7 @@ type CityProps = {
   originalPortalUrl: string;
 };
 
-const List = () => {
+const CitiesList: React.FC = () => {
   const [ cities, setCities ] = useState<CityProps[]>([]);
   const [ input, setInput ] = useState("");
   const [ page, setPage ] = useState(0);
@@ -52,7 +52,7 @@ const List = () => {
   }, [page, search]);
 
   const addMunicipio = () =>{
-    history.push('/addCity')
+    history.push('/save/city')
   }
   const handleScroll = (e: any) =>{
     const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
@@ -102,4 +102,4 @@ const List = () => {
     </main>
   );
 };
-export default List;
+export default CitiesList;

@@ -3,12 +3,15 @@ import { useParams } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import api from '../../services/api';
 import Select from 'react-select';
+import { Button } from 'primereact/button';
+
 import Despesas  from '../../components/Table/despesas';
 import Receitas  from '../../components/Table/receitas';
-
+import { useHistory } from 'react-router-dom'
 import detailStyle from "./detail.module.scss";
 import customTheme from "../../assets/theme";
 import customStyles from "../../assets/style";
+import { useAuth } from "../../hooks/auth";
 
 const date = new Date()
 const thisYear = date.getFullYear() - 1;
@@ -29,7 +32,11 @@ type OptionProps = {
 const Detail = () => {
   const { id } = useParams<{id?: any}>();
   const [city, setCity] = useState<CityProps[]>([]);
+  const [authorized , setAuthorized] = useState<boolean>(false);
   const [optionYear, setOptionYear] = useState<OptionProps[]>([]);
+  const history = useHistory();
+  const { cityId } = useAuth();
+
   let optionTypes: OptionProps[] = [
     {value: "receitas", label:"Receitas"},
     {value: "despesas", label:"Despesas"},
@@ -60,7 +67,7 @@ const Detail = () => {
     useEffect(() =>{
       createYearOption();
     }, [])
-
+  
   const [valueYear , setValueYear ] = useState(thisYear);
   const [valueMonth , setValueMonth ] = useState(thisMonth);
   const [valueType , setValueType ] = useState("receitas");
@@ -78,10 +85,21 @@ const Detail = () => {
     getCityById();
   })
   
+  useEffect(() => {
+    if(cityId == 0 || cityId == id){
+      setAuthorized(true);
+    }
+  }, [id])
+  const editCity = () => {
+    history.push(`/save/city/${id}`)
+  }
   const cityDiv = city.map( (cityDetails, key) =>{
     const {name, originalPortalUrl } = cityDetails;
     return(
      <section className={detailStyle.cityContainer} key={key}>
+
+      {authorized ? <Button icon="pi pi-pencil" className="p-button-rounded p-button-success p-mr-2" id={detailStyle.btnEdit} onClick={() => editCity()} /> : <></>}
+
       <p className={detailStyle.title}>{name}</p>
       <a href={originalPortalUrl} rel="noreferrer" target="_blank" className={detailStyle.link}>
           Portal de transparência

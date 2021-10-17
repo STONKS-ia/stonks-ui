@@ -1,6 +1,7 @@
 .cityContainer{
  // border: 3px solid black;
  width: 70vw;
+ position: relative;
  margin: 0 auto;
  height: 95%;
  padding: 20px 15px;
@@ -66,6 +67,11 @@
       animation: expandBefore 0.5s linear forwards;
     }
   }
+}
+#btnEdit{
+  position: absolute;
+  top: 30px;
+  left: 360px;
 }
 .title {
  grid-area: title;

@@ -20,7 +20,7 @@ const Login = () => {
   const formRef = useRef<FormHandles>(null);
   const history: any = useHistory();
   const { singIn } = useAuth();
-
+// soneka123
   const handleFormSubmit  = async (data: SignInFormData) => {
      try {
        formRef.current?.setErrors({});
@@ -28,8 +28,14 @@ const Login = () => {
           login: data.login,
           password: data.password,
         });
+        const cityId = localStorage.getItem('@Elit:city');
         success('Logado com sucesso')
-        history.push('/cities');
+        
+        if(cityId !== '0'){
+          history.push(`/cities/${cityId}`);
+        }else{
+          history.push('/cities');
+        }
      } catch (err: any) {
         console.log(err)
         error(`Erro ao logar`);
