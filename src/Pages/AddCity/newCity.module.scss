@@ -68,3 +68,21 @@
         grid-area: urlPortal;
     }
 }
+ #btnCadastrar {
+     color: var(--white) !important;
+     background-color: rgba(var(--blueRgb), 1) !important;
+     width: 10rem !important;
+     height: 45px !important;
+     border-radius: 25px !important;
+     display: flex !important;
+     align-items: center !important;
+     justify-content: center !important;
+     font-size: 20px !important;
+     font-family: var(--roboto) !important;
+     transition: transform 0.6s ease !important;
+     cursor: pointer !important;
+    &:hover {
+        transition: transform 0.6s ease !important;
+        opacity: 0.9;
+    }
+ }

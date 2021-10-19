@@ -32,15 +32,15 @@
     font-size: 20px;
   }
  .btnEntrar {
-  color: var(--white);
-  background-color: rgba(var(--blueRgb), 1);
-  width: 10rem;
-  height: 45px;
-  border-radius: 25px;
-  font-size: 20px;
-  font-family: var(--roboto);
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  color: var(--white) !important;
+  background-color: rgba(var(--blueRgb), 1) !important;
+  width: 10rem !important;
+  height: 45px !important;
+  border-radius: 25px !important;
+  font-size: 20px !important;
+  font-family: var(--roboto) !important;
+  transition: transform 0.3s ease !important;
+  cursor: pointer !important;
  }
 
  .btnEntrar::after,

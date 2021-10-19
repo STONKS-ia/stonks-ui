@@ -9,6 +9,7 @@ import {FormHandles } from '@unform/core'
 import { useHistory, useParams } from 'react-router-dom';
 import { Form } from '@unform/web'
 import { ToastContainer } from "react-toastify";
+import { Button } from 'primereact/button';
 
 import Input  from "../../components/Input"
 import success from "../../utils/success";
@@ -22,7 +23,8 @@ import newCityStyle from "./newCity.module.scss";
 const NewCity = () => {
   const [image, setImage] = useState<File>()
   const [preview, setPreview] = useState<string>();
-  const [url, setUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [url, setUrl] = useState();
   const history: any = useHistory();
   const { token , signOut } = useAuth();
   const formRef = useRef<FormHandles>(null);
@@ -60,14 +62,13 @@ const NewCity = () => {
       getCityById()
     }
   }, [id])
-  const handleImageChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
+ const handleImageChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
     if(e.target.files){
       setImage(e.target.files[0])
       setPreview(URL.createObjectURL(e.target.files[0]))
     }
   }, [])
-
-  const handleUpload = async () => {
+ const handleUpload = async () => {
     if(image){
       const metadata = {
         contentType: image.type,
@@ -95,27 +96,18 @@ const NewCity = () => {
   }
 
   const handleFormSubmit = async (data) =>{ 
-    if(!url){
     await handleUpload();
-    }
-    if(url){
-      try {
-        const options = { headers: {'Authorization': `Bearer ${token}`} }
-        if(id){
-          await apiUrl.put(`/stonks/cities/${id}`, {
+      if(url){
+        try {
+          const options = { headers: {'Authorization': `Bearer ${token}`} }
+          await apiUrl.post('/stonks/cities', {
               name: data.cityName,
               originalPortalUrl: data.cityUrlPortal,
               imgUrl: url
             }, options)
-        }else{
-            await apiUrl.post('/stonks/cities', {
-              name: data.cityName,
-              originalPortalUrl: data.cityUrlPortal,
-              imgUrl: url
-            }, options)
-        }
-        success('Cidade cadastrada com sucesso')
-        history.push('/cities');
+
+          success('Cidade cadastrada com sucesso')
+          history.push('/cities');
 
       } catch (err: Error | AxiosError | any) {
           if(err.response){
@@ -138,7 +130,7 @@ const NewCity = () => {
   return (
     <>
       <ToastContainer />
-      <Form ref={formRef} onSubmit={handleFormSubmit } className="form" id={newCityStyle.divNewCity}>
+      <Form ref={formRef} onSubmit={handleFormSubmit} className="form" id={newCityStyle.divNewCity}>
 
         <h3>{id ? `Editar` : `Novo`} Município</h3>
 
@@ -151,7 +143,7 @@ const NewCity = () => {
               <input type="file" id="imgInput" accept="image/png, image/jpeg, image/jpg" onChange={handleImageChange}/>
         </section>
 
-        <button type="submit" className="btnEntrar">{id ? `Salvar` : `Cadastrar`}</button>
+        <Button type="submit" iconPos="right" loading={loading}  id={newCityStyle.btnCadastrar} >{id ? `Salvar` : `Cadastrar`}</Button>
 
       </Form>
     </>

@@ -39,9 +39,9 @@ const CitiesList: React.FC = () => {
   useEffect(() =>{
       async function getCities() {
       try {
-        const res = await apiUrl.get(`/stonks/cities/paged?name=${search}&page=${page}`);
-        const { data: { result : {content}}} = res;
-        return setCities(cities.concat(content));
+        const res = await apiUrl.get(`/stonks/cities`);
+        const { data: { result }} = res;
+        return setCities(result);
       } catch (err) {
         console.error(err);
         error("Problemas ao carregar municipios");
@@ -54,16 +54,7 @@ const CitiesList: React.FC = () => {
   const addMunicipio = () =>{
     history.push('/save/city')
   }
-  const handleScroll = (e: any) =>{
-    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-    if(bottom){
-      setPage(page+1);
-    }
-  }
-  const handleClick = () =>{
-    setSearch(input);
-  }
-  const city = cities.map((city, key) => {
+  const city = cities.filter(city => city.name.toLowerCase().includes(input.toLowerCase())).map((city, key) => {
           const { cityId, name, imgUrl } = city;
           const url = `/cities/${cityId}`
           return (
@@ -85,7 +76,7 @@ const CitiesList: React.FC = () => {
           value={input}
           placeholder="Search city by name"
         />
-        <div className={listStyle.icon} onClick={handleClick}>
+        <div className={listStyle.icon}>
           <svg id={listStyle.icon} viewBox="0 0 100 100">
             <circle id={listStyle.pie} cx="45" cy="45" r="20"></circle>
             <circle id={listStyle.circle} cx="45" cy="45" r="40"></circle>
@@ -96,7 +87,7 @@ const CitiesList: React.FC = () => {
       </div>
       {isLoggedIn &&
           <Button label="Novo Município" icon="pi pi-plus" id={listStyle.addMunicipio} className="p-button p-mr-2"  onClick={() => addMunicipio()} />}
-      <div onScroll={(e) => handleScroll(e)} className={listStyle.result}>
+      <div className={listStyle.result}>
        {city}
         </div>
     </main>

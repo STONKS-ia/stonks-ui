@@ -5,13 +5,13 @@ import { useAuth } from "../../src/hooks/auth";
 
 
 const SpecificRoute = ({component: Component, ...rest}) => {
-    const { cityId } = useAuth(); 
+    const { cityId} = useAuth(); 
     return (
 
         // Show the component only when the user is logged in
         // Otherwise, redirect the user to /signin page
         <Route {...rest} render={props => (
-            cityId === props.match.params.id  ?
+            (cityId == props.match.params.id || cityId == 0)  ?
                 <Component {...props} />
             : <Redirect to="/denied" />
         )} />

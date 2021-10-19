@@ -98,9 +98,12 @@ const Detail = () => {
     return(
      <section className={detailStyle.cityContainer} key={key}>
 
-      {authorized ? <Button icon="pi pi-pencil" className="p-button-rounded p-button-success p-mr-2" id={detailStyle.btnEdit} onClick={() => editCity()} /> : <></>}
+      {/* {authorized ? <Button icon="pi pi-pencil" className="p-button-rounded p-button-success p-mr-2" id={detailStyle.btnEdit} onClick={() => editCity()} /> : <></>} */}
 
-      <p className={detailStyle.title}>{name}</p>
+      <p className={detailStyle.title}>
+        {name}
+        {authorized ? <Button icon="pi pi-pencil" className="p-button-rounded p-button-success p-mr-2" id={detailStyle.btnEdit} onClick={() => editCity()} /> : <></>}
+        </p>
       <a href={originalPortalUrl} rel="noreferrer" target="_blank" className={detailStyle.link}>
           Portal de transparência
       </a>

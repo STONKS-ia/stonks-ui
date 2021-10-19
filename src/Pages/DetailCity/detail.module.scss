@@ -68,19 +68,21 @@
     }
   }
 }
-#btnEdit{
-  position: absolute;
-  top: 30px;
-  left: 360px;
-}
 .title {
  grid-area: title;
+ position: relative;
  font-size: 28px;
  font-family: var(--slab);
  color: rgba(13, 1, 6, 0.8);
  text-transform: uppercase;
  line-height: 29px;
  letter-spacing: 0.145em;
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+ #btnEdit {
+   margin: 0 25px;
+ }
 }
 .calendar{
  grid-area: calendar;
