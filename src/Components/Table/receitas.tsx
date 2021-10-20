@@ -1,9 +1,10 @@
 // @ts-nocheck
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Tooltip } from 'primereact/tooltip';
 import { ScrollPanel } from 'primereact/scrollpanel';
+import ContentLoader from "react-content-loader"
 import { Button } from 'primereact/button';
 
 import success from "../../utils/success";
@@ -21,15 +22,16 @@ function Receitas(props: any) {
   const {name, month, year } = props;
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
+    const dt = useRef(null);
 
   const cols = [
-        { field: 'orgao', header: 'Órgao' },
-        { field: 'mes', header: 'Mês' },
-        { field: 'ds_fonte_recurso', header: 'Fonte de Recurso' },
-        { field: 'ds_cd_aplicacao_fixo', header: 'Código de Aplicação Fixo' },
-        { field: 'ds_alinea', header: 'Alínea' },
-        { field: 'ds_subalinea', header: 'Subalínea' },
-        { field: 'vl_arrecadacao', header: 'Arrecadação' },
+        { align: 'left', field: 'orgao', header: 'Órgao' },
+        { align: 'center', field: 'mes', header: 'Mês' },
+        { align: 'center', field: 'ds_fonte_recurso', header: 'Fonte de Recurso' },
+        { align: 'center', field: 'ds_cd_aplicacao_fixo', header: 'Código de Aplicação Fixo' },
+        { align: 'justify', field: 'ds_alinea', header: 'Alínea' },
+        { align: 'justify', field: 'ds_subalinea', header: 'Subalínea' },
+        { align: 'center', field: 'vl_arrecadacao', header: 'Arrecadação' },
   ];
 
   const exportColumns = cols.map(col => ({ title: col.header, dataKey: col.field }));
@@ -41,19 +43,20 @@ function Receitas(props: any) {
         try {
             const res = await tribunal.get(`/receitas/${muicipioExtenso}/${year}/${month+1}`)
             const { data } = res;
-            setLoading(false);
-            success("Tabela carregada");
+            setTimeout(() => { success("Tabela carregada"); setLoading(false) }, 2000);
             setResult(data);
         } catch (err) {
-            setLoading(false);
             console.error(err);
-            error("Erro ao carregar tabela");
+            setTimeout(() => { error("Erro ao carregar tabela"); setLoading(false) }, 2000);
         return [null, err];
         }
     }
    getTable()
   }, [month, year]);
 
+const exportCSV = (selectionOnly) => {
+        dt.current.exportCSV({ selectionOnly });
+}
 const exportPdf = () => {
     import('jspdf').then(jsPDF => {
         import('jspdf-autotable').then(() => {
@@ -86,20 +89,28 @@ const saveAsExcelFile = (buffer: any, fileName: any) => {
 
 const header = (
     <div className="p-d-flex  export-buttons" style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
+        <Button type="button" icon="pi pi-file-o" onClick={() => exportCSV(false)} className="p-mr-2" data-pr-tooltip="CSV" />
         <Button type="button" icon="pi pi-file-excel" onClick={exportExcel} className="p-button-success" data-pr-tooltip="Export to XLS" />
         <Button type="button" icon="pi pi-file-pdf" onClick={exportPdf} className="p-button-warning" data-pr-tooltip="Export to PDF" />
     </div>
 );
 
   return (
-      <ScrollPanel  className={styleTable.custom}>
-            <Tooltip target=".export-buttons>button" position="bottom" />
-            <DataTable value={result} header={header} paginator paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" rows={5} loading={loading} className={styleTable.table} >
+      <>
+        {loading ?   
+        <ContentLoader className={styleTable.custom}>
+            <rect x="0" y="0" rx="0" ry="0" width="100%" height="70%" />
+        </ContentLoader> : 
+        <ScrollPanel  className={styleTable.custom}>
+                <Tooltip target=".export-buttons>button" position="bottom" />
+                <DataTable ref={dt}  className="p-datatable-sm"value={result} header={header} paginator paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" rows={5} className={styleTable.table} >
 
-                    {cols.map((col, index) => <Column style={{textAlign: 'center'}} key={index} field={col.field} header={col.header} sortable />) }
-            </DataTable>
-        </ScrollPanel>
+                        {cols.map((col, index) => <Column style={{textAlign: col.align}} key={index} field={col.field} header={col.header} sortable />) }
+                </DataTable>
+            </ScrollPanel>
+        }
+    </>
   );
 }
 export default Receitas;

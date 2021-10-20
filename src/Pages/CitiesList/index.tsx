@@ -4,9 +4,9 @@ import { Link, useHistory } from "react-router-dom";
 import { Button } from 'primereact/button';
 import useSWR from 'swr'
 
-import success from "../../utils/success";
 import error from "../../utils/error";
 import apiUrl from "../../services/api";
+import ContentLoader from "react-content-loader"
 import { useAuth } from "../../hooks/auth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,6 +24,7 @@ const CitiesList: React.FC = () => {
   const [ input, setInput ] = useState("");
   const [ page, setPage ] = useState(0);
   const [ search, setSearch ] = useState("");
+  const [ loading, setLoading ] = useState(false);
   const { roles } = useAuth();
   const history = useHistory();
   const [ isLoggedIn , setIsLoggedIn ] = useState<boolean>(false);
@@ -38,13 +39,15 @@ const CitiesList: React.FC = () => {
 
   useEffect(() =>{
       async function getCities() {
+          setLoading(true);
       try {
         const res = await apiUrl.get(`/stonks/cities`);
         const { data: { result }} = res;
+        setTimeout(() => { setLoading(false) }, 3000)
         return setCities(result);
       } catch (err) {
         console.error(err);
-        error("Problemas ao carregar municipios");
+        setTimeout(() => { error("Problemas ao carregar municipios"); setLoading(false) }, 3000)
         return [null, err];
       }
     }
@@ -88,8 +91,11 @@ const CitiesList: React.FC = () => {
       {isLoggedIn &&
           <Button label="Novo Município" icon="pi pi-plus" id={listStyle.addMunicipio} className="p-button p-mr-2"  onClick={() => addMunicipio()} />}
       <div className={listStyle.result}>
-       {city}
-        </div>
+       {!loading ? city :  
+          <ContentLoader className={listStyle.load}>
+              <rect x="0" y="0" rx="0" ry="0" width="100%" height="100%"  />
+          </ContentLoader> }
+        </div> 
     </main>
   );
 };

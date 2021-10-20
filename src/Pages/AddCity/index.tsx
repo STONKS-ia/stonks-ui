@@ -28,8 +28,7 @@ const NewCity = () => {
   const history: any = useHistory();
   const { token , signOut } = useAuth();
   const formRef = useRef<FormHandles>(null);
-  const { id } = useParams<{id?: any}>();
-
+  let { id } = useParams<{id?: number}>();
   useEffect(() => {
     async function getCityById(){
       try{
@@ -46,8 +45,8 @@ const NewCity = () => {
           if(err.response){
             if (err.response.status === 403) {
               await signOut();
-              error('Token has expired, please logon again');
-              history.push('/login');
+              setTimeout(() => { error('Token has expired, please logon again'); }, 2000);
+              setTimeout(() => { history.push('/login'); }, 2500);
             } else if (err.request) {
               console.log(err.request);
               error(`Error ${err.request}`);
@@ -60,6 +59,8 @@ const NewCity = () => {
     };
     if(id){
       getCityById()
+    }else{
+      id = 0;
     }
   }, [id])
  const handleImageChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
@@ -96,11 +97,13 @@ const NewCity = () => {
   }
 
   const handleFormSubmit = async (data) =>{ 
+    debugger;
     await handleUpload();
       if(url){
         try {
           const options = { headers: {'Authorization': `Bearer ${token}`} }
-          await apiUrl.post('/stonks/cities', {
+          console.log(id)
+          await apiUrl.post(`/stonks/cities/save?id=${id}`, {
               name: data.cityName,
               originalPortalUrl: data.cityUrlPortal,
               imgUrl: url
@@ -113,8 +116,8 @@ const NewCity = () => {
           if(err.response){
               if (err.response.status === 403) {
                   await signOut;
-                  error('Token has expired, please logon again');
-                  history.push('/login');
+                  setTimeout(() => { error('Token has expired, please logon again') }, 2000);
+                  setTimeout(() => { history.push('/login'); }, 2500);
               } else if (err.request) {
                   console.log(err.request);
                   error(`Error ${err.request}`);

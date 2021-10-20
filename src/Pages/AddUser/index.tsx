@@ -109,8 +109,8 @@ const AddUser = () => {
                 if(err.response){
                     if (err.response.status === 403) {
                         await signOut();
-                        error('Token has expired, please logon again');
-                        history.push('/login');
+                    setTimeout(() => { error('Token has expired, please logon again') }, 2000);
+                    setTimeout(() => { history.push('/login'); }, 2500);
                     } else if (err.request) {
                         console.log(err.request);
                         error(`Error ${err.request}`);
@@ -155,8 +155,8 @@ const AddUser = () => {
             if(err.response){
               if (err.response.status === 403) {
                   await signOut();
-                  error('Token has expired, please logon again');
-                  history.push('/login');
+                    setTimeout(() => { error('Token has expired, please logon again') }, 2000);
+                    setTimeout(() => { history.push('/login'); }, 2500);
               } else if (err.request) {
                   console.log(err.request);
                   error(`Error ${err.request}`);
