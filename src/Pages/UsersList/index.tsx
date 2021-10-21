@@ -44,7 +44,7 @@ const UserList = () => {
         async function getUsers() {
             try {
                 const res = await apiUrl.get("/stonks/users", option);
-                setTimeout(() => { success("Usuários carregado"); setLoading(false) }, 2000)
+                setTimeout(() => { success("Usuários carregado"); setLoading(false) }, 1500)
                 const { data: { result } } = res;
                 return setUsers(result);
             }  catch (err: Error | AxiosError | any) {
@@ -54,9 +54,9 @@ const UserList = () => {
                     setTimeout(() => { history.push('/login'); }, 2500);
                 } else if (err.request) {
                     console.log(err.request);
-                    setTimeout(() => {  error(`Error ${err.request}`); setLoading(false) }, 2000);
+                    setTimeout(() => {  error(`Error ${err.request}`); setLoading(false) }, 1500);
                 } else {
-                    setTimeout(() => {  error(`Error ${err.message}`); setLoading(false) }, 2000);
+                    setTimeout(() => {  error(`Error ${err.message}`); setLoading(false) }, 1500);
                 };
             };
         };

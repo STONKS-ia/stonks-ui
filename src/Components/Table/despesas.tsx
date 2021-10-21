@@ -40,7 +40,7 @@ function Despesas(props: any) {
         }
     }
     getTable();
-  }, [month, year]);
+  }, [name, month, year]);
   
   const cols = [
         {align: 'justify', field: 'orgao', header: 'Órgao' },

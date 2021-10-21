@@ -52,7 +52,7 @@ function Receitas(props: any) {
         }
     }
    getTable()
-  }, [month, year]);
+  }, [name, month, year]);
 
 const exportCSV = (selectionOnly) => {
         dt.current.exportCSV({ selectionOnly });
@@ -103,7 +103,7 @@ const header = (
         </ContentLoader> : 
         <ScrollPanel  className={styleTable.custom}>
                 <Tooltip target=".export-buttons>button" position="bottom" />
-                <DataTable ref={dt}  className="p-datatable-sm"value={result} header={header} paginator paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+                <DataTable ref={dt}  value={result} header={header} paginator paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" rows={5} className={styleTable.table} >
 
                         {cols.map((col, index) => <Column style={{textAlign: col.align}} key={index} field={col.field} header={col.header} sortable />) }

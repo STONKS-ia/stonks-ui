@@ -97,7 +97,7 @@ const NewCity = () => {
   }
 
   const handleFormSubmit = async (data) =>{ 
-    debugger;
+    setLoading(true);
     await handleUpload();
       if(url){
         try {
@@ -109,11 +109,13 @@ const NewCity = () => {
               imgUrl: url
             }, options)
 
+          setLoading(false);
           success('Cidade cadastrada com sucesso')
           history.push('/cities');
 
       } catch (err: Error | AxiosError | any) {
           if(err.response){
+          setLoading(false);
               if (err.response.status === 403) {
                   await signOut;
                   setTimeout(() => { error('Token has expired, please logon again') }, 2000);

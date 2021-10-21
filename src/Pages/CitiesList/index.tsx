@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Button } from 'primereact/button';
-import useSWR from 'swr'
 
 import error from "../../utils/error";
 import apiUrl from "../../services/api";
@@ -22,8 +21,6 @@ type CityProps = {
 const CitiesList: React.FC = () => {
   const [ cities, setCities ] = useState<CityProps[]>([]);
   const [ input, setInput ] = useState("");
-  const [ page, setPage ] = useState(0);
-  const [ search, setSearch ] = useState("");
   const [ loading, setLoading ] = useState(false);
   const { roles } = useAuth();
   const history = useHistory();
@@ -43,16 +40,16 @@ const CitiesList: React.FC = () => {
       try {
         const res = await apiUrl.get(`/stonks/cities`);
         const { data: { result }} = res;
-        setTimeout(() => { setLoading(false) }, 3000)
+        setTimeout(() => { setLoading(false) }, 2000)
         return setCities(result);
       } catch (err) {
         console.error(err);
-        setTimeout(() => { error("Problemas ao carregar municipios"); setLoading(false) }, 3000)
+        setTimeout(() => { error("Problemas ao carregar municipios"); setLoading(false) }, 2000)
         return [null, err];
       }
     }
     getCities();
-  }, [page, search]);
+  }, []);
 
   const addMunicipio = () =>{
     history.push('/save/city')

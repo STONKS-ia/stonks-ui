@@ -87,7 +87,7 @@ const AddUser = () => {
     async function getUserById(){
       try{
         await apiUrl.get(`/stonks/users/${id}`, header).then(response => {
-          const { email, fullName, phone, roles, userId, city } = response.data.result[0];
+          const { email, fullName, phone, roles, city } = response.data.result[0];
           formRef.current?.setData({ 
             email: email,
             username: fullName,
@@ -124,7 +124,7 @@ const AddUser = () => {
     if(id){
       getUserById()
     }
-  }, [id])
+  }, [id, history, signOut])
   
  
   const handleFormSubmit = async (data: CreateUserForm) =>{
@@ -148,7 +148,6 @@ const AddUser = () => {
               city: { cityId: valueCity},
           },header)
         }
-
           success('Usuario criado com sucesso')
           history.push('/users');
       } catch (err: Error | AxiosError | any) {
