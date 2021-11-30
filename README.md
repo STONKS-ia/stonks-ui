@@ -6,7 +6,7 @@
 </p>
   
 
-<img alt="GitHub language count" src="https://prnt.sc/214a5v3">
+![](https://prnt.sc/214a5v3)
 
 # Stonks 
 Sistema Tributário Original de Navegação Keep Simple é o projeto desenvolvido para o Challenge 2021 proposto pela FIAP com parceria do TCESP (tribunal de contas de são paulo).
