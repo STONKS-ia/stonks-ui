@@ -37,7 +37,7 @@ Sistema Tributário Original de Navegação Keep Simple é o projeto desenvolvid
     - [Firebase](https://firebase.google.com/)
 ---
 
-## 💻 Instruções para o front end
+## 💻 Instruções para o [front end](https://github.com/STONKS-ia/stonks-ui)
 
   Após executar o passo anterior e garantir que o back end está rodando, você poderá inicializar o front end:
 
@@ -51,7 +51,7 @@ Sistema Tributário Original de Navegação Keep Simple é o projeto desenvolvid
     use o arquivo **.env.example** como base para colocar suas credenciais do firebase.
 ---
 
-## 💻 Instruções para o back end
+## 💻 Instruções para o [back end](https://github.com/STONKS-ia/Stonks-core)
 
   Começaremos criando as instâncias dos nossos bancos de dados. Para esse projeto, o **docker** foi utilizado. Abaixo, seguem os comandos para criar os containers e inicializar as instâncias:
 
