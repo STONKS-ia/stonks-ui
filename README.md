@@ -6,14 +6,13 @@
 </p>
   
 
-![](mockup.jpeg)
+![](https://prnt.sc/214a5v3)
 
 # Stonks 
 Sistema Tributário Original de Navegação Keep Simple é o projeto desenvolvido para o Challenge 2021 proposto pela FIAP com parceria do TCESP (tribunal de contas de são paulo).
 
 ## Índice
 - ⚙ [Tecnologias utilizadas](#-tecnologias)
-- 🚀 [Funcionalidades](#-funcionalidades)
 - 💻 [Instruções para o front end](#-instruções-para-o-front-end)
 - 💻 [Instruções para o back end](#-instruções-para-o-back-end)
 
@@ -21,10 +20,10 @@ Sistema Tributário Original de Navegação Keep Simple é o projeto desenvolvid
 
 ## ⚙ Tecnologias
   - **Back end**
-    - [Spring Boot](https://nodejs.org/en/)
-    - [MySQL](https://www.mongodb.com/)
-    - [JWT token](https://jestjs.io/)
-    - [Heroku](https://aws.amazon.com/pt/ses/)
+    - [Spring Boot](https://spring.io/)
+    - [MySQL](https://www.mysql.com/)
+    - [JWT token](https://jwt.io/)
+    - [Heroku](https://www.heroku.com/)
     - 
   - **Front end**
     - [React](https://reactjs.org/)
@@ -35,46 +34,40 @@ Sistema Tributário Original de Navegação Keep Simple é o projeto desenvolvid
     - 
   - **Outras tecnologias**
     - [Docker](https://www.docker.com/)
-    - [Firebase](https://www.docker.com/)
+    - [Firebase](https://firebase.google.com/)
+---
 
+## 💻 Instruções para o front end
+
+  Após executar o passo anterior e garantir que o back end está rodando, você poderá inicializar o front end:
+
+  ```bash
+    # Baixar as dependências
+    npm install
+
+    # Inicializar a aplicação
+    npm start
+  ```
+    use o arquivo **.env.example** como base para colocar suas credenciais do firebase.
+---
+
+## 💻 Instruções para o back end
+
+  Começaremos criando as instâncias dos nossos bancos de dados. Para esse projeto, o **docker** foi utilizado. Abaixo, seguem os comandos para criar os containers e inicializar as instâncias:
+
+  ```bash
+    # Criando container com instância do MySQL
+        docker run -d -p 3306:3306 --name StonksDB -e MYSQL_ROOT_PASSWORD=@R0ot3@ mysql:8.0
+
+    # Inicializando as instâncias
+        docker start StonksDB
+  ```
+  
+  ```bash
+    # Instalar todas as dependências do projeto
+        mvn install
+  ```
 
 ---
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
