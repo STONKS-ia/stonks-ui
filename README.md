@@ -1,7 +1,12 @@
-<p align="center"> ![](https://img.shields.io/github/languages/count/STONKS-ia/stonks-ui) ![](https://img.shields.io/github/languages/top/STONKS-ia/stonks-ui) ![](https://img.shields.io/github/repo-size/STONKS-ia/stonks-ui)  ![](https://img.shields.io/github/last-commit/STONKS-ia/stonks-ui) </p>
+<p align="center"> 
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/STONKS-ia/stonks-ui">
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/top/STONKS-ia/stonks-ui">
+<img alt="GitHub language count" src="https://img.shields.io/github/repo-size/STONKS-ia/stonks-ui">
+<img alt="GitHub language count" src="https://img.shields.io/github/last-commit/STONKS-ia/stonks-ui">
+</p>
   
 
-![](https://giphy.com/gifs/bpcjFD8dklZr42mohv)
+<img alt="GitHub language count" src="https://giphy.com/gifs/bpcjFD8dklZr42mohv">
 
 # Stonks 
 Sistema Tributário Original de Navegação Keep Simple é o projeto desenvolvido para o Challenge 2021 proposto pela FIAP com parceria do TCESP (tribunal de contas de são paulo).
