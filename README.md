@@ -1,10 +1,39 @@
-# Getting Started with Create React App
+<p align="center"> ![](https://img.shields.io/github/languages/count/STONKS-ia/stonks-ui) ![](https://img.shields.io/github/languages/top/STONKS-ia/stonks-ui) ![](https://img.shields.io/github/repo-size/STONKS-ia/stonks-ui)  ![](https://img.shields.io/github/last-commit/STONKS-ia/stonks-ui) </p>
+  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](https://giphy.com/gifs/bpcjFD8dklZr42mohv)
 
-## Available Scripts
+# Stonks 
+Sistema Tributário Original de Navegação Keep Simple é o projeto desenvolvido para o Challenge 2021 proposto pela FIAP com parceria do TCESP (tribunal de contas de são paulo).
 
-In the project directory, you can run:
+## Índice
+- ⚙ [Tecnologias utilizadas](#-tecnologias)
+- 🚀 [Funcionalidades](#-funcionalidades)
+- 💻 [Instruções para o front end](#-instruções-para-o-front-end)
+- 💻 [Instruções para o back end](#-instruções-para-o-back-end)
+
+---
+
+## ⚙ Tecnologias
+  - **Back end**
+    - [Spring Boot](https://nodejs.org/en/)
+    - [MySQL](https://www.mongodb.com/)
+    - [JWT token](https://jestjs.io/)
+    - [Heroku](https://aws.amazon.com/pt/ses/)
+    - 
+  - **Front end**
+    - [React](https://reactjs.org/)
+    - [Typescript](https://www.typescriptlang.org/)
+    - [Axios](https://github.com/axios/axios)
+    - [Yup](https://www.npmjs.com/package/yup)
+    - [Date-fns](https://date-fns.org/)
+    - 
+  - **Outras tecnologias**
+    - [Docker](https://www.docker.com/)
+    - [Firebase](https://www.docker.com/)
+
+
+---
 
 ### `npm start`
 
